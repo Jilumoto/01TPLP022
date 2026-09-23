@@ -8,22 +8,22 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Brand Palette */
-  --primary: #4f46e5;           /* Indigo */
-  --primary-hover: #4338ca;
+  --primary: #2196F3;           /* Indigo */
+  --primary-hover: #2196F3;
   --primary-light: #eef2ff;
   --primary-rgb: 79, 70, 229;
   
-  --secondary: #8b5cf6;         /* Purple */
-  --secondary-hover: #7c3aed;
+  --secondary: #2196F3;         /* Purple */
+  --secondary-hover: #2196F3;
   --secondary-light: #f5f3ff;
   --secondary-rgb: 139, 92, 246;
 
-  --accent-cyan: #06b6d4;
+  --accent-cyan: #f1f9f2;
   --accent-emerald: #10b981;
   --accent-rose: #f43f5e;
   --accent-amber: #f59e0b;
 
-  --grad-primary: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+  --grad-primary: linear-gradient(135deg, #e20505 0%, #2196F3 100%);
   --grad-accent: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
   --grad-subtle: linear-gradient(180deg, rgba(79, 70, 229, 0.05) 0%, transparent 100%);
 
@@ -73,7 +73,7 @@
 
 /* Dark Theme Variables */
 [data-theme="dark"] {
-  --primary: #6366f1;
+  --primary: #5c64c0;
   --primary-hover: #818cf8;
   --primary-light: rgba(99, 102, 241, 0.16);
   --primary-rgb: 99, 102, 241;
@@ -83,7 +83,7 @@
   --secondary-light: rgba(168, 85, 247, 0.16);
   --secondary-rgb: 168, 85, 247;
 
-  --grad-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --grad-primary: linear-gradient(135deg, #2196F3 0%, #e20505 100%);
   --grad-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
   --grad-subtle: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
 
@@ -856,7 +856,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   font-size: 14px;
   font-style: italic;
   font-weight: 600;
-  color: var(--text-main);
+  color: #2196F3;
   margin-top: 4px;
 }
 
