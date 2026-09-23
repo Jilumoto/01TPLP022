@@ -55,11 +55,11 @@ const students = [
     roleType: "leader",
     image: "assets/images/students/student-01.svg", /* Ganti dengan assets/images/students/nama-file.jpg */
     bio: "mabar",
-    email: "ketuakelas@gmail.com",
-    phone: "+62 812-3456-7801",
-    skills: "JavaScript, TypeScript, Node.js",
-    hobby: "Coding, Membaca, Catur",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: { instagram: "https://instagram.com" }
   },
   {
     id: "02",
@@ -68,12 +68,12 @@ const students = [
     role: "Wakil Ketua",
     roleType: "leader",
     image: "assets/images/students/student-02.svg",
-    bio: "Fokus pada algoritma dan competitive programming. Selalu siap membantu teman memahami logika koding.",
-    email: "ahmad.rizky@student.ac.id",
-    phone: "+62 812-3456-7802",
-    skills: "Python, C++, Struktur Data",
-    hobby: "Gaming, Problem Solving",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: "",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: { instagram: "https://instagram.com" }
   },
   {
     id: "03",
@@ -82,11 +82,11 @@ const students = [
     role: "Sekretaris",
     roleType: "leader",
     image: "assets/images/students/student-03.svg",
-    bio: "Rapi dalam dokumentasi proyek dan notulensi rapat kelas. Menaruh minat pada UI/UX Design.",
-    email: "fajar.ramadhan@student.ac.id",
-    phone: "+62 812-3456-7803",
-    skills: "Figma, Technical Writing, CSS",
-    hobby: "Desain Grafis, Fotografi",
+    bio: "",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
     socials: { github: "https://github.com", instagram: "https://instagram.com" }
   },
   {
@@ -96,12 +96,12 @@ const students = [
     role: "Bendahara",
     roleType: "leader",
     image: "assets/images/students/student-04.svg",
-    bio: "Teliti dalam administrasi keuangan kelas dan antusias dalam manajemen basis data.",
-    email: "dimas.saputra@student.ac.id",
-    phone: "+62 812-3456-7804",
-    skills: "SQL, Database Design, Excel",
-    hobby: "Futsal, Analisis Data",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: "",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: { instagram: "https://instagram.com" }
   },
   {
     id: "05",
@@ -110,12 +110,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-05.svg",
-    bio: "Tertarik pada backend engineering dan pengembangan API modern.",
-    email: "rizky.maulana@student.ac.id",
-    phone: "+62 812-3456-7805",
-    skills: "Go, REST API, Linux",
-    hobby: "Mendengarkan Musik, Ngoding",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: "",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: { instagram: "https://instagram.com" }
   },
   {
     id: "06",
@@ -124,12 +124,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-06.svg",
-    bio: "Suka bereksperimen dengan animasi web dan CSS interaktif.",
-    email: "andi.pratama@student.ac.id",
-    phone: "+62 812-3456-7806",
-    skills: "HTML5, CSS3, JavaScript",
-    hobby: "Skateboard, Gaming",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: "",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "07",
@@ -138,12 +138,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-07.svg",
-    bio: "Mempelajari pengembangan aplikasi mobile lintas platform.",
-    email: "bintang.pratama@student.ac.id",
-    phone: "+62 812-3456-7807",
-    skills: "Dart, Flutter, Mobile UI",
-    hobby: "Traveling, Menulis Blog",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: "",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "08",
@@ -152,12 +152,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-08.svg",
-    bio: "Antusias dengan sistem operasi, jaringan komputer, dan keamanan siber.",
-    email: "reza.firmansyah@student.ac.id",
-    phone: "+62 812-3456-7808",
-    skills: "Networking, Linux CLI, Bash",
-    hobby: "Badminton, CTF Challenges",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: "",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "09",
@@ -166,12 +166,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-09.svg",
-    bio: "Senang merancang visual interaktif dan layout web yang estetik.",
-    email: "farhan.k@student.ac.id",
-    phone: "+62 812-3456-7809",
-    skills: "Frontend, SVG Animation, UI/UX",
-    hobby: "Fotografi, Video Editing",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: "",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "10",
@@ -180,12 +180,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-10.svg",
-    bio: "Fokus pada rekayasa antarmuka pengguna dan kemudahan aksesibilitas web.",
-    email: "aisyah.putri@student.ac.id",
-    phone: "+62 812-3456-7810",
-    skills: "UI Design, Accessibility, HTML/CSS",
-    hobby: "Menggambar Digital, Kuliner",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: "",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "11",
@@ -194,12 +194,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-11.svg",
-    bio: "Menikmati proses pemecahan masalah algoritma dan struktur data.",
-    email: "budi.santoso@student.ac.id",
-    phone: "+62 812-3456-7811",
-    skills: "Java, Object Oriented Programming",
-    hobby: "Catur, Jogging",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: "",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "12",
@@ -208,12 +208,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-12.svg",
-    bio: "Pecinta riset data, visualisasi grafik, dan statistik komputasi.",
-    email: "citra.lestari@student.ac.id",
-    phone: "+62 812-3456-7812",
-    skills: "Python, Data Visualization, SQL",
-    hobby: "Membaca Buku, Menulis",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: "",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "13",
@@ -525,25 +525,18 @@ const schedule = [
 const announcements = [
   {
     type: "assignment",
-    title: "Deadline Tugas Besar Pemrograman Web",
+    title: "Pengantar Teknologi Informasi",
     date: "Jumat, 23:59 WIB",
     badgeText: "Assignment 📢",
-    description: "Pengumpulan kode project web kelompok di repository GitHub kelas. Pastikan file README dan live demo sudah disertakan."
+    description: "Tugas PTI mencatat/mencari materi tentang osi vs tcp/ip"
   },
   {
-    type: "event",
-    title: "Presentasi Kelompok Rekayasa Perangkat Lunak",
-    date: "Minggu Depan (Selasa)",
-    badgeText: "Event 📅",
-    description: "Setiap kelompok menyiapkan slide presentasi selama 10 menit mengenai arsitektur sistem dan demo prototipe aplikasi."
+    type: "assignment",
+    title: "Tugas Logika informatika.",
+    date: "Minggu Depan (Senin)",
+    badgeText: "Assignment 📢",
+    description: "Cerita rakyat",
   },
-  {
-    type: "reminder",
-    title: "Praktikum Jaringan Komputer di Lab",
-    date: "Hari Jumat Pukul 08:00",
-    badgeText: "Reminder 🔔",
-    description: "Jangan lupa membawa laptop masing-masing dengan kabel LAN dan aplikasi Packet Tracer terinstal."
-  }
 ];
 
 /**
@@ -552,45 +545,45 @@ const announcements = [
 const galleryPhotos = [
   {
     id: "1",
-    title: "Coding Hackathon 2026",
-    tag: "Project",
-    desc: "Momen seru saat tim RPL berkolaborasi menyelesaikan prototype aplikasi dalam waktu 24 jam nonstop.",
-    image: "assets/images/gallery/class-1.svg"
+    title: "",
+    tag: "",
+    desc: "",
+    image: "",
   },
   {
     id: "2",
-    title: "Study Group & Mentoring",
-    tag: "Academic",
-    desc: "Sesi belajar bersama menjelang ujian akhir untuk mendalami materi struktur data dan algoritma.",
+    title: "",
+    tag: "",
+    desc: "",
     image: "assets/images/gallery/class-2.svg"
   },
   {
     id: "3",
-    title: "Class Outing & Gathering",
-    tag: "Bonding",
-    desc: "Kegiatan refreshing ke alam terbuka untuk mempererat rasa kekeluargaan antar sesama anggota kelas.",
+    title: "",
+    tag: "",
+    desc: "",
     image: "assets/images/gallery/class-3.svg"
   },
   {
     id: "4",
-    title: "Tech Talk & Guest Lecture",
-    tag: "Seminar",
-    desc: "Menghadiri kuliah umum bersama pakar industri software engineering tentang arsitektur cloud modern.",
+    title: "",
+    tag: "",
+    desc: "",
     image: "assets/images/gallery/class-4.svg"
   },
   {
     id: "5",
-    title: "Class Futsal & Sports Day",
-    tag: "Sport",
-    desc: "Pertandingan persahabatan futsal mingguan untuk menjaga kebugaran jasmani di sela-sela rutinitas coding.",
+    title: "",
+    tag: "",
+    desc: "",
     image: "assets/images/gallery/class-5.svg"
   },
   {
     id: "6",
-    title: "End of Semester Celebration",
-    tag: "Memories",
-    desc: "Perayaan syukuran bersama setelah menyelesaikan seluruh tugas besar dan evaluasi semester.",
-    image: "assets/images/gallery/class-6.svg"
+    title: "",
+    tag: "",
+    desc: "",
+    image: "assets/images/gallery/class-.svg"
   }
 ];
 
