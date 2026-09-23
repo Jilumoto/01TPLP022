@@ -249,7 +249,7 @@ const students = [
     nim: "261011400905",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-15.svg",
+    image: "assets/images/students/student-15.png",
     bio: "Mendalami teknologi containerisasi, CI/CD, dan cloud computing.",
     email: "gilang.ramadhan@student.ac.id",
     phone: "+62 812-3456-7815",
@@ -525,14 +525,14 @@ const courses = [
  * 4. DATA JADWAL KULIAH (Schedule Table)
  */
 const schedule = [
-  { day: "Senin", time: "08:00 - 10:30 WIB", course: "Pemrograman Web", sks: "3 SKS", lecturer: "Dr. Hendra Wijaya, M.T.", room: "Lab Rekayasa 1" },
-  { day: "Senin", time: "13:00 - 14:40 WIB", course: "Matematika Diskrit", sks: "2 SKS", lecturer: "Dra. Sri Wahyuni, M.Si.", room: "Ruang Teori 301" },
-  { day: "Selasa", time: "10:00 - 12:30 WIB", course: "Algoritma & Struktur Data", sks: "3 SKS", lecturer: "Prof. Ir. Bambang S., Ph.D.", room: "Ruang Teori 304" },
-  { day: "Selasa", time: "13:30 - 15:10 WIB", course: "Bahasa Inggris Teknik", sks: "2 SKS", lecturer: "Sarah Johnson, M.Pd.", room: "Ruang Teori 105" },
-  { day: "Rabu", time: "08:00 - 10:30 WIB", course: "Sistem Basis Data", sks: "3 SKS", lecturer: "Nurul Aini, S.Kom., M.Cs.", room: "Lab Basis Data" },
-  { day: "Kamis", time: "09:00 - 10:40 WIB", course: "Pendidikan Pancasila", sks: "2 SKS", lecturer: "Drs. Ahmad Mansur, M.Hum.", room: "Auditorium Utama" },
-  { day: "Kamis", time: "13:00 - 15:30 WIB", course: "Sistem Operasi", sks: "3 SKS", lecturer: "Budi Darmanto, M.Kom.", room: "Ruang Teori 202" },
-  { day: "Jumat", time: "08:00 - 10:30 WIB", course: "Jaringan Komputer", sks: "3 SKS", lecturer: "Rahmat Hidayat, M.T.", room: "Lab Jaringan" }
+  { day: "Senin", time: "10:30 - 12:10 WIB", course: "Kalkulus", sks: "3 SKS", lecturer: "ELFI FAUZIAH S.Si, M.Pd, M.Si.", room: "V123" },
+  { day: "Senin", time: "12:10 - 13:30 WIB", course: "Logika Informatika", sks: "3 SKS", lecturer: "ZURNAN ALFIAN S.Kom., M.Kom.", room: "V123" },
+  { day: "Senin", time: "14:40 - 16:10 WIB", course: "BASIC ENGLISH FOR INTERNATIONAL COMMUNICATION", sks: "2 SKS", lecturer: "AHMAD ARIFIN S.Pd.,M.Pd.", room: "V123" },
+  { day: "Selasa", time: "08:50 - 10:30 WIB", course: "Pengantar Teknologi Informasi", sks: "2 SKS", lecturer: "WIWIN WINARTI S.Si., M.Kom.", room: "V123" },
+  { day: "Selasa", time: "10:30 - 12:10 WIB", course: "Pancasila", sks: "2 SKS", lecturer: "ANIS SYAMSU RIZAL S.Pd.I., M.Pd., Μ.Μ.", room: "V123" },
+  { day: "Rabu", time: "08:50 - 10:30 WIB", course: "Agama Islam", sks: "2 SKS", lecturer: "ABU BAKAR DJA'FAR S.Ag., M.A.", room: "V123" },
+  { day: "Jumat", time: "07:10 - 08:50 WIB", course: "Algoritma Dan Pemrograman Dasar", sks: "3 SKS", lecturer: "NURHALIMAH S.Kom., M.Kom.", room: "V123" },
+  { day: "Jumat", time: "08:50 - 10:30 WIB", course: "Arsitektur Dan Organisasi Komputer", sks: "3 SKS", lecturer: "ALVINO OCTAVIANO ST, M.Kom", room: "V123" },
 ];
 
 /**
