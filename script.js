@@ -385,8 +385,8 @@ const students = [
   },
   {
     id: "25",
-    name: "TIAN SAPUTRI HONDRO",
-    nim: "261011401724",
+    name: "YOGA M RIZKY NUROHMAN",
+    nim: "261011401299",
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-25.svg",
@@ -399,8 +399,8 @@ const students = [
   },
   {
     id: "26",
-    name: "YOGA M RIZKY NUROHMAN",
-    nim: "261011401299",
+    name: "ZAHRA NURAISYAH",
+    nim: "261011401606",
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-26.svg",
