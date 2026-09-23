@@ -432,92 +432,76 @@ const students = [
  */
 const courses = [
   {
-    code: "IF101",
-    name: "Pemrograman Web",
+    code: "26TIF0004",
+    name: "Logika Informatika",
     sks: 3,
-    lecturer: "Dr. Hendra Wijaya, M.T.",
+    lecturer: "ZURNAN ALFIAN S.Kom., M.Kom.",
     scheduleDay: "Senin",
-    scheduleTime: "08:00 - 10:30 WIB",
-    room: "Lab Rekayasa 1",
-    type: "praktikum",
-    icon: "🌐"
+    scheduleTime: "12:10 - 13:30 WIB",
+    room: "v123",
   },
   {
-    code: "IF102",
-    name: "Algoritma & Struktur Data",
+    code: "26TIF0003",
+    name: "Kalkulus",
     sks: 3,
-    lecturer: "Prof. Ir. Bambang S., Ph.D.",
+    lecturer: "ELFI FAUZIAH S.Si, M.Pd, M.Si.",
+    scheduleDay: "Senin",
+    scheduleTime: "10:30 - 12:10 WIB",
+    room: "V123",
+  },
+  {
+    code: "26TIF0005",
+    name: "Pengantar Teknoligi Informasi",
+    sks: 2,
+    lecturer: "WIWIN WINARTI S.Si., M.Kom.",
     scheduleDay: "Selasa",
-    scheduleTime: "10:00 - 12:30 WIB",
-    room: "Ruang Teori 304",
-    type: "teori",
-    icon: "⚡"
+    scheduleTime: "08:50 - 10:30 WIB",
+    room: "V123",
   },
   {
-    code: "IF103",
-    name: "Sistem Basis Data",
-    sks: 3,
-    lecturer: "Nurul Aini, S.Kom., M.Cs.",
+    code: "NULL",
+    name: "Pancasila",
+    sks: 2,
+    lecturer: "ANIS SYAMSU RIZAL S.Pd.I., M.Pd., Μ.Μ",
+    scheduleDay: "Selasa",
+    scheduleTime: "10:30 - 12:10 WIB",
+    room: "V123",
+  },
+  {
+    code: "26PAM0010",
+    name: "BASIC ENGLISH FOR INTERNATIONAL COMMUNICATION ",
+    sks: 2,
+    lecturer: "AHMAD ARIFIN S.Pd., M.Pd.",
+    scheduleDay: "Senin",
+    scheduleTime: "14:40 - 16:10 WIB",
+    room: "V123",
+  },
+  {
+    code: "NULL",
+    name: "Agama Islam",
+    sks: 2,
+    lecturer: "ABU BAKAR DJA'FAR S.Ag., M.A",
     scheduleDay: "Rabu",
-    scheduleTime: "08:00 - 10:30 WIB",
-    room: "Lab Basis Data",
-    type: "praktikum",
-    icon: "🗄️"
+    scheduleTime: "08:50 - 10:30 WIB",
+    room: "V123",
   },
   {
-    code: "IF104",
-    name: "Sistem Operasi",
+    code: "26TIF0001",
+    name: "Algoritma Dan Pemrograman Dasar",
     sks: 3,
-    lecturer: "Budi Darmanto, M.Kom.",
-    scheduleDay: "Kamis",
-    scheduleTime: "13:00 - 15:30 WIB",
-    room: "Ruang Teori 202",
-    type: "teori",
-    icon: "💻"
-  },
-  {
-    code: "IF105",
-    name: "Jaringan Komputer",
-    sks: 3,
-    lecturer: "Rahmat Hidayat, M.T.",
+    lecturer: "NURHALIMAH S.Kom., M.Kom.",
     scheduleDay: "Jumat",
-    scheduleTime: "08:00 - 10:30 WIB",
-    room: "Lab Jaringan",
-    type: "praktikum",
-    icon: "📡"
+    scheduleTime: "07:10 - 08:50 WIB",
+    room: "V123",
   },
   {
-    code: "IF106",
-    name: "Matematika Diskrit",
-    sks: 2,
-    lecturer: "Dra. Sri Wahyuni, M.Si.",
-    scheduleDay: "Senin",
-    scheduleTime: "13:00 - 14:40 WIB",
-    room: "Ruang Teori 301",
-    type: "teori",
-    icon: "📐"
-  },
-  {
-    code: "IF107",
-    name: "Bahasa Inggris Teknik",
-    sks: 2,
-    lecturer: "Sarah Johnson, M.Pd.",
-    scheduleDay: "Selasa",
-    scheduleTime: "13:30 - 15:10 WIB",
-    room: "Ruang Teori 105",
-    type: "teori",
-    icon: "🗣️"
-  },
-  {
-    code: "IF108",
-    name: "Pendidikan Pancasila",
-    sks: 2,
-    lecturer: "Drs. Ahmad Mansur, M.Hum.",
-    scheduleDay: "Kamis",
-    scheduleTime: "09:00 - 10:40 WIB",
-    room: "Auditorium Utama",
-    type: "teori",
-    icon: "🇮🇩"
+    code: "26TIF0002",
+    name: "Arsitektur Dan Organisasi Komputer",
+    sks: 3,
+    lecturer: "ALVINO OCTAVIANO ST, M.Kom",
+    scheduleDay: "Jumat",
+    scheduleTime: "08:50 - 10:30 WIB",
+    room: "V123",
   }
 ];
 
@@ -1562,7 +1546,6 @@ function initCoursesAndSchedule() {
     coursesGrid.innerHTML = filtered.map(c => `
       <div class="course-card reveal active">
         <div class="course-card-top">
-          <div class="course-icon-wrap">${c.icon}</div>
           <span class="course-sks-badge">${c.sks} SKS</span>
         </div>
         <span class="course-code">${c.code}</span>
