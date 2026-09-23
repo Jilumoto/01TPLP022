@@ -1,4 +1,4 @@
-# 🎓 Website Resmi Kelas RPL 2026
+# 🎓 Website Resmi Kelas 01TPLP022
 
 Website informasi dan aktivitas kelas yang modern, clean, interaktif, dan responsif. Dibangun murni menggunakan **HTML5, CSS3, dan Vanilla JavaScript (ES6+)** tanpa ketergantungan framework eksternal (Tanpa React, Vue, Bootstrap, dsb.).
 
