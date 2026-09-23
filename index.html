@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website Resmi Kelas RPL 2026 - Pusat informasi, anggota, mata kuliah, jadwal kuliah, dan generator kelompok acak interaktif.">
+  <title>RPL 2026 | Website Resmi Kelas</title>
+  
+  <!-- Google Fonts: Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Favicon placeholder inline SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='50' font-family='sans-serif' font-weight='bold' fill='white'>R</text></svg>">
+</head>
+<body>
+
+  <!-- Confetti Canvas for Celebrations -->
+  <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="header" id="header">
+    <nav class="navbar container">
+          
+        </div>
+        <div class="brand-text">
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <div class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">Beranda</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#members" class="nav-link">Mahasiswa</a></li>
+          <li class="nav-item"><a href="#courses" class="nav-link">Matkul</a></li>
+          <li class="nav-item"><a href="#schedule" class="nav-link">Jadwal</a></li>
+          <li class="nav-item"><a href="#roulette" class="nav-link highlight-link">Roulette</a></li>
+          <li class="nav-item"><a href="#gallery" class="nav-link">Photo</a></li>
+          <li class="nav-item"><a href="#announcements" class="nav-link">Pengumuman</a></li>
+        </ul>
+      </div>
+
+      <!-- Action Buttons (Theme Toggle & Hamburger) -->
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Dark Mode" title="Ganti Mode Gelap/Terang">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="navToggleBtn" class="hamburger-btn" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- Mobile Backdrop -->
+    <div class="nav-backdrop" id="navBackdrop"></div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main>
+    
+    <!-- ==================== 1. HERO SECTION ==================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge reveal">
+            <span class="pulse-dot"></span>
+            <span>Welcome to Our Official Class Web</span>
+          </div>
+          <h1 class="hero-title reveal">
+                Welcome to <br>
+                Teknik Informatika 01TPLP022<br>
+          </h1>
+          <p class="hero-description reveal">
+            Website resmi kelas <strong id="heroClassName">01TPLP022</strong> untuk berbagi informasi, mengenal teman sekelas, jadwal mata kuliah, dan membuat kelompok belajar.
+          </p>
+          <div class="hero-buttons reveal">
+            <a href="#members" class="btn btn-primary ripple">
+              <span>Explore Class</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#roulette" class="btn btn-secondary ripple">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+              <span>Buat Kelompok</span>
+            </a>
+          </div>
+
+          <!-- Quick Highlight Pills -->
+          <div class="hero-features reveal">
+            <div class="hero-feature-item">
+              <span class="feature-icon"></span>
+            </div>
+            <div class="hero-feature-item">
+              <span class="feature-icon"></span>
+              
+            </div>
+            <div class="hero-feature-item">
+              <span class="feature-icon"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual / Floating Cards Showcase -->
+        <div class="hero-visual reveal">
+          <div class="visual-card-wrapper">
+            <div class="ambient-glow"></div>
+            
+            <!-- Main Featured Class Card -->
+            <div class="featured-class-card glass-panel">
+              <div class="card-header-bar">
+                <div class="window-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <span class="card-title-sub">class-manifesto.json</span>
+              </div>
+              <div class="card-body-content">
+                <div class="code-preview">
+                  <code><span class="c-keyword">const</span> <span class="c-var">ourClass</span> = {</code>
+                  <code>  name: <span class="c-str">"RPL 2026"</span>,</code>
+                  <code>  major: <span class="c-str">"Teknik Informatika"</span>,</code>
+                  <code>  motto: <span class="c-str">"Code • Create • Collaborate"</span>,</code>
+                  <code>  status: <span class="c-str">"Ready to Conquer the Future "</span></code>
+                  <code>};</code>
+                </div>
+              </div>
+
+              <!-- Mini Avatar Cluster -->
+              <div class="avatar-cluster">
+                <div class="avatar-stack" id="heroAvatarStack">
+                  <!-- Dynamically inserted first 4 avatars -->
+                </div>
+                <div class="avatar-text">
+                  <strong id="heroStudentCount">27</strong> Mahasiswa
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Badge 1 -->
+            <div class="floating-badge badge-top-right float-anim">
+              <span class="badge-icon"></span>
+              <div>
+              </div>
+            </div>
+
+            <!-- Floating Badge 2 -->
+            <div class="floating-badge badge-bottom-left float-anim-slow">
+              <span class="badge-icon"></span>
+              <div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. ABOUT SECTION ==================== -->
+    <section class="about-section section" id="about">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">Overview</span>
+          <h2 class="section-title">About Our Class</h2>
+          <p class="section-subtitle">Mengenal lebih dekat identitas, struktur, dan semangat kebersamaan kelas kami.</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Text and manifesto card -->
+          <div class="about-text-card glass-panel reveal">
+            <div class="quote-icon">“</div>
+            <p class="about-paragraph" id="aboutDescription">
+              <!-- Content injected from script.js -->
+              RPL 2026 adalah kelas yang berfokus pada pengembangan kemampuan teknologi, pemrograman modern, dan kerja sama tim. Kami berkomitmen untuk saling mendukung dalam setiap proses belajar, berkarya melalui proyek nyata, dan bertumbuh bersama menyongsong era industri digital.
+            </p>
+            <div class="class-motto-box">
+              <span class="motto-label">Class Motto</span>
+              <p class="motto-text" id="aboutMotto">"Learning together, growing together, creating impact."</p>
+            </div>
+          </div>
+
+          <!-- Quick Info Cards Grid -->
+          <div class="about-info-grid reveal">
+            <div class="info-card">
+              <div class="info-icon">🏫</div>
+              <div class="info-details">
+                <span class="info-label">Class Name</span>
+                <strong class="info-val" id="infoClassName">RPL 2026</strong>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">💻</div>
+              <div class="info-details">
+                <span class="info-label">Major / Jurusan</span>
+                <strong class="info-val" id="infoMajor">Rekayasa Perangkat Lunak</strong>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">👑</div>
+              <div class="info-details">
+                <span class="info-label">Class Leader</span>
+                <strong class="info-val" id="infoLeader">Ezzar Putra</strong>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">📚</div>
+              <div class="info-details">
+                <span class="info-label">Current Semester</span>
+                <strong class="info-val" id="infoSemester">Semester 1</strong>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">👥</div>
+              <div class="info-details">
+                <span class="info-label">Total Members</span>
+                <strong class="info-val" id="infoMembers">27 Students</strong>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">🎓</div>
+              <div class="info-details">
+                <span class="info-label">Academic Year</span>
+                <strong class="info-val" id="infoYear">2026 / 2027</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== 13. CLASS STATISTICS COUNTER ==================== -->
+        <div class="stats-banner reveal" id="statsSection">
+          <div class="stat-item">
+            <span class="stat-number" data-target="27" id="statStudents">0</span>
+            <span class="stat-label">Students / Mahasiswa</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="8" id="statCourses">0</span>
+            <span class="stat-label">Courses / Mata Kuliah</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="6" id="statGroups">0</span>
+            <span class="stat-label">Study Groups</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="12" id="statMemories">0</span>
+            <span class="stat-label">Class Memories</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 12. ANNOUNCEMENTS SECTION ==================== -->
+    <section class="announcements-section section" id="announcements">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">Important Notice</span>
+          <h2 class="section-title">Class Announcements</h2>
+          <p class="section-subtitle">Informasi tugas, agenda kegiatan, dan pengingat penting perkuliahan.</p>
+        </div>
+
+        <div class="announcements-grid" id="announcementsContainer">
+          <!-- Announcements rendered dynamically via script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. CLASS MEMBERS SECTION ==================== -->
+    <section class="members-section section" id="members">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">Classmates Directory</span>
+          <h2 class="section-title">Our Class Members</h2>
+          <p class="section-subtitle">Daftar seluruh mahasiswa, pengurus kelas, serta profil lengkap anggota.</p>
+        </div>
+
+        <!-- Search and Filter Bar -->
+        <div class="members-control-bar reveal">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="memberSearchInput" placeholder="Cari nama atau NIM siswa..." aria-label="Cari anggota kelas">
+            <button id="clearSearchBtn" class="clear-search-btn" title="Hapus pencarian">&times;</button>
+          </div>
+
+          <!-- Role Filter Buttons -->
+          <div class="filter-tabs" id="memberFilterTabs">
+            <button class="filter-btn active" data-filter="all">Semua (<span id="countAll">27</span>)</button>
+            <button class="filter-btn" data-filter="leader">Pengurus Kelas (<span id="countLeader">4</span>)</button>
+            <button class="filter-btn" data-filter="student">Anggota (<span id="countStudent">23</span>)</button>
+          </div>
+        </div>
+
+        <!-- Members Grid -->
+        <div class="members-grid" id="membersGrid">
+          <!-- Dynamically populated by script.js -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state hidden" id="membersEmptyState">
+          <div class="empty-icon">🔍</div>
+          <h3>Tidak Ada Siswa Ditemukan</h3>
+          <p>Coba gunakan kata kunci pencarian yang lain atau ubah filter.</p>
+          <button class="btn btn-secondary btn-sm" id="resetMemberSearchBtn">Reset Pencarian</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 9 & 10 & 11. CLASS ROULETTE & RANDOM GROUP GENERATOR ==================== -->
+    <section class="roulette-section section" id="roulette">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag pulse-tag">Special Feature</span>
+          <h2 class="section-title">Class Roulette & Group Generator</h2>
+          <p class="section-subtitle">Need a random group or lucky student? Let the interactive wheel decide!</p>
+        </div>
+
+        <div class="roulette-container-grid">
+          <!-- LEFT: Interactive Roulette Wheel -->
+          <div class="roulette-wheel-card glass-panel reveal">
+            <div class="wheel-card-header">
+              <div class="wheel-title-wrap">
+                <span class="badge-accent">Lucky Picker</span>
+                <h3>Spin the Wheel</h3>
+              </div>
+              <!-- Sound Toggle Button -->
+              <button id="audioToggleBtn" class="sound-btn" title="Aktifkan/Bisukan Suara" aria-label="Toggle Sound">
+                <span id="soundIcon">🔊</span>
+              </button>
+            </div>
+            
+            <p class="wheel-subtext">Putar roda untuk memilih 1 siswa secara acak untuk presentasi, kuis, atau tugas.</p>
+
+            <!-- Wheel Canvas Container -->
+            <div class="wheel-outer-wrapper">
+              <!-- Pointer Indicator -->
+              <div class="wheel-pointer-container">
+                <div class="wheel-pointer"></div>
+              </div>
+              
+              <!-- HTML5 Canvas Wheel -->
+              <canvas id="rouletteCanvas" width="500" height="500" class="roulette-canvas"></canvas>
+              
+              <!-- Center Hub / Cap -->
+              <div class="wheel-center-cap" id="wheelCenterCap">
+                <span>RPL</span>
+              </div>
+            </div>
+
+            <!-- Spin Controls -->
+            <div class="wheel-actions">
+              <button id="spinBtn" class="btn btn-primary btn-large btn-spin ripple">
+                <span class="spin-icon">🎲</span>
+                <span id="spinBtnText">SPIN THE WHEEL</span>
+              </button>
+            </div>
+
+            <!-- Selected Student Result Card -->
+            <div class="selected-winner-card hidden" id="winnerCard">
+              <div class="winner-congrats">🎉 CONGRATULATIONS!</div>
+              <div class="winner-content">
+                <img src="assets/images/students/student-01.svg" alt="Winner Avatar" id="winnerAvatar" class="winner-avatar">
+                <div class="winner-info">
+                  <span class="winner-tag">Selected Student:</span>
+                  <h4 class="winner-name" id="winnerName">Ezzar Putra</h4>
+                  <span class="winner-id" id="winnerId">NIM: 2601001</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Random Group Generator Panel -->
+          <div class="group-generator-card glass-panel reveal">
+            <div class="gen-header">
+              <span class="badge-accent">Batch Shuffler</span>
+              <h3>Create Random Groups</h3>
+              <p>Bagi seluruh mahasiswa kelas ke dalam kelompok acak yang adil dan seimbang secara otomatis.</p>
+            </div>
+
+            <!-- Configuration Form -->
+            <div class="gen-config-box">
+              <div class="config-row">
+                <span class="config-label">Total Mahasiswa:</span>
+                <strong class="config-val" id="genTotalStudents">27 Mahasiswa</strong>
+              </div>
+
+              <div class="config-control-group">
+                <label for="studentsPerGroupInput" class="config-label">Jumlah Anggota per Kelompok:</label>
+                <div class="number-stepper">
+                  <button type="button" class="stepper-btn" id="stepperDec" aria-label="Kurangi">-</button>
+                  <input type="number" id="studentsPerGroupInput" value="5" min="2" max="15" aria-label="Anggota per kelompok">
+                  <button type="button" class="stepper-btn" id="stepperInc" aria-label="Tambah">+</button>
+                </div>
+              </div>
+
+              <div class="config-summary" id="groupSummaryText">
+                Akan menghasilkan <strong>6 Kelompok</strong> (5 siswa/kelompok)
+              </div>
+
+              <button id="generateGroupsBtn" class="btn btn-primary btn-block ripple">
+                <span>⚡ Generate Random Groups</span>
+              </button>
+            </div>
+
+            <!-- Group Management Action Toolbar -->
+            <div class="group-actions-bar hidden" id="groupActionsBar">
+              <button id="shuffleAgainBtn" class="btn btn-secondary btn-sm" title="Acak ulang susunan">
+                🔄 Shuffle Again
+              </button>
+              <button id="copyGroupsBtn" class="btn btn-outline btn-sm" title="Salin daftar ke clipboard">
+                📋 Copy Groups
+              </button>
+              <button id="downloadGroupsBtn" class="btn btn-outline btn-sm" title="Unduh file .TXT">
+                💾 Download (.TXT)
+              </button>
+              <button id="resetGroupsBtn" class="btn btn-danger-outline btn-sm" title="Reset kelompok">
+                ✕ Reset
+              </button>
+            </div>
+
+            <!-- Shuffling Animation Indicator -->
+            <div class="shuffling-indicator hidden" id="shufflingIndicator">
+              <div class="spinner-shuffler"></div>
+              <p id="shufflingStatusText">Mengacak seluruh anggota kelas...</p>
+            </div>
+
+            <!-- Groups Output Container -->
+            <div class="groups-result-grid" id="groupsResultGrid">
+              <!-- Generated group cards rendered here -->
+              <div class="groups-placeholder-hint" id="groupsPlaceholderHint">
+                <span class="hint-icon">👥</span>
+                <p>Klik tombol <strong>"Generate Random Groups"</strong> di atas untuk membagi mahasiswa ke dalam kelompok belajar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 7. COURSES SECTION ==================== -->
+    <section class="courses-section section" id="courses">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">Academic Modules</span>
+          <h2 class="section-title">Our Courses</h2>
+          <p class="section-subtitle">Daftar mata kuliah yang dipelajari beserta dosen pengampu, bobot SKS, dan jadwal.</p>
+        </div>
+
+        <!-- Course Filter Controls -->
+        <div class="courses-filter-wrap reveal">
+          <div class="filter-tabs" id="courseFilterTabs">
+            <button class="filter-btn active" data-filter="all">Semua Mata Kuliah</button>
+            <button class="filter-btn" data-filter="teori">Teori & Konsep</button>
+            <button class="filter-btn" data-filter="praktikum">Praktikum / Lab</button>
+          </div>
+        </div>
+
+        <!-- Course Cards Grid -->
+        <div class="courses-grid" id="coursesGrid">
+          <!-- Dynamically populated via script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 8. SCHEDULE SECTION ==================== -->
+    <section class="schedule-section section" id="schedule">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">Weekly Timetable</span>
+          <h2 class="section-title">Class Schedule</h2>
+          <p class="section-subtitle">Jadwal perkuliahan mingguan dengan penanda otomatis hari ini (TODAY).</p>
+        </div>
+
+        <!-- Day Filter Tabs -->
+        <div class="schedule-filter-wrap reveal">
+          <div class="schedule-tabs" id="scheduleDayTabs">
+            <button class="sched-tab active" data-day="all">Semua Hari</button>
+            <button class="sched-tab" data-day="Senin">Senin</button>
+            <button class="sched-tab" data-day="Selasa">Selasa</button>
+            <button class="sched-tab" data-day="Rabu">Rabu</button>
+            <button class="sched-tab" data-day="Kamis">Kamis</button>
+            <button class="sched-tab" data-day="Jumat">Jumat</button>
+          </div>
+        </div>
+
+        <!-- Schedule Container (Responsive Table on Desktop, Cards on Mobile) -->
+        <div class="schedule-card glass-panel reveal">
+          <div class="table-responsive">
+            <table class="schedule-table" id="scheduleTable">
+              <thead>
+                <tr>
+                  <th>Hari</th>
+                  <th>Jam Kuliah</th>
+                  <th>Mata Kuliah</th>
+                  <th>SKS</th>
+                  <th>Dosen Pengampu</th>
+                  <th>Ruangan</th>
+                </tr>
+              </thead>
+              <tbody id="scheduleTableBody">
+                <!-- Dynamically populated via script.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile Schedule Cards Container -->
+          <div class="schedule-mobile-cards" id="scheduleMobileCards">
+            <!-- Dynamically populated for mobile view -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. GALLERY SECTION ==================== -->
+    <section class="gallery-section section" id="gallery">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">Memories & Activities</span>
+          <h2 class="section-title">Class Memories</h2>
+          <p class="section-subtitle">Dokumentasi momen berharga, kegiatan belajar, dan kenangan kebersamaan kelas RPL 2026.</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Dynamically populated via script.js -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 16. FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-col brand-col">
+        <div class="footer-logo">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <span class="footer-title">RPL 2026</span>
+        </div>
+        <p class="footer-motto">"Learning together, growing together, creating technology for a better tomorrow."</p>
+        <div class="footer-social-links">
+          <a href="#" class="social-icon" aria-label="Instagram" title="Instagram Kelas">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="GitHub" title="GitHub Kelas">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Discord" title="Discord Community">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Navigasi Cepat</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Our Class</a></li>
+          <li><a href="#members">Class Members</a></li>
+          <li><a href="#courses">Courses</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Aktivitas & Fitur</h4>
+        <ul class="footer-links">
+          <li><a href="#schedule">Class Schedule</a></li>
+          <li><a href="#roulette">Roulette Group Generator</a></li>
+          <li><a href="#gallery">Class Memories</a></li>
+          <li><a href="#announcements">Pengumuman</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Informasi Kelas</h4>
+        <p class="footer-info-text">Program Studi Rekayasa Perangkat Lunak, Tahun Akademik 2026/2027.</p>
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span>Semester Aktif: Ganjil 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <p>&copy; 2026 RPL 2026. All Rights Reserved. Designed with Vanilla HTML, CSS & JS.</p>
+        <a href="#hero" class="scroll-top-link">Kembali ke Atas ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL MEMBER DETAIL ==================== -->
+  <div class="modal-backdrop" id="memberModal" aria-hidden="true" role="dialog" aria-labelledby="modalStudentName">
+    <div class="modal-dialog glass-panel" role="document">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup Detail">&times;</button>
+      
+      <div class="modal-header-section">
+        <div class="modal-avatar-wrap">
+          <img src="" alt="Student Avatar" id="modalStudentImg" class="modal-avatar">
+          <span class="modal-role-badge" id="modalStudentRoleBadge">Role</span>
+        </div>
+        <div class="modal-title-wrap">
+          <h3 id="modalStudentName">Nama Siswa</h3>
+          <span class="modal-nim" id="modalStudentNim">NIM: -</span>
+        </div>
+      </div>
+
+      <div class="modal-body-section">
+        <div class="modal-section-group">
+          <span class="modal-label">Bio Singkat</span>
+          <p id="modalStudentBio" class="modal-text">-</p>
+        </div>
+
+        <div class="modal-detail-grid">
+          <div class="modal-detail-item">
+            <span class="item-label">Email Kampus</span>
+            <span class="item-val" id="modalStudentEmail">-</span>
+          </div>
+          <div class="modal-detail-item">
+            <span class="item-label">No. WhatsApp / HP</span>
+            <span class="item-val" id="modalStudentPhone">-</span>
+          </div>
+          <div class="modal-detail-item">
+            <span class="item-label">Minat / Keahlian</span>
+            <span class="item-val" id="modalStudentSkills">-</span>
+          </div>
+          <div class="modal-detail-item">
+            <span class="item-label">Hobi</span>
+            <span class="item-val" id="modalStudentHobby">-</span>
+          </div>
+        </div>
+
+        <div class="modal-socials-group">
+          <span class="modal-label">Social Media</span>
+          <div class="modal-social-buttons" id="modalSocialButtons">
+            <!-- Dynamically populated buttons -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== GALLERY LIGHTBOX ==================== -->
+  <div class="lightbox-backdrop" id="galleryLightbox" aria-hidden="true">
+    <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Tutup Lightbox">&times;</button>
+    <button class="lightbox-nav-btn prev" id="lightboxPrevBtn" aria-label="Foto Sebelumnya">&#10094;</button>
+    <button class="lightbox-nav-btn next" id="lightboxNextBtn" aria-label="Foto Selanjutnya">&#10095;</button>
+    
+    <div class="lightbox-content">
+      <img src="" alt="Enlarged Memory" id="lightboxImage" class="lightbox-img">
+      <div class="lightbox-caption">
+        <h4 id="lightboxTitle">Judul Foto</h4>
+        <p id="lightboxDesc">Deskripsi foto kegiatan kelas.</p>
+        <span class="lightbox-counter" id="lightboxCounter">1 / 6</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 15. TOAST NOTIFICATION CONTAINER ==================== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- ==================== BACK TO TOP BUTTON ==================== -->
+  <button id="backToTopBtn" class="back-to-top-btn" aria-label="Scroll ke atas" title="Kembali ke atas">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
