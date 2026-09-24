@@ -16,6 +16,8 @@
   
   <!-- Favicon placeholder inline SVG -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231E293B'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='50' font-family='sans-serif' font-weight='bold' fill='%23FFFFFF'>T</text></svg>">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 <body>
 
@@ -204,7 +206,9 @@
           <!-- Quick Info Cards Grid -->
           <div class="about-info-grid reveal">
             <div class="info-card">
-              <div class="info-icon">🏫</div>
+              <div class="info-icon">
+                  <i data-lucide="building-2"></i>
+                </div>
               <div class="info-details">
                 <span class="info-label">Class Name</span>
                 <strong class="info-val" id="infoClassName">RPL 2026</strong>
@@ -212,7 +216,9 @@
             </div>
 
             <div class="info-card">
-              <div class="info-icon">💻</div>
+             <div class="info-icon">
+               <i data-lucide="laptop"></i>
+              </div>
               <div class="info-details">
                 <span class="info-label">Major / Jurusan</span>
                 <strong class="info-val" id="infoMajor">Rekayasa Perangkat Lunak</strong>
@@ -220,7 +226,9 @@
             </div>
 
             <div class="info-card">
-              <div class="info-icon">👑</div>
+              <div class="info-icon">
+                <i data-lucide="user-round"></i>
+              </div>
               <div class="info-details">
                 <span class="info-label">Class Leader</span>
                 <strong class="info-val" id="infoLeader">Ezzar Putra</strong>
@@ -228,7 +236,9 @@
             </div>
 
             <div class="info-card">
-              <div class="info-icon">📚</div>
+              <div class="info-icon">
+                <i data-lucide="book-open"></i>
+              </div>
               <div class="info-details">
                 <span class="info-label">Current Semester</span>
                 <strong class="info-val" id="infoSemester">Semester 1</strong>
@@ -236,7 +246,9 @@
             </div>
 
             <div class="info-card">
-              <div class="info-icon">👥</div>
+              <div class="info-icon">
+                <i data-lucide="user-group"></i>
+              </div>
               <div class="info-details">
                 <span class="info-label">Total Members</span>
                 <strong class="info-val" id="infoMembers">27 Students</strong>
@@ -244,7 +256,9 @@
             </div>
 
             <div class="info-card">
-              <div class="info-icon">🎓</div>
+              <div class="info-icon">
+                <i data-lucide="graduation-cap"></i>
+              </div>
               <div class="info-details">
                 <span class="info-label">Academic Year</span>
                 <strong class="info-val" id="infoYear">2026 / 2027</strong>
@@ -328,7 +342,9 @@
 
         <!-- Empty State -->
         <div class="empty-state hidden" id="membersEmptyState">
-          <div class="empty-icon">🔍</div>
+          <div class="empty-icon">
+            <i data-lucide="search"></i>
+          </div>
           <h3>Tidak Ada Siswa Ditemukan</h3>
           <p>Coba gunakan kata kunci pencarian yang lain atau ubah filter.</p>
           <button class="btn btn-secondary btn-sm" id="resetMemberSearchBtn">Reset Pencarian</button>
@@ -355,7 +371,7 @@
               </div>
               <!-- Sound Toggle Button -->
               <button id="audioToggleBtn" class="sound-btn" title="Aktifkan/Bisukan Suara" aria-label="Toggle Sound">
-                <span id="soundIcon">🔊</span>
+                <i id="soundIcon" data-lucide="volume-2"></i>
               </button>
             </div>
             
@@ -380,7 +396,6 @@
             <!-- Spin Controls -->
             <div class="wheel-actions">
               <button id="spinBtn" class="btn btn-primary btn-large btn-spin ripple">
-                <span class="spin-icon">🎲</span>
                 <span id="spinBtnText">SPIN THE WHEEL</span>
               </button>
             </div>
