@@ -73,13 +73,13 @@
 
 /* Dark Theme Variables */
 [data-theme="dark"] {
-  --primary: #5c64c0;
-  --primary-hover: #818cf8;
+  --primary: #6FD1D7;
+  --primary-hover: #6FD1D7;
   --primary-light: rgba(99, 102, 241, 0.16);
   --primary-rgb: 99, 102, 241;
 
-  --secondary: #a855f7;
-  --secondary-hover: #c084fc;
+  --secondary: #6FD1D7;
+  --secondary-hover: #6FD1D7;
   --secondary-light: rgba(168, 85, 247, 0.16);
   --secondary-rgb: 168, 85, 247;
 
@@ -125,6 +125,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 20px);
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -135,6 +137,9 @@ body {
   background-color: var(--bg-main);
   transition: background-color var(--transition-normal), color var(--transition-normal);
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -365,17 +370,30 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   width: 100%;
   height: var(--header-height);
   background: var(--bg-header);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid transparent;
   z-index: 1000;
   transition: all var(--transition-normal);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  background: inherit;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .header.scrolled {
   border-bottom-color: var(--border-color);
   box-shadow: var(--shadow-sm);
   height: 64px;
+}
+
+.nav-menu-header {
+  display: none;
 }
 
 .navbar {
@@ -555,9 +573,20 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
-  z-index: 998;
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1998;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.nav-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* --------------------------------------------------------------------------
@@ -1395,7 +1424,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   justify-content: center;
   color: #ffffff;
   font-weight: 800;
-  font-size: 14px;
+  font-size: 10px;
   letter-spacing: 1px;
   z-index: 5;
   pointer-events: none;
@@ -1749,7 +1778,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .course-sks-badge {
   font-size: 11px;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 4px 8px;
   background: var(--bg-alt);
   color: var(--text-main);
   border-radius: var(--radius-pill);
@@ -2121,53 +2150,75 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(11, 15, 25, 0.7);
+  background: rgba(11, 15, 25, 0.75);
   backdrop-filter: blur(8px);
-  z-index: 1500;
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2500;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
   opacity: 0;
   visibility: hidden;
-  transition: all var(--transition-normal);
+  pointer-events: none;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
 }
 
 .modal-backdrop.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .modal-dialog {
   width: 100%;
   max-width: 520px;
   background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-xl);
   padding: 32px;
   position: relative;
   box-shadow: var(--shadow-lg);
-  transform: translateY(20px);
-  transition: transform var(--transition-normal);
+  transform: translateY(20px) scale(0.97);
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
   max-height: 90vh;
+  max-height: min(90vh, 90dvh);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .modal-backdrop.active .modal-dialog {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .modal-close-btn {
   position: absolute;
-  top: 18px;
-  right: 20px;
-  font-size: 28px;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  border: 1px solid var(--border-color);
   color: var(--text-muted);
+  font-size: 22px;
   line-height: 1;
-  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 10;
 }
 
 .modal-close-btn:hover {
-  color: var(--text-main);
+  background: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: rotate(90deg);
 }
 
 .modal-header-section {
@@ -2177,6 +2228,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   margin-bottom: 24px;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--border-color);
+  padding-right: 36px;
 }
 
 .modal-avatar-wrap {
@@ -2186,6 +2238,8 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   border-radius: var(--radius-lg);
   overflow: hidden;
   flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-alt);
 }
 
 .modal-avatar {
@@ -2199,23 +2253,33 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(15, 23, 42, 0.88);
   color: #ffffff;
   font-size: 9px;
   font-weight: 700;
   text-align: center;
-  padding: 2px 0;
+  padding: 3px 2px;
   text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.modal-title-wrap {
+  flex: 1;
+  min-width: 0;
 }
 
 .modal-title-wrap h3 {
   font-size: 20px;
+  font-weight: 700;
   margin-bottom: 4px;
+  line-height: 1.25;
+  word-break: break-word;
 }
 
 .modal-nim {
   font-size: 13px;
   color: var(--text-muted);
+  font-weight: 500;
 }
 
 .modal-section-group {
@@ -2228,7 +2292,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-muted);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
   margin-bottom: 6px;
 }
 
@@ -2236,52 +2300,74 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   font-size: 14px;
   color: var(--text-main);
   line-height: 1.6;
+  background: var(--bg-alt);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
 }
 
 .modal-detail-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 14px;
   background: var(--bg-alt);
   padding: 16px;
   border-radius: var(--radius-md);
   margin-bottom: 20px;
+  border: 1px solid var(--border-color);
 }
 
 .modal-detail-item {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .item-label {
   font-size: 11px;
+  font-weight: 600;
   color: var(--text-muted);
-  margin-bottom: 2px;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
 }
 
 .item-val {
   font-size: 13px;
   font-weight: 600;
   color: var(--text-main);
-  word-break: break-all;
+  word-break: break-word;
+}
+
+.item-val a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.modal-socials-group {
+  margin-top: 10px;
 }
 
 .modal-social-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
 .modal-social-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: var(--radius-pill);
   font-size: 12px;
   font-weight: 600;
-  background: var(--bg-alt);
+  background: var(--card-bg);
   color: var(--text-main);
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-xs);
   transition: all var(--transition-fast);
 }
 
@@ -2289,6 +2375,8 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   background: var(--primary);
   color: #ffffff;
   border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(var(--primary-rgb), 0.3);
 }
 
 /* --------------------------------------------------------------------------
@@ -2634,49 +2722,195 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     display: flex;
   }
 
+  .nav-backdrop {
+    display: block;
+  }
+
   .nav-menu {
     position: fixed;
-    top: var(--header-height);
-    right: -100%;
-    width: 280px;
-    height: calc(100vh - var(--header-height));
+    top: 0;
+    right: 0;
+    width: min(320px, 84vw);
+    height: 100vh;
+    height: 100dvh;
     background: var(--card-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border-left: 1px solid var(--border-color);
-    padding: 30px 24px;
-    box-shadow: var(--shadow-lg);
-    transition: right var(--transition-normal);
-    z-index: 999;
+    padding: 24px 20px;
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.25);
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform var(--transition-normal), visibility var(--transition-normal);
+    z-index: 2000;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .nav-menu.open {
-    right: 0;
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
   }
 
-  .nav-backdrop.open {
-    display: block;
+  .nav-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 6px;
+  }
+
+  .nav-menu-brand {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-menu-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text-main);
+  }
+
+  .nav-menu-subtitle {
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .nav-close-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 22px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .nav-close-btn:hover {
+    color: var(--primary);
+    background: var(--primary-light);
   }
 
   .nav-list {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .nav-item {
+    width: 100%;
   }
 
   .nav-link {
-    font-size: 16px;
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    transition: all var(--transition-fast);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+    transform: translateX(4px);
+  }
+
+  .nav-link.highlight-link {
+    background: var(--grad-primary);
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: var(--shadow-primary);
+  }
+
+  .nav-link.highlight-link:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  /* Member Profile Modal Responsive */
+  .modal-backdrop {
+    padding: 16px;
+  }
+
+  .modal-dialog {
+    padding: 24px 20px 22px;
+    border-radius: var(--radius-lg);
+    max-height: calc(100dvh - 32px);
+    width: 100%;
+  }
+
+  .modal-header-section {
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    padding-right: 36px;
+  }
+
+  .modal-avatar-wrap {
+    width: 70px;
+    height: 70px;
+    border-radius: var(--radius-md);
+  }
+
+  .modal-title-wrap h3 {
+    font-size: 18px;
+  }
+
+  .modal-nim {
+    font-size: 12px;
+  }
+
+  .modal-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .modal-social-buttons {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .modal-social-btn {
+    flex: 1 1 calc(50% - 8px);
+    justify-content: center;
+    padding: 10px 14px;
   }
 
   /* Floating badges reposition */
   .badge-top-right {
     top: -10px;
-    right: -10px;
+    right: 0;
   }
 
   .badge-bottom-left {
     bottom: -10px;
-    left: -10px;
+    left: 0;
   }
 
   .about-info-grid {
@@ -2708,6 +2942,22 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     display: flex;
   }
 
+  .schedule-filter-wrap {
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 6px;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .schedule-tabs {
+    flex-shrink: 0;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
   .footer-container {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -2726,6 +2976,34 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
 /* Smartphone (max-width: 480px) */
 @media (max-width: 480px) {
+  .nav-brand {
+    gap: 8px;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-title {
+    font-size: 16px;
+  }
+
+  .brand-badge {
+    font-size: 9px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .theme-toggle-btn,
+  .hamburger-btn {
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+  }
+
   .hero-title {
     font-size: 28px;
   }
@@ -2750,6 +3028,77 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
   .search-box {
     max-width: 100%;
+    min-width: 0;
+  }
+
+  .members-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .filter-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* Member Profile Modal Extra Small Mobile */
+  .modal-backdrop {
+    padding: 10px;
+    align-items: center;
+  }
+
+  .modal-dialog {
+    padding: 20px 14px 18px;
+    border-radius: var(--radius-md);
+    max-height: calc(100dvh - 20px);
+  }
+
+  .modal-header-section {
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    padding-right: 32px;
+  }
+
+  .modal-avatar-wrap {
+    width: 58px;
+    height: 58px;
+  }
+
+  .modal-title-wrap h3 {
+    font-size: 16px;
+  }
+
+  .modal-close-btn {
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
+
+  .modal-detail-grid {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .modal-text {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .modal-social-btn {
+    flex: 1 1 100%;
+    padding: 10px 12px;
+    font-size: 12px;
   }
 
   .gallery-grid {
@@ -2762,5 +3111,24 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
   .stat-item {
     flex: 1 1 100%;
+  }
+
+  .toast-container {
+    bottom: 16px;
+    right: 12px;
+    left: 12px;
+  }
+
+  .toast {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .back-to-top-btn {
+    bottom: 16px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
   }
 }
