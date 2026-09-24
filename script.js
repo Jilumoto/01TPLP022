@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ==============================================================================
    DATA UTAMA KELAS (EDITABLE CONTENT)
-   Ubah data di bawah ini untuk menyesuaikan isi website kelas Anda.
    ============================================================================== */
 
 /**
@@ -44,7 +43,7 @@ const classInfo = {
 
 /**
  * 2. DATA MAHASISWA / ANGGOTA KELAS (Students Data)
- * Ubah nama, NIM, foto (JPG/PNG/SVG), role, dan info profil di sini.
+ * Ubah nama, NIM, foto (JPG/PNG/SVG), role.
  */
 const students = [
   {
@@ -68,7 +67,7 @@ const students = [
     role: "Wakil Ketua",
     roleType: "leader",
     image: "assets/images/students/student-02.svg",
-    bio: "",
+    bio: ".",
     email: "",
     phone: "",
     skills: "",
@@ -82,12 +81,12 @@ const students = [
     role: "Sekretaris",
     roleType: "leader",
     image: "assets/images/students/student-03.svg",
-    bio: "",
+    bio: ".",
     email: "",
     phone: "",
     skills: "",
     hobby: "",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "04",
@@ -96,7 +95,7 @@ const students = [
     role: "Bendahara",
     roleType: "leader",
     image: "assets/images/students/student-04.svg",
-    bio: "",
+    bio: ".",
     email: "",
     phone: "",
     skills: "",
@@ -110,7 +109,7 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-05.svg",
-    bio: "",
+    bio: ".",
     email: "",
     phone: "",
     skills: "",
@@ -124,7 +123,7 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-06.svg",
-    bio: "",
+    bio: ".",
     email: "",
     phone: "",
     skills: "",
@@ -138,7 +137,7 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-07.svg",
-    bio: "",
+    bio: ".",
     email: "",
     phone: "",
     skills: "",
@@ -152,7 +151,7 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-08.svg",
-    bio: "",
+    bio: ".",
     email: "",
     phone: "",
     skills: "",
@@ -166,7 +165,7 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-09.svg",
-    bio: "",
+    bio: ".",
     email: "",
     phone: "",
     skills: "",
@@ -180,7 +179,7 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-10.svg",
-    bio: "",
+    bio: ".",
     email: "",
     phone: "",
     skills: "",
@@ -194,7 +193,7 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-11.svg",
-    bio: "",
+    bio: ".",
     email: "",
     phone: "",
     skills: "",
@@ -208,7 +207,7 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-12.svg",
-    bio: "",
+    bio: ".",
     email: "",
     phone: "",
     skills: "",
@@ -222,12 +221,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-13.svg",
-    bio: "Fokus pada integrasi perangkat keras IoT dan pemrograman mikrokontroler.",
-    email: "dedi.hidayat@student.ac.id",
-    phone: "+62 812-3456-7813",
-    skills: "C, Arduino, IoT Protocols",
-    hobby: "Elektronika, Robotika",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "14",
@@ -236,12 +235,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-14.svg",
-    bio: "Kreatif dalam membuat user persona, wireframe, dan prototype interaktif.",
-    email: "erina.kusuma@student.ac.id",
-    phone: "+62 812-3456-7814",
-    skills: "Figma, User Research, Prototyping",
-    hobby: "Sketching, Menonton Film",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "15",
@@ -250,12 +249,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-15.png",
-    bio: "Mendalami teknologi containerisasi, CI/CD, dan cloud computing.",
-    email: "gilang.ramadhan@student.ac.id",
-    phone: "+62 812-3456-7815",
-    skills: "Docker, Git, Linux Administration",
-    hobby: "Gaming, Mendaki Gunung",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "16",
@@ -264,12 +263,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-16.svg",
-    bio: "Suka membangun game indie sederhana dan logika simulasi visual.",
-    email: "hafiz.alamsyah@student.ac.id",
-    phone: "+62 812-3456-7816",
-    skills: "JavaScript Game Loop, Canvas, C#",
-    hobby: "Game Development, Berenang",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "17",
@@ -278,12 +277,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-17.svg",
-    bio: "Menaruh perhatian besar pada tata kelola perangkat lunak dan QA testing.",
-    email: "indah.permata@student.ac.id",
-    phone: "+62 812-3456-7817",
-    skills: "Software Testing, Clean Code, Agile",
-    hobby: "Membaca Novel, Masak",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "18",
@@ -292,12 +291,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-18.svg",
-    bio: "Antusias dengan arsitektur microservices dan efisiensi query basis data.",
-    email: "joko.widodo@student.ac.id",
-    phone: "+62 812-3456-7818",
-    skills: "PostgreSQL, Backend API, Redis",
-    hobby: "Gowes Sepeda, Membaca Berita",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "19",
@@ -306,12 +305,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-19.svg",
-    bio: "Fokus pada penerapan kecerdasan buatan dasar dan machine learning.",
-    email: "kiki.amelia@student.ac.id",
-    phone: "+62 812-3456-7819",
-    skills: "Python, Scikit-Learn, Pandas",
-    hobby: "Fotografi Alam, Musik Akustik",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "20",
@@ -320,12 +319,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-20.svg",
-    bio: "Senang mendalami protokol routing dan instalasi server Linux.",
-    email: "lutfi.hakim@student.ac.id",
-    phone: "+62 812-3456-7820",
-    skills: "Cisco Packet Tracer, Debian, SSH",
-    hobby: "Futsal, Menjelajah Internet",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "21",
@@ -334,12 +333,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-21.svg",
-    bio: "Menyukai estetika desain web minimalis dan micro-interactions.",
-    email: "maya.anggraini@student.ac.id",
-    phone: "+62 812-3456-7821",
-    skills: "Web Design, CSS Keyframes, SVG",
-    hobby: "Melukis, Menulis Puisi",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "22",
@@ -348,12 +347,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-22.svg",
-    bio: "Selalu bersemangat mencoba bahasa pemrograman baru dan framework eksperimental.",
-    email: "naufal.zaki@student.ac.id",
-    phone: "+62 812-3456-7822",
-    skills: "Rust Dasar, JavaScript, Git",
-    hobby: "Sepak Bola, Podcast Teknologi",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "23",
@@ -362,12 +361,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-23.svg",
-    bio: "Teliti dalam pengujian fungsionalitas aplikasi dan pelaporan bug.",
-    email: "olivia.rahma@student.ac.id",
-    phone: "+62 812-3456-7823",
-    skills: "Quality Assurance, User Testing",
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
     hobby: "Menonton Drakor, Masak",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "24",
@@ -376,12 +375,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-24.svg",
-    bio: "Pecinta opensource software dan optimasi performa web.",
-    email: "pandu.w@student.ac.id",
-    phone: "+62 812-3456-7824",
-    skills: "Web Performance, Vanilla JS, SEO",
-    hobby: "Badminton, Ngeblog Tekno",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "25",
@@ -390,12 +389,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-25.svg",
-    bio: "Mempelajari etika teknologi, keamanan data pribadi, dan rekayasa kebutuhan.",
-    email: "qonita.syifa@student.ac.id",
-    phone: "+62 812-3456-7825",
-    skills: "Requirements Engineering, Scrum",
-    hobby: "Baking, Traveling",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "26",
@@ -404,12 +403,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-26.svg",
-    bio: "Suka membangun otomasi skrip sederhana untuk mempermudah tugas harian.",
-    email: "rifqi.aditya@student.ac.id",
-    phone: "+62 812-3456-7826",
-    skills: "Python Scripting, Web Scraping",
-    hobby: "Main Game MOBA, Musik",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "27",
@@ -418,12 +417,12 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-27.svg",
-    bio: "Tertarik pada human-computer interaction dan kepuasan pengguna aplikasi.",
-    email: "siti.nurhaliza@student.ac.id",
-    phone: "+62 812-3456-7827",
-    skills: "UI/UX, Wireframing, Figma",
-    hobby: "Membaca Buku, Menulis",
-    socials: { github: "https://github.com", instagram: "https://instagram.com" }
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
   }
 ];
 
@@ -640,6 +639,8 @@ function initNavbar() {
 
   // Mobile Hamburger Toggle
   if (navToggleBtn && navMenu) {
+    const navCloseBtn = document.getElementById('navCloseBtn');
+
     const toggleMenu = () => {
       const isOpen = navMenu.classList.toggle('open');
       navToggleBtn.classList.toggle('open');
@@ -657,11 +658,26 @@ function initNavbar() {
     };
 
     navToggleBtn.addEventListener('click', toggleMenu);
+    if (navCloseBtn) navCloseBtn.addEventListener('click', closeMenu);
     if (navBackdrop) navBackdrop.addEventListener('click', closeMenu);
 
     // Tutup menu mobile ketika salah satu link diklik
     navLinks.forEach(link => {
       link.addEventListener('click', closeMenu);
+    });
+
+    // Tutup menu dengan tombol Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+
+    // Reset overflow jika window di-resize ke ukuran desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && navMenu.classList.contains('open')) {
+        closeMenu();
+      }
     });
   }
 
@@ -858,9 +874,6 @@ function initMembers() {
           <span class="member-nim">NIM: ${s.nim}</span>
           
           <div class="member-social-row">
-            <span class="member-social-icon" title="GitHub">💻</span>
-            <span class="member-social-icon" title="Instagram">📸</span>
-            <span class="member-social-icon" title="LinkedIn">💼</span>
           </div>
         </div>
       `;
@@ -949,28 +962,65 @@ function openMemberModal(student) {
   document.getElementById('modalStudentNim').textContent = `NIM: ${student.nim}`;
   document.getElementById('modalStudentRoleBadge').textContent = student.role;
   document.getElementById('modalStudentBio').textContent = student.bio || "Mahasiswa aktif kelas RPL 2026.";
-  document.getElementById('modalStudentEmail').textContent = student.email || "-";
-  document.getElementById('modalStudentPhone').textContent = student.phone || "-";
+
+  const emailEl = document.getElementById('modalStudentEmail');
+  if (emailEl) {
+    if (student.email && student.email !== '-') {
+      emailEl.innerHTML = `<a href="mailto:${student.email}">${student.email}</a>`;
+    } else {
+      emailEl.textContent = '-';
+    }
+  }
+
+  const phoneEl = document.getElementById('modalStudentPhone');
+  if (phoneEl) {
+    if (student.phone && student.phone !== '-') {
+      const cleanPhone = student.phone.replace(/[^0-9]/g, '');
+      const waPhone = cleanPhone.startsWith('0') ? '62' + cleanPhone.slice(1) : cleanPhone;
+      phoneEl.innerHTML = `<a href="https://wa.me/${waPhone}" target="_blank" rel="noopener">${student.phone}</a>`;
+    } else {
+      phoneEl.textContent = '-';
+    }
+  }
+
   document.getElementById('modalStudentSkills').textContent = student.skills || "-";
   document.getElementById('modalStudentHobby').textContent = student.hobby || "-";
 
   const socialsContainer = document.getElementById('modalSocialButtons');
   if (socialsContainer) {
-    socialsContainer.innerHTML = `
-      <a href="${student.socials?.github || '#'}" target="_blank" rel="noopener" class="modal-social-btn">💻 GitHub</a>
-      <a href="${student.socials?.instagram || '#'}" target="_blank" rel="noopener" class="modal-social-btn">📸 Instagram</a>
-      <a href="mailto:${student.email}" class="modal-social-btn">✉️ Kirim Email</a>
-    `;
+    let btns = '';
+    if (student.socials?.github && student.socials.github !== '#') {
+      btns += `<a href="${student.socials.github}" target="_blank" rel="noopener" class="modal-social-btn">💻 GitHub</a>`;
+    }
+    if (student.socials?.instagram && student.socials.instagram !== '#') {
+      btns += `<a href="${student.socials.instagram}" target="_blank" rel="noopener" class="modal-social-btn">📸 Instagram</a>`;
+    }
+    if (student.email && student.email !== '-') {
+      btns += `<a href="mailto:${student.email}" class="modal-social-btn">✉️ Kirim Email</a>`;
+    }
+    if (student.phone && student.phone !== '-') {
+      const cleanPhone = student.phone.replace(/[^0-9]/g, '');
+      const waPhone = cleanPhone.startsWith('0') ? '62' + cleanPhone.slice(1) : cleanPhone;
+      btns += `<a href="https://wa.me/${waPhone}" target="_blank" rel="noopener" class="modal-social-btn">💬 Chat WA</a>`;
+    }
+    socialsContainer.innerHTML = btns || `<span style="font-size:12px; color:var(--text-muted);">Tidak ada tautan media sosial.</span>`;
   }
 
   modal.classList.add('active');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 
+  const onKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  };
+
   const closeModal = () => {
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    document.removeEventListener('keydown', onKeyDown);
   };
 
   if (closeBtn) closeBtn.onclick = closeModal;
@@ -979,12 +1029,6 @@ function openMemberModal(student) {
     if (e.target === modal) closeModal();
   };
 
-  const onKeyDown = (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-      document.removeEventListener('keydown', onKeyDown);
-    }
-  };
   document.addEventListener('keydown', onKeyDown);
 }
 
