@@ -89,6 +89,20 @@ const students = [
     socials: {instagram: "https://instagram.com" }
   },
   {
+    id: "11",
+    name: "GUSTI RAMA YONIAR",
+    nim: "261011400896",
+    role: "Sekretaris",
+    roleType: "leader",
+    image: "assets/images/students/student-11.svg",
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
+  },
+  {
     id: "04",
     name: "TIAN SAPUTRI HONDRO",
     nim: "261011401724",
@@ -101,6 +115,20 @@ const students = [
     skills: "",
     hobby: "",
     socials: { instagram: "https://instagram.com" }
+  },
+    {
+    id: "23",
+    name: "MUHAMMAD RUSTIAN AL-FARIZI",
+    nim: "261011400926",
+    role: "Bendahara",
+    roleType: "leader",
+    image: "assets/images/students/student-23.svg",
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "Menonton Drakor, Masak",
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "05",
@@ -150,7 +178,7 @@ const students = [
     nim: "261011400914",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-08.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -164,13 +192,13 @@ const students = [
     nim: "261011401118",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-09.svg",
+    image: "assets/images/students/atta.jpeg",
     bio: ".",
     email: "",
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    socials: {instagram: "https://www.instagram.com/fahd_aimar?stkn=MXV3NnNkbXJxdnF4Yg==" }
   },
   {
     id: "10",
@@ -179,20 +207,6 @@ const students = [
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/student-10.svg",
-    bio: ".",
-    email: "",
-    phone: "",
-    skills: "",
-    hobby: "",
-    socials: {instagram: "https://instagram.com" }
-  },
-  {
-    id: "11",
-    name: "GUSTI RAMA YONIAR",
-    nim: "261011400896",
-    role: "Mahasiswa",
-    roleType: "student",
-    image: "assets/images/students/student-11.svg",
     bio: ".",
     email: "",
     phone: "",
@@ -352,20 +366,6 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
-  },
-  {
-    id: "23",
-    name: "MUHAMMAD RUSTIAN AL-FARIZI",
-    nim: "261011400926",
-    role: "Mahasiswa",
-    roleType: "student",
-    image: "assets/images/students/student-23.svg",
-    bio: ".",
-    email: "",
-    phone: "",
-    skills: "",
-    hobby: "Menonton Drakor, Masak",
     socials: {instagram: "https://instagram.com" }
   },
   {
