@@ -402,7 +402,7 @@
 
             <!-- Selected Student Result Card -->
             <div class="selected-winner-card hidden" id="winnerCard">
-              <div class="winner-congrats">🎉 CONGRATULATIONS!</div>
+              <div class="winner-congrats">WIHHHHH!</div>
               <div class="winner-content">
                 <img src="assets/images/students/student-01.svg" alt="Winner Avatar" id="winnerAvatar" class="winner-avatar">
                 <div class="winner-info">
@@ -443,23 +443,23 @@
               </div>
 
               <button id="generateGroupsBtn" class="btn btn-primary btn-block ripple">
-                <span>⚡ Generate Random Groups</span>
+                <span>Buat Grup Random</span>
               </button>
             </div>
 
             <!-- Group Management Action Toolbar -->
             <div class="group-actions-bar hidden" id="groupActionsBar">
               <button id="shuffleAgainBtn" class="btn btn-secondary btn-sm" title="Acak ulang susunan">
-                🔄 Shuffle Again
+                <i data-lucide="shuffle"></i>
               </button>
               <button id="copyGroupsBtn" class="btn btn-outline btn-sm" title="Salin daftar ke clipboard">
-                📋 Copy Groups
+                <i data-lucide="copy"></i>
               </button>
               <button id="downloadGroupsBtn" class="btn btn-outline btn-sm" title="Unduh file .TXT">
-                💾 Download (.TXT)
+                <i data-lucide="download"></i>
               </button>
               <button id="resetGroupsBtn" class="btn btn-danger-outline btn-sm" title="Reset kelompok">
-                ✕ Reset
+                <i data-lucide="rotate-ccw"></i>
               </button>
             </div>
 
@@ -473,8 +473,10 @@
             <div class="groups-result-grid" id="groupsResultGrid">
               <!-- Generated group cards rendered here -->
               <div class="groups-placeholder-hint" id="groupsPlaceholderHint">
-                <span class="hint-icon">👥</span>
-                <p>Klik tombol <strong>"Generate Random Groups"</strong> di atas untuk membagi mahasiswa ke dalam kelompok belajar.</p>
+                <span class="hint-icon">
+                  <i data-lucide="users"></i>
+                </span>
+                <p>Klik tombol <strong>"Buat Grup Random"</strong> di atas untuk membagi mahasiswa ke dalam kelompok belajar.</p>
               </div>
             </div>
           </div>
