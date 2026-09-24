@@ -416,7 +416,7 @@ const students = [
     nim: "261011400906",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-27.svg",
+    image: "assets/images/students/zaki.png",
     bio: ".",
     email: "",
     phone: "",
@@ -1185,7 +1185,12 @@ function initRoulette() {
   if (audioToggleBtn) {
     audioToggleBtn.addEventListener('click', () => {
       isSoundEnabled = !isSoundEnabled;
-      soundIcon.textContent = isSoundEnabled ? '🔊' : '🔇';
+      soundIcon.setAttribute(
+    'data-lucide',
+    isSoundEnabled ? 'volume-2' : 'volume-x'
+);
+
+lucide.createIcons();
       showToast(isSoundEnabled ? 'Suara Roulette diaktifkan' : 'Suara Roulette dibisukan', 'info');
     });
   }
@@ -1907,6 +1912,8 @@ function initScrollReveal() {
     threshold: 0.12,
     rootMargin: '0px 0px -40px 0px'
   });
+
+  lucide.createIcons();
 
   revealElements.forEach(el => observer.observe(el));
 }
