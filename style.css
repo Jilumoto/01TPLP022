@@ -1197,7 +1197,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   object-fit: cover;
 }
 
-.member-role-tag {
+.member-role-tag{
   display: inline-block;
   font-size: 11px;
   font-weight: 700;
@@ -1215,6 +1215,11 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .member-role-tag.wakil {
   background: rgba(139, 92, 246, 0.15);
   color: #7c3aed;
+}
+
+.member-role-tag.wakil_sekretaris {
+  background: rgba(139, 92, 246, 0.15);
+  color: #ff0404;
 }
 
 .member-role-tag.sekretaris {
