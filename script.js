@@ -1913,7 +1913,6 @@ function initScrollReveal() {
     rootMargin: '0px 0px -40px 0px'
   });
 
-  lucide.createIcons();
 
   revealElements.forEach(el => observer.observe(el));
 }
