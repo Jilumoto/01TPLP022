@@ -236,4 +236,4 @@ Website ini telah dirancang dan diuji untuk berbagai ukuran resolusi:
 ---
 
 ## 🔒 Lisensi & Hak Cipta
-Dibuat untuk kelas **RPL 2026**. Bebas digunakan, dimodifikasi, dan dikembangkan untuk keperluan kegiatan kelas, himpunan, atau perkuliahan.
+Dibuat untuk kelas **01TPLP022**. Bebas digunakan, dimodifikasi, dan dikembangkan untuk keperluan kegiatan kelas, himpunan, atau perkuliahan.
