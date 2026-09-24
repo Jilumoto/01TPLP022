@@ -416,7 +416,7 @@ const students = [
     nim: "261011400906",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/zaki.png",
+    image: "assets/images/students/student-27.svg",
     bio: ".",
     email: "",
     phone: "",
