@@ -612,7 +612,7 @@ function initTheme() {
       htmlElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('rpl2026-theme', newTheme);
 
-      showToast(newTheme === 'dark' ? '🌙 Dark Mode diaktifkan' : '☀️ Light Mode diaktifkan', 'info');
+      showToast(newTheme === 'dark' ? 'Dark Mode diaktifkan' : 'Light Mode diaktifkan', 'info');
     });
   }
 }
@@ -1213,7 +1213,7 @@ lucide.createIcons();
 
     if (spinBtn) {
       spinBtn.disabled = true;
-      spinBtnText.textContent = 'SPINNING... 🎲';
+      spinBtnText.textContent = 'Berputar';
     }
     if (winnerCard) {
       winnerCard.classList.add('hidden');
@@ -1272,7 +1272,7 @@ lucide.createIcons();
         launchConfetti();
 
         // Tampilkan notifikasi toast
-        showToast(`🎉 Siswa terpilih: ${winner.name}!`, 'success');
+        showToast(`Siswa terpilih: ${winner.name}!`, 'success');
       }
     }
 
@@ -1468,7 +1468,7 @@ function initGroupGenerator() {
       }).join('');
 
       launchConfetti();
-      showToast(`✨ Berhasil membagi ${groups.length} kelompok belajar!`, 'success');
+      showToast(` Berhasil membagi ${groups.length} kelompok belajar!`, 'success');
     }, 700);
   };
 
@@ -1507,7 +1507,7 @@ function initGroupGenerator() {
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
-          showToast('📋 Daftar kelompok berhasil disalin ke clipboard!', 'success');
+          showToast(' Daftar kelompok berhasil disalin ke clipboard!', 'success');
         }).catch(() => {
           fallbackCopyText(text);
         });
@@ -1547,7 +1547,7 @@ function initGroupGenerator() {
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
 
-      showToast('💾 File kelompok .TXT berhasil diunduh!', 'success');
+      showToast('File kelompok .TXT berhasil diunduh!', 'success');
     });
   }
 
@@ -1560,7 +1560,7 @@ function initGroupGenerator() {
     textArea.select();
     try {
       document.execCommand('copy');
-      showToast('📋 Daftar kelompok berhasil disalin ke clipboard!', 'success');
+      showToast('Daftar kelompok berhasil disalin ke clipboard!', 'success');
     } catch (e) {
       showToast('Gagal menyalin kelompok secara otomatis.', 'error');
     }
@@ -1595,15 +1595,21 @@ function initCoursesAndSchedule() {
         
         <div class="course-meta">
           <div class="course-meta-row">
-            <span class="course-meta-icon">👨‍🏫</span>
+            <span class="course-meta-icon">
+           <i data-lucide="user-round"></i>
+            </span>
             <span>${c.lecturer}</span>
           </div>
           <div class="course-meta-row">
-            <span class="course-meta-icon">⏰</span>
+            <span class="course-meta-icon">
+              <i data-lucide="alarm-clock"></i>            
+            </span>
             <span>${c.scheduleDay}, ${c.scheduleTime}</span>
           </div>
           <div class="course-meta-row">
-            <span class="course-meta-icon">📍</span>
+            <span class="course-meta-icon">
+            <i data-lucide="map-pin"></i>
+            </span>
             <span>${c.room}</span>
           </div>
         </div>
@@ -1641,7 +1647,7 @@ function initCoursesAndSchedule() {
       } else {
         scheduleTableBody.innerHTML = filteredSchedule.map(s => {
           const isToday = s.day.toLowerCase() === todayDayName.toLowerCase();
-          const todayBadge = isToday ? `<span class="today-badge">⚡ HARI INI</span>` : '';
+          const todayBadge = isToday ? `<span class="today-badge">HARI INI</span>` : '';
           const rowClass = isToday ? 'today-highlight' : '';
 
           return `
@@ -1665,7 +1671,7 @@ function initCoursesAndSchedule() {
       } else {
         scheduleMobileCards.innerHTML = filteredSchedule.map(s => {
           const isToday = s.day.toLowerCase() === todayDayName.toLowerCase();
-          const todayBadge = isToday ? `<span class="today-badge">⚡ HARI INI</span>` : '';
+          const todayBadge = isToday ? `<span class="today-badge">HARI INI</span>` : '';
           const cardClass = isToday ? 'today-highlight' : '';
 
           return `
@@ -1806,12 +1812,38 @@ function showToast(message, type = 'info', duration = 3500) {
   const toast = document.createElement('div');
   toast.className = `toast toast-${type}`;
 
-  const iconMap = {
-    success: '✅',
-    warning: '⚠️',
-    error: '❌',
-    info: '💡'
-  };
+const iconMap = {
+    success: `
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+             stroke="currentColor" stroke-width="2">
+            <path d="M20 6 9 17l-5-5"></path>
+        </svg>
+    `,
+    warning: `
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+             stroke="currentColor" stroke-width="2">
+            <path d="M10.3 3.9 2.1 18a2 2 0 0 0 1.7 3h16.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"></path>
+            <path d="M12 9v4"></path>
+            <path d="M12 17h.01"></path>
+        </svg>
+    `,
+    error: `
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+             stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="m15 9-6 6"></path>
+            <path d="m9 9 6 6"></path>
+        </svg>
+    `,
+    info: `
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+             stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 11v5"></path>
+            <path d="M12 8h.01"></path>
+        </svg>
+    `
+};
 
   const icon = iconMap[type] || '💡';
 
