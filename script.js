@@ -1379,7 +1379,7 @@ function initRoulette() {
         if (rouletteStudents.length === 0) {
           if (spinBtn) spinBtn.disabled = false;
           if (spinBtnText) spinBtnText.textContent = 'SEMUA TERBAGI (RESET)';
-          showToast(`🎉 ${winner.name} masuk ke GROUP ${groupNum}! Semua mahasiswa telah selesai dibagi ke kelompok!`, 'success');
+          showToast(` ${winner.name} masuk ke GROUP ${groupNum}! Semua mahasiswa telah selesai dibagi ke kelompok!`, 'success');
         } else {
           if (spinBtn) spinBtn.disabled = false;
           if (spinBtnText) spinBtnText.textContent = 'SPIN THE WHEEL';
@@ -1902,8 +1902,8 @@ function initCoursesAndSchedule() {
               </div>
               <h4 class="sched-mobile-title">${s.course} (${s.sks})</h4>
               <div class="sched-mobile-info">
-                <span>👨‍🏫 ${s.lecturer}</span>
-                <span>📍 ${s.room}</span>
+                <span class="course-meta-icon"> <i data-lucide="user-round"></i> ${s.lecturer}</span>
+                <span class="course-meta-icon"><i data-lucide="map-pin"></i> ${s.room}</span>
               </div>
             </div>
           `;
