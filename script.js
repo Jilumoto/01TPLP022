@@ -48,11 +48,11 @@ const classInfo = {
 const students = [
   {
     id: "01",
-    name: "Azkia Azzahra Hafafil",
-    nim: "261011401041",
-    role: "Ketua Kelas",
-    roleType: "leader",
-    image: "assets/images/students/student-01.svg", /* Ganti dengan assets/images/students/nama-file.jpg */
+    name: "ACHMAD BAYU PRASETYO",
+    nim: "261011401288",
+    role: "Mahasiswa",
+    roleType: "student",
+    image: "assets/images/students/",
     bio: "mabar",
     email: "",
     phone: "",
@@ -62,11 +62,11 @@ const students = [
   },
   {
     id: "02",
-    name: "AQIL BANI FARELLINOV",
-    nim: "261011400902",
-    role: "Wakil Ketua",
-    roleType: "leader",
-    image: "assets/images/students/student-02.svg",
+    name: "AKBAR DAFA PANGESTU",
+    nim: "261011401445",
+    role: "Mahasiswa",
+    roleType: "student",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -76,25 +76,11 @@ const students = [
   },
   {
     id: "03",
-    name: "LUTFIYA NUR HASANAH",
-    nim: "261011400922",
-    role: "Sekretaris",
+    name: "AQIL BANI FARELLINOV",
+    nim: "261011400902",
+    role: "Wakil Ketua",
     roleType: "leader",
-    image: "assets/images/students/student-03.svg",
-    bio: ".",
-    email: "",
-    phone: "",
-    skills: "",
-    hobby: "",
-    socials: {instagram: "https://instagram.com" }
-  },
-  {
-    id: "11",
-    name: "GUSTI RAMA YONIAR",
-    nim: "261011400896",
-    role: "Sekretaris",
-    roleType: "leader",
-    image: "assets/images/students/student-11.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -104,11 +90,25 @@ const students = [
   },
   {
     id: "04",
-    name: "TIAN SAPUTRI HONDRO",
-    nim: "261011401724",
-    role: "Bendahara",
+    name: "AZKIA AZZAHRA HAFAFIL",
+    nim: "261011401041",
+    role: "Ketua Kelas",
     roleType: "leader",
-    image: "assets/images/students/student-04.svg",
+    image: "assets/images/students/",
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
+  },
+  {
+    id: "05",
+    name: "EKA MAULANA RIZKI",
+    nim: "261011400925",
+    role: "Mahasiswa",
+    roleType: "student",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -117,54 +117,40 @@ const students = [
     socials: { instagram: "https://instagram.com" }
   },
     {
-    id: "23",
-    name: "MUHAMMAD RUSTIAN AL-FARIZI",
-    nim: "261011400926",
-    role: "Bendahara",
-    roleType: "leader",
-    image: "assets/images/students/student-23.svg",
-    bio: ".",
-    email: "",
-    phone: "",
-    skills: "",
-    hobby: "Menonton Drakor, Masak",
-    socials: {instagram: "https://instagram.com" }
-  },
-  {
-    id: "05",
-    name: "ACHMAD BAYU PRASETYO",
-    nim: "261011401288",
-    role: "Mahasiswa",
-    roleType: "student",
-    image: "assets/images/students/student-05.svg",
-    bio: ".",
-    email: "",
-    phone: "",
-    skills: "",
-    hobby: "",
-    socials: { instagram: "https://instagram.com" }
-  },
-  {
     id: "06",
-    name: "AKBAR DAFA PANGESTU",
-    nim: "261011401445",
+    name: "EZZAR PUTRA PRAMUDYA",
+    nim: "261011400914",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-06.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
     skills: "",
-    hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    hobby: "Mancing",
+    socials: {instagram: "https://www.instagram.com/ezzar.co.id?stkn=MWkzdTBwdnBnbjRkbQ==" }
   },
   {
     id: "07",
-    name: "EKA MAULANA RIZKI",
-    nim: "261011400925",
+    name: "FAHD AIMAR AL HAQI",
+    nim: "261011401118",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-07.svg",
+    image: "assets/images/students/atta.jpeg",
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: { instagram: "https://www.instagram.com/fahd_aimar?stkn=MXV3NnNkbXJxdnF4Yg==" }
+  },
+  {
+    id: "08",
+    name: "FAQIH FAHRIANSYAH",
+    nim: "261011400928",
+    role: "Mahasiswa",
+    roleType: "student",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -174,8 +160,8 @@ const students = [
   },
   {
     id: "08",
-    name: "EZZAR PUTRA PRAMUDYA",
-    nim: "261011400914",
+    name: "FEBRIYAN MAULANA",
+    nim: "261011400911",
     role: "Mahasiswa",
     roleType: "student",
     image: "assets/images/students/",
@@ -188,25 +174,39 @@ const students = [
   },
   {
     id: "09",
-    name: "FAHD AIMAR AL HAQI",
-    nim: "261011401118",
-    role: "Mahasiswa",
-    roleType: "student",
-    image: "assets/images/students/atta.jpeg",
+    name: "GUSTI RAMA YONIAR",
+    nim: "261011400896",
+    role: "Sekretaris",
+    roleType: "leader",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://www.instagram.com/fahd_aimar?stkn=MXV3NnNkbXJxdnF4Yg==" }
+    socials: {instagram: "https://instagram.com" }
   },
   {
     id: "10",
-    name: "FEBRIYAN MAULANA",
-    nim: "261011400911",
+    name: "IKHSAN NUR ABDILA",
+    nim: "261011400899",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-10.svg",
+    image: "",
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "" }
+  },
+  {
+    id: "11",
+    name: "KEYLA PUTRI AZNI",
+    nim: "261011400917",
+    role: "Mahasiswa",
+    roleType: "student",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -216,11 +216,11 @@ const students = [
   },
   {
     id: "12",
-    name: "IKHSAN NUR ABDILA",
-    nim: "261011400899",
+    name: "KURNIA DWI RAHMAN",
+    nim: "261011401340",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-12.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -230,11 +230,11 @@ const students = [
   },
   {
     id: "13",
-    name: "KEYLA PUTRI AZNI",
-    nim: "261011400917",
+    name: "LUT FIAH",
+    nim: "261011400905",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-13.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -244,11 +244,11 @@ const students = [
   },
   {
     id: "14",
-    name: "KURNIA DWI RAHMAN",
-    nim: "261011401340",
-    role: "Mahasiswa",
-    roleType: "student",
-    image: "assets/images/students/student-14.svg",
+    name: "LUTFIYA NUR HASANAH",
+    nim: "261011400922",
+    role: "Sekretaris",
+    roleType: "leader",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -258,25 +258,11 @@ const students = [
   },
   {
     id: "15",
-    name: "LUT FIAH",
-    nim: "261011400905",
+    name: "MARIA OYAKNI JENIA",
+    nim: "261011400923",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-15.png",
-    bio: ".",
-    email: "",
-    phone: "",
-    skills: "",
-    hobby: "",
-    socials: {instagram: "https://instagram.com" }
-  },
-  {
-    id: "16",
-    name: "LUTFIYA NUR HASANAH",
-    nim: "261011400922",
-    role: "Mahasiswa",
-    roleType: "student",
-    image: "assets/images/students/student-16.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -286,11 +272,11 @@ const students = [
   },
   {
     id: "17",
-    name: "MARIA OYAKNI JENIA",
-    nim: "261011400923",
+    name: "MIKHAEL BURA KELEN",
+    nim: "261011400924",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-17.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -300,11 +286,11 @@ const students = [
   },
   {
     id: "18",
-    name: "MIKHAEL BURA KELEN",
-    nim: "261011400924",
+    name: "MUAMMAR KHADAFI ABDURRAHMAN",
+    nim: "261011401501",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-18.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -314,11 +300,11 @@ const students = [
   },
   {
     id: "19",
-    name: "MUAMMAR KHADAFI ABDURRAHMAN",
-    nim: "261011401501",
+    name: "MUHAMMAD ALIF HAMZAH",
+    nim: "261011400919",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-19.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -328,11 +314,11 @@ const students = [
   },
   {
     id: "20",
-    name: "MUHAMMAD ALIF HAMZAH",
-    nim: "261011400919",
+    name: "MUHAMMAD HUSNIY ABDILLAH",
+    nim: "261011400912",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-20.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -342,11 +328,11 @@ const students = [
   },
   {
     id: "21",
-    name: "MUHAMMAD HUSNIY ABDILLAH",
-    nim: "261011400912",
+    name: "MUHAMMAD RIZKY RAMADHAN",
+    nim: "261011401537",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-21.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -356,11 +342,25 @@ const students = [
   },
   {
     id: "22",
-    name: "MUHAMMAD RIZKY RAMADHAN",
-    nim: "261011401537",
+    name: "MUHAMMAD RUSTIAN AL-FARIZI",
+    nim: "261011400926",
+    role: "Bendahara",
+    roleType: "leader",
+    image: "assets/images/students/",
+    bio: ".",
+    email: "",
+    phone: "",
+    skills: "",
+    hobby: "",
+    socials: {instagram: "https://instagram.com" }
+  },
+  {
+    id: "23",
+    name: "RADINKA ARKA PRAMANA",
+    nim: "261011401493",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-22.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -370,11 +370,11 @@ const students = [
   },
   {
     id: "24",
-    name: "RADINKA ARKA PRAMANA",
-    nim: "261011401493",
-    role: "Mahasiswa",
-    roleType: "student",
-    image: "assets/images/students/student-24.svg",
+    name: "TIAN SAPUTRI HONDRO",
+    nim: "261011401724",
+    role: "Bendahara",
+    roleType: "leader",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -388,7 +388,7 @@ const students = [
     nim: "261011401299",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-25.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -402,7 +402,7 @@ const students = [
     nim: "261011401606",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-26.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -416,7 +416,7 @@ const students = [
     nim: "261011400906",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/student-27.svg",
+    image: "assets/images/students/",
     bio: ".",
     email: "",
     phone: "",
@@ -526,14 +526,14 @@ const announcements = [
     type: "assignment",
     title: "Pengantar Teknologi Informasi",
     date: "Jumat, 23:59 WIB",
-    badgeText: "Assignment 📢",
+    badgeText: "Assignment",
     description: "Tugas PTI mencatat/mencari materi tentang osi vs tcp/ip"
   },
   {
     type: "assignment",
     title: "Tugas Logika informatika.",
     date: "Minggu Depan (Senin)",
-    badgeText: "Assignment 📢",
+    badgeText: "Assignment",
     description: "Cerita rakyat",
   },
 ];
@@ -960,8 +960,9 @@ function openMemberModal(student) {
   document.getElementById('modalStudentImg').alt = student.name;
   document.getElementById('modalStudentName').textContent = student.name;
   document.getElementById('modalStudentNim').textContent = `NIM: ${student.nim}`;
-  document.getElementById('modalStudentRoleBadge').textContent = student.role;
-  document.getElementById('modalStudentBio').textContent = student.bio || "Mahasiswa aktif kelas RPL 2026.";
+  const roleBadge = document.getElementById('modalStudentRoleBadge');
+  if (roleBadge) roleBadge.textContent = student.role;
+  document.getElementById('modalStudentBio').textContent = student.bio || "Mahasiswa aktif kelas 01TPLP022.";
 
   const emailEl = document.getElementById('modalStudentEmail');
   if (emailEl) {
@@ -990,18 +991,19 @@ function openMemberModal(student) {
   if (socialsContainer) {
     let btns = '';
     if (student.socials?.github && student.socials.github !== '#') {
-      btns += `<a href="${student.socials.github}" target="_blank" rel="noopener" class="modal-social-btn">💻 GitHub</a>`;
+      btns += `<a href="${student.socials.github}" target="_blank" rel="noopener" class="modal-social-btn">GitHub</a>`;
     }
     if (student.socials?.instagram && student.socials.instagram !== '#') {
-      btns += `<a href="${student.socials.instagram}" target="_blank" rel="noopener" class="modal-social-btn">📸 Instagram</a>`;
+      btns += `<a href="${student.socials.instagram}" target="_blank" rel="noopener" class="modal-social-btn">Instagram</a>`;
     }
     if (student.email && student.email !== '-') {
-      btns += `<a href="mailto:${student.email}" class="modal-social-btn">✉️ Kirim Email</a>`;
+      btns += `<a href="mailto:${student.email}" class="modal-social-btn">Email</a>`;
     }
     if (student.phone && student.phone !== '-') {
       const cleanPhone = student.phone.replace(/[^0-9]/g, '');
       const waPhone = cleanPhone.startsWith('0') ? '62' + cleanPhone.slice(1) : cleanPhone;
-      btns += `<a href="https://wa.me/${waPhone}" target="_blank" rel="noopener" class="modal-social-btn">💬 Chat WA</a>`;
+      btns += `<a href="https://wa.me/${waPhone}" target="_blank" rel="noopener" class="modal-social-btn">WhatsApp</a>`;
+
     }
     socialsContainer.innerHTML = btns || `<span style="font-size:12px; color:var(--text-muted);">Tidak ada tautan media sosial.</span>`;
   }
@@ -1099,36 +1101,53 @@ function playVictoryFanfare() {
   }
 }
 
+/**
+ * 7. FITUR CLASS ROULETTE & RANDOM PICKER (Terintegrasi Pembagian Kelompok)
+ */
+let rouletteStudents = [...students];
+let redrawRouletteWheel = null;
+
 function initRoulette() {
   const canvas = document.getElementById('rouletteCanvas');
   const spinBtn = document.getElementById('spinBtn');
   const spinBtnText = document.getElementById('spinBtnText');
+  const resetRouletteBtn = document.getElementById('resetRouletteBtn');
   const winnerCard = document.getElementById('winnerCard');
   const winnerAvatar = document.getElementById('winnerAvatar');
   const winnerName = document.getElementById('winnerName');
   const winnerId = document.getElementById('winnerId');
+  const winnerGroupPill = document.getElementById('winnerGroupPill');
+  const winnerRemainingPill = document.getElementById('winnerRemainingPill');
+  const wheelSubtext = document.getElementById('wheelSubtext');
+  const wheelCenterCap = document.getElementById('wheelCenterCap');
   const audioToggleBtn = document.getElementById('audioToggleBtn');
   const soundIcon = document.getElementById('soundIcon');
 
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
-  const numSlices = students.length;
-  const arc = (2 * Math.PI) / numSlices;
 
-  // Warna sektor roda yang harmonis & modern
+  // Pixel grayscale color palette for wheel sectors
   const sliceColors = [
-    '#6366f1', '#8b5cf6', '#3b82f6', '#06b6d4', 
-    '#10b981', '#f59e0b', '#ec4899', '#14b8a6',
-    '#4f46e5', '#a855f7', '#0284c7', '#059669'
+    '#111111', '#333333', '#555555', '#777777',
+    '#888888', '#AAAAAA', '#CCCCCC', '#222222',
+    '#444444', '#666666', '#999999', '#BBBBBB'
   ];
 
   let currentAngle = 0;
   let isSpinning = false;
-  let spinVelocity = 0;
   let lastSectorIndex = -1;
 
-  // Render Roda pada Canvas dengan resolusi tinggi
+  function updateWheelSubtext() {
+    if (!wheelSubtext) return;
+    if (rouletteStudents.length === 0) {
+      wheelSubtext.innerHTML = '<strong>Semua mahasiswa telah lengkap terbagi ke kelompok!</strong>';
+    } else {
+      wheelSubtext.innerHTML = `Putar roda untuk memilih mahasiswa dan otomatis membaginya ke kelompok. (<strong>Sisa: ${rouletteStudents.length} mahasiswa di roda</strong>)`;
+    }
+  }
+
+  // Render wheel on canvas — pixel style
   function drawWheel() {
     const width = canvas.width;
     const height = canvas.height;
@@ -1138,74 +1157,136 @@ function initRoulette() {
 
     ctx.clearRect(0, 0, width, height);
 
-    // Gambar setiap irisan (wedge/sector)
+    const numSlices = rouletteStudents.length;
+
+    if (numSlices === 0) {
+      // Tampilan ketika semua mahasiswa telah selesai diundi ke kelompok
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, 2 * Math.PI);
+      ctx.fillStyle = '#1a1a1a';
+      ctx.fill();
+      ctx.strokeStyle = '#ffe21a';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      ctx.save();
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#ffe21a';
+      ctx.font = 'bold 13px "Press Start 2P", monospace';
+      ctx.fillText('SEMUA SISWA', cx, cy - 14);
+      ctx.fillText('SUDAH TERBAGI!', cx, cy + 14);
+      ctx.restore();
+
+      if (wheelCenterCap) {
+        wheelCenterCap.classList.add('hidden');
+      }
+      return;
+    }
+
+    if (wheelCenterCap) {
+      wheelCenterCap.classList.remove('hidden');
+      wheelCenterCap.innerHTML = '<span>SPIN</span>';
+    }
+
+    const arc = (2 * Math.PI) / numSlices;
+
+    // Gambar setiap irisan (slice)
     for (let i = 0; i < numSlices; i++) {
       const angle = currentAngle + i * arc;
+      const color = sliceColors[i % sliceColors.length];
       ctx.beginPath();
-      ctx.fillStyle = sliceColors[i % sliceColors.length];
+      ctx.fillStyle = color;
       ctx.moveTo(cx, cy);
       ctx.arc(cx, cy, radius, angle, angle + arc, false);
       ctx.lineTo(cx, cy);
       ctx.fill();
 
-      // Garis tepi halus antar sektor
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-      ctx.lineWidth = 1.5;
+      // Border antar sektor
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+      ctx.lineWidth = 2;
       ctx.stroke();
 
-      // Gambar nama siswa melintang dari luar ke arah pusat roda
+      // Nama mahasiswa — kontras otomatis
+      const brightness = parseInt(color.slice(1), 16);
+      const textColor = brightness > 0x777777 ? '#111111' : '#FFFFFF';
+
       ctx.save();
       ctx.translate(cx, cy);
       ctx.rotate(angle + arc / 2);
       ctx.textAlign = 'right';
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 13px Inter, sans-serif';
-      ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-      ctx.shadowBlur = 4;
-      
-      // Ambil nama panggilan/depan agar rapi di roda
-      const studentName = students[i].name;
-      const displayName = studentName.length > 14 ? studentName.substring(0, 12) + '...' : studentName;
-      ctx.fillText(displayName, radius - 20, 5);
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = textColor;
+
+      const fontSize = numSlices <= 6 ? 12 : (numSlices <= 14 ? 10 : 9);
+      ctx.font = `bold ${fontSize}px "Press Start 2P", monospace`;
+
+      const studentName = rouletteStudents[i].name;
+      const firstName = studentName.split(' ')[0];
+      const maxLen = numSlices > 16 ? 8 : 12;
+      const displayName = firstName.length > maxLen ? firstName.substring(0, maxLen - 1) + '.' : firstName;
+      ctx.fillText(displayName, radius - 18, 0);
       ctx.restore();
     }
 
-    // Outer ring border roda
+    // Outer border ring — solid pixel frame
     ctx.beginPath();
     ctx.arc(cx, cy, radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
-    ctx.lineWidth = 8;
+    ctx.strokeStyle = '#111111';
+    ctx.lineWidth = 4;
+    ctx.stroke();
+
+    // Inner ring accent
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+    ctx.lineWidth = 2;
     ctx.stroke();
   }
 
+  // Simpan referensi fungsi agar bisa dipanggil saat reset kelompok
+  redrawRouletteWheel = drawWheel;
+
   // Gambar roda awal
   drawWheel();
+  updateWheelSubtext();
 
   // Toggle Suara
   if (audioToggleBtn) {
     audioToggleBtn.addEventListener('click', () => {
       isSoundEnabled = !isSoundEnabled;
       soundIcon.setAttribute(
-    'data-lucide',
-    isSoundEnabled ? 'volume-2' : 'volume-x'
-);
-
-lucide.createIcons();
+        'data-lucide',
+        isSoundEnabled ? 'volume-2' : 'volume-x'
+      );
+      lucide.createIcons();
       showToast(isSoundEnabled ? 'Suara Roulette diaktifkan' : 'Suara Roulette dibisukan', 'info');
     });
   }
 
   // Hitung pemenang berdasarkan pointer panah di posisi puncak (270 derajat atau 3*PI/2)
   function getSelectedStudent(finalAngle) {
+    if (rouletteStudents.length === 0) return null;
+    const numSlices = rouletteStudents.length;
+    const arc = (2 * Math.PI) / numSlices;
     const pointerAngle = (3 * Math.PI) / 2; // Atas (Top)
     const normalizedAngle = (pointerAngle - (finalAngle % (2 * Math.PI)) + 4 * Math.PI) % (2 * Math.PI);
     const index = Math.floor(normalizedAngle / arc) % numSlices;
-    return students[index];
+    return { student: rouletteStudents[index], index };
   }
 
   // Animasi Putaran Roda
   function spin() {
     if (isSpinning) return;
+
+    // Jika seluruh mahasiswa sudah habis terbagi, klik tombol akan mereset roda & kelompok
+    if (rouletteStudents.length === 0) {
+      if (typeof resetAllRouletteAndGroups === 'function') {
+        resetAllRouletteAndGroups();
+      }
+      return;
+    }
+
     isSpinning = true;
 
     // Aktifkan audio context saat tombol diklik user
@@ -1213,15 +1294,18 @@ lucide.createIcons();
 
     if (spinBtn) {
       spinBtn.disabled = true;
-      spinBtnText.textContent = 'Berputar';
+      spinBtnText.textContent = 'Berputar...';
     }
     if (winnerCard) {
       winnerCard.classList.add('hidden');
     }
 
-    // Parameter Fisika Putaran (4 - 5.5 detik)
-    const totalSpinDuration = 4800; // 4.8 detik
-    const randomExtraTurns = 6 + Math.random() * 4; // 6 sampai 10 putaran penuh
+    const numSlices = rouletteStudents.length;
+    const arc = (2 * Math.PI) / numSlices;
+
+    // Parameter Fisika Putaran
+    const totalSpinDuration = 4500;
+    const randomExtraTurns = 5 + Math.random() * 4;
     const randomTargetAngle = Math.random() * (2 * Math.PI);
     const targetTotalRotation = randomExtraTurns * 2 * Math.PI + randomTargetAngle;
     const startAngle = currentAngle;
@@ -1231,7 +1315,7 @@ lucide.createIcons();
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / totalSpinDuration, 1);
 
-      // Cubic Ease Out (Cepat di awal, melambat secara halus di akhir)
+      // Cubic Ease Out
       const easeOut = 1 - Math.pow(1 - progress, 3.2);
 
       currentAngle = startAngle + targetTotalRotation * easeOut;
@@ -1249,30 +1333,58 @@ lucide.createIcons();
       } else {
         // Roda berhenti berputar
         isSpinning = false;
-        if (spinBtn) {
-          spinBtn.disabled = false;
-          spinBtnText.textContent = 'SPIN THE WHEEL';
-        }
 
-        const winner = getSelectedStudent(currentAngle);
+        const selection = getSelectedStudent(currentAngle);
+        if (!selection) return;
 
-        // Bunyikan fanfare
+        const winner = selection.student;
+        const winnerIdx = selection.index;
+
+        // 1. Otomatis masukkan siswa ke kelompok
+        const groupInfo = addStudentToGroup(winner);
+        const groupNum = String(groupInfo.groupNumber).padStart(2, '0');
+
+        // 2. Hapus nama siswa dari roulette agar tidak terpilih lagi
+        rouletteStudents.splice(winnerIdx, 1);
+
+        // 3. Gambar ulang roda roulette dengan sisa siswa yang ada
+        drawWheel();
+        updateWheelSubtext();
+
+        // 4. Suara perayaan & konfeti
         playVictoryFanfare();
+        launchConfetti();
 
-        // Tampilkan kartu pemenang terpilih
+        // 5. Tampilkan kartu hasil pemenang dengan info kelompok
         if (winnerCard) {
           winnerAvatar.src = winner.image;
           winnerAvatar.alt = winner.name;
           winnerName.textContent = winner.name;
           winnerId.textContent = `NIM: ${winner.nim} • ${winner.role}`;
+
+          if (winnerGroupPill) {
+            winnerGroupPill.textContent = `Dimasukkan ke GROUP ${groupNum} (Anggota ke-${groupInfo.groupLength})`;
+          }
+
+          if (winnerRemainingPill) {
+            winnerRemainingPill.textContent = rouletteStudents.length > 0
+              ? `Sisa ${rouletteStudents.length} mahasiswa di roda`
+              : 'Semua mahasiswa telah lengkap terbagi!';
+          }
+
           winnerCard.classList.remove('hidden');
         }
 
-        // Tembakkan konfeti perayaan
-        launchConfetti();
-
-        // Tampilkan notifikasi toast
-        showToast(`Siswa terpilih: ${winner.name}!`, 'success');
+        // 6. Cek apakah roda sudah habis
+        if (rouletteStudents.length === 0) {
+          if (spinBtn) spinBtn.disabled = false;
+          if (spinBtnText) spinBtnText.textContent = 'SEMUA TERBAGI (RESET)';
+          showToast(`🎉 ${winner.name} masuk ke GROUP ${groupNum}! Semua mahasiswa telah selesai dibagi ke kelompok!`, 'success');
+        } else {
+          if (spinBtn) spinBtn.disabled = false;
+          if (spinBtnText) spinBtnText.textContent = 'SPIN THE WHEEL';
+          showToast(`${winner.name} masuk ke GROUP ${groupNum}! (Sisa di roda: ${rouletteStudents.length})`, 'success');
+        }
       }
     }
 
@@ -1281,6 +1393,14 @@ lucide.createIcons();
 
   if (spinBtn) {
     spinBtn.addEventListener('click', spin);
+  }
+
+  if (resetRouletteBtn) {
+    resetRouletteBtn.addEventListener('click', () => {
+      if (typeof resetAllRouletteAndGroups === 'function') {
+        resetAllRouletteAndGroups();
+      }
+    });
   }
 }
 
@@ -1356,9 +1476,118 @@ function launchConfetti() {
 }
 
 /**
- * 9. FITUR RANDOM GROUP GENERATOR (Bagi Kelompok Acak)
+ * 9. FITUR RANDOM GROUP GENERATOR (Terintegrasi dengan Roulette)
  */
 let currentGeneratedGroups = [];
+
+// Render kartu-kartu kelompok secara reaktif
+function renderGroupsList(highlightStudentNim = null) {
+  const resultGrid = document.getElementById('groupsResultGrid');
+  const placeholderHint = document.getElementById('groupsPlaceholderHint');
+  const actionsBar = document.getElementById('groupActionsBar');
+  const shuffleAgainBtn = document.getElementById('shuffleAgainBtn');
+
+  if (!resultGrid) return;
+
+  const assignedStudentCount = currentGeneratedGroups.reduce((total, group) => total + group.length, 0);
+  const everyoneAssigned = assignedStudentCount >= students.length;
+  if (shuffleAgainBtn) {
+    shuffleAgainBtn.disabled = !everyoneAssigned;
+    shuffleAgainBtn.title = everyoneAssigned
+      ? 'Acak ulang susunan kelompok'
+      : 'Acak ulang tersedia setelah semua mahasiswa mendapat kelompok';
+  }
+
+  if (currentGeneratedGroups.length === 0) {
+    resultGrid.innerHTML = '';
+    if (placeholderHint) placeholderHint.classList.remove('hidden');
+    if (actionsBar) actionsBar.classList.add('hidden');
+    return;
+  }
+
+  if (placeholderHint) placeholderHint.classList.add('hidden');
+  if (actionsBar) actionsBar.classList.remove('hidden');
+
+  resultGrid.innerHTML = currentGeneratedGroups.map((grp, gIndex) => {
+    const groupNum = String(gIndex + 1).padStart(2, '0');
+    const membersHtml = grp.map((s, sIdx) => {
+      const isNew = s.nim === highlightStudentNim;
+      return `
+        <li class="group-member-item${isNew ? ' newly-added' : ''}" title="NIM: ${s.nim}">
+          <span class="group-member-num">${sIdx + 1}.</span>
+          <span class="group-member-name">${s.name}</span>
+          ${isNew ? '<span class="group-new-badge">BARU</span>' : ''}
+        </li>
+      `;
+    }).join('');
+
+    return `
+      <div class="generated-group-card">
+        <div class="group-card-header">
+          <h4 class="group-card-title">GROUP ${groupNum}</h4>
+          <span class="group-card-badge">${grp.length} Siswa</span>
+        </div>
+        <ul class="group-member-list">
+          ${membersHtml}
+        </ul>
+      </div>
+    `;
+  }).join('');
+}
+
+// Tambahkan 1 siswa hasil putaran roulette ke kelompok secara teratur
+function addStudentToGroup(student) {
+  const studentsPerGroupInput = document.getElementById('studentsPerGroupInput');
+  const perGroup = parseInt(studentsPerGroupInput ? studentsPerGroupInput.value : 5, 10) || 5;
+
+  if (currentGeneratedGroups.length === 0) {
+    currentGeneratedGroups.push([student]);
+  } else {
+    const lastGroup = currentGeneratedGroups[currentGeneratedGroups.length - 1];
+    if (lastGroup.length < perGroup) {
+      lastGroup.push(student);
+    } else {
+      currentGeneratedGroups.push([student]);
+    }
+  }
+
+  const groupIndex = currentGeneratedGroups.findIndex(grp => grp.some(s => s.nim === student.nim));
+  const groupNumber = groupIndex + 1;
+
+  renderGroupsList(student.nim);
+
+  return {
+    groupNumber,
+    groupIndex,
+    groupLength: currentGeneratedGroups[groupIndex].length
+  };
+}
+
+// Reset roda roulette dan kelompok belajar ke kondisi awal
+function resetAllRouletteAndGroups() {
+  currentGeneratedGroups = [];
+  rouletteStudents = [...students];
+
+  renderGroupsList();
+
+  if (typeof redrawRouletteWheel === 'function') {
+    redrawRouletteWheel();
+  }
+
+  const spinBtn = document.getElementById('spinBtn');
+  const spinBtnText = document.getElementById('spinBtnText');
+  const winnerCard = document.getElementById('winnerCard');
+  if (spinBtn) spinBtn.disabled = false;
+  if (spinBtnText) spinBtnText.textContent = 'SPIN THE WHEEL';
+  if (winnerCard) winnerCard.classList.add('hidden');
+
+  const wheelSubtext = document.getElementById('wheelSubtext');
+  if (wheelSubtext) {
+    wheelSubtext.innerHTML = `Putar roda untuk memilih siswa dan otomatis membaginya ke kelompok. (<strong>Sisa: ${rouletteStudents.length} siswa di roda</strong>)`;
+  }
+
+  showToast('Roda roulette dan kelompok telah di-reset ke awal.', 'info');
+}
 
 function initGroupGenerator() {
   const studentsPerGroupInput = document.getElementById('studentsPerGroupInput');
@@ -1372,7 +1601,6 @@ function initGroupGenerator() {
   const downloadGroupsBtn = document.getElementById('downloadGroupsBtn');
   const resetGroupsBtn = document.getElementById('resetGroupsBtn');
   const indicator = document.getElementById('shufflingIndicator');
-  const resultGrid = document.getElementById('groupsResultGrid');
   const placeholderHint = document.getElementById('groupsPlaceholderHint');
 
   const updateSummary = () => {
@@ -1380,7 +1608,7 @@ function initGroupGenerator() {
     const total = students.length;
     const numGroups = Math.ceil(total / perGroup);
     if (summaryText) {
-      summaryText.innerHTML = `Akan menghasilkan <strong>${numGroups} Kelompok</strong> (rata-rata ~${perGroup} siswa per kelompok)`;
+      summaryText.innerHTML = `Akan menghasilkan <strong>${numGroups} Kelompok</strong> (kapasitas ~${perGroup} siswa per kelompok)`;
     }
   };
 
@@ -1415,17 +1643,18 @@ function initGroupGenerator() {
 
   updateSummary();
 
-  // Fungsi membuat dan membagi kelompok acak (Fisher-Yates Shuffle)
+  // Fungsi membuat dan membagi seluruh kelompok secara acak sekaligus (Batch Shuffle)
   const generateGroups = () => {
     const perGroup = parseInt(studentsPerGroupInput.value, 10) || 5;
     
     // Tampilkan animasi indicator shuffling
     if (indicator) indicator.classList.remove('hidden');
     if (placeholderHint) placeholderHint.classList.add('hidden');
+    const resultGrid = document.getElementById('groupsResultGrid');
     if (resultGrid) resultGrid.innerHTML = '';
     if (generateBtn) generateBtn.disabled = true;
 
-    // Salin dan acak array mahasiswa
+    // Salin dan acak array mahasiswa (Fisher-Yates Shuffle)
     const shuffled = [...students];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -1440,50 +1669,41 @@ function initGroupGenerator() {
 
     currentGeneratedGroups = groups;
 
-    // Simulasi penundaan acak (stagger effect) agar animasi terasa nyata
+    // Karena semua sudah dimasukkan ke kelompok, kosongkan roulette
+    rouletteStudents = [];
+
     setTimeout(() => {
       if (indicator) indicator.classList.add('hidden');
       if (generateBtn) generateBtn.disabled = false;
       if (actionsBar) actionsBar.classList.remove('hidden');
 
-      if (!resultGrid) return;
+      renderGroupsList();
 
-      resultGrid.innerHTML = groups.map((grp, gIndex) => {
-        const groupNum = String(gIndex + 1).padStart(2, '0');
-        const membersHtml = grp.map(s => `
-          <li class="group-member-item" title="${s.nim}">${s.name}</li>
-        `).join('');
+      if (typeof redrawRouletteWheel === 'function') {
+        redrawRouletteWheel();
+      }
 
-        return `
-          <div class="generated-group-card" style="animation-delay: ${gIndex * 0.08}s">
-            <div class="group-card-header">
-              <h4 class="group-card-title">GROUP ${groupNum}</h4>
-              <span class="group-card-badge">${grp.length} Siswa</span>
-            </div>
-            <ul class="group-member-list">
-              ${membersHtml}
-            </ul>
-          </div>
-        `;
-      }).join('');
+      const wheelSubtext = document.getElementById('wheelSubtext');
+      if (wheelSubtext) {
+        wheelSubtext.innerHTML = '<strong>Semua mahasiswa telah lengkap terbagi ke kelompok!</strong>';
+      }
+
+      const spinBtnText = document.getElementById('spinBtnText');
+      if (spinBtnText) {
+        spinBtnText.textContent = 'SEMUA TERBAGI (RESET)';
+      }
 
       launchConfetti();
-      showToast(` Berhasil membagi ${groups.length} kelompok belajar!`, 'success');
+      showToast(`Berhasil membagi ${groups.length} kelompok belajar!`, 'success');
     }, 700);
   };
 
   if (generateBtn) generateBtn.addEventListener('click', generateGroups);
   if (shuffleAgainBtn) shuffleAgainBtn.addEventListener('click', generateGroups);
 
-  // Reset Kelompok
+  // Reset Kelompok & Roda Roulette
   if (resetGroupsBtn) {
-    resetGroupsBtn.addEventListener('click', () => {
-      currentGeneratedGroups = [];
-      if (resultGrid) resultGrid.innerHTML = '';
-      if (placeholderHint) placeholderHint.classList.remove('hidden');
-      if (actionsBar) actionsBar.classList.add('hidden');
-      showToast('Hasil kelompok telah di-reset.', 'info');
-    });
+    resetGroupsBtn.addEventListener('click', resetAllRouletteAndGroups);
   }
 
   // Salin Kelompok ke Clipboard
@@ -1852,7 +2072,7 @@ const iconMap = {
       <span class="toast-icon">${icon}</span>
       <span>${message}</span>
     </div>
-    <span class="toast-close" title="Tutup">&times;</span>
+    <button type="button" class="toast-close" title="Tutup" aria-label="Tutup notifikasi"><svg class="pixel-x-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 19H5v-2h2v2Zm12 0h-2v-2h2v2ZM9 15v2H7v-2h2Zm8 2h-2v-2h2v2Zm-6-2H9v-2h2v2Zm4 0h-2v-2h2v2Zm-2-2h-2v-2h2v2Zm-2-2H9V9h2v2Zm4 0h-2V9h2v2ZM9 9H7V7h2v2Zm8 0h-2V7h2v2ZM7 7H5V5h2v2Zm12 0h-2V5h2v2Z"/></svg></button>
   `;
 
   container.appendChild(toast);
@@ -1949,3 +2169,119 @@ function initScrollReveal() {
 
   revealElements.forEach(el => observer.observe(el));
 }
+
+/* ==============================================================================
+   16. PIXEL SKY SYSTEM — Stars (dark) & Clouds (light)
+   ============================================================================== */
+
+/**
+ * Generate pixel stars for dark mode
+ */
+function createPixelStars(container) {
+  container.querySelectorAll('.px-star').forEach(s => s.remove());
+
+  const count = 80;
+  const twinkleClasses = ['twinkle-a', 'twinkle-b', 'twinkle-c', 'twinkle-d', 'twinkle-e'];
+  const sizeClasses = ['s1', 's1', 's1', 's2', 's2', 's3']; // weighted toward small
+
+  for (let i = 0; i < count; i++) {
+    const star = document.createElement('div');
+    star.className = `px-star ${sizeClasses[Math.floor(Math.random() * sizeClasses.length)]} ${twinkleClasses[Math.floor(Math.random() * twinkleClasses.length)]}`;
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 80}%`;
+    star.style.animationDelay = `${(Math.random() * 4).toFixed(2)}s`;
+    star.style.opacity = (0.4 + Math.random() * 0.6).toFixed(2);
+    container.appendChild(star);
+  }
+}
+
+/**
+ * Build a pixel cloud using nested divs (CSS box-shadow approach)
+ * @param {number} w - base width
+ * @param {number} h - base height
+ */
+function buildPixelCloud(w, h, opacity) {
+  const cloud = document.createElement('div');
+  cloud.className = 'px-cloud';
+  cloud.style.opacity = opacity.toFixed(2);
+
+  // Main body segments to form a chunky cloud shape
+  const segments = [
+    { x: 0,      y: h * 0.4,  w: w,       hh: h * 0.6 }, // main body
+    { x: w * 0.15, y: 0,    w: w * 0.4,  hh: h * 0.6 }, // top bump
+    { x: w * 0.45, y: h*0.1, w: w * 0.35, hh: h * 0.55 }, // right bump
+    { x: -w*0.05, y: h*0.3, w: w * 0.25, hh: h * 0.5  }, // left edge
+  ];
+
+  segments.forEach(seg => {
+    const seg_el = document.createElement('div');
+    seg_el.className = 'c-seg';
+    seg_el.style.left   = `${Math.round(seg.x)}px`;
+    seg_el.style.top    = `${Math.round(seg.y)}px`;
+    seg_el.style.width  = `${Math.round(seg.w)}px`;
+    seg_el.style.height = `${Math.round(seg.hh)}px`;
+    cloud.appendChild(seg_el);
+  });
+
+  return cloud;
+}
+
+/**
+ * Generate pixel clouds for light mode
+ */
+function createPixelClouds(container) {
+  container.querySelectorAll('.px-cloud').forEach(c => c.remove());
+
+  const cloudDefs = [
+    { w: 120, h: 50, top: '8%',  delay: '0s',   layer: 'layer-1', opacity: 0.90 },
+    { w: 180, h: 70, top: '15%', delay: '-12s',  layer: 'layer-2', opacity: 0.75 },
+    { w: 80,  h: 35, top: '5%',  delay: '-5s',   layer: 'layer-3', opacity: 0.65 },
+    { w: 140, h: 55, top: '22%', delay: '-20s',  layer: 'layer-1', opacity: 0.80 },
+    { w: 100, h: 42, top: '30%', delay: '-30s',  layer: 'layer-2', opacity: 0.60 },
+    { w: 200, h: 80, top: '10%', delay: '-8s',   layer: 'layer-1', opacity: 0.85 },
+    { w: 60,  h: 28, top: '35%', delay: '-18s',  layer: 'layer-3', opacity: 0.55 },
+  ];
+
+  cloudDefs.forEach((def, i) => {
+    const cloud = buildPixelCloud(def.w, def.h, def.opacity);
+    cloud.classList.add(def.layer);
+    cloud.style.top = def.top;
+    cloud.style.animationDelay = def.delay;
+    cloud.style.animationDuration = def.layer === 'layer-2' ? '38s' : (def.layer === 'layer-3' ? '16s' : '25s');
+    container.appendChild(cloud);
+  });
+}
+
+/**
+ * Initialize pixel sky
+ */
+function initPixelSky() {
+  const skyLayer = document.getElementById('pixelSkyLayer');
+  if (!skyLayer) return;
+
+  const html = document.documentElement;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+
+  function renderSky() {
+    const theme = html.getAttribute('data-theme');
+    if (theme === 'dark') {
+      createPixelStars(skyLayer);
+      skyLayer.querySelectorAll('.px-cloud').forEach(c => c.remove());
+    } else {
+      createPixelClouds(skyLayer);
+      skyLayer.querySelectorAll('.px-star').forEach(s => s.remove());
+    }
+  }
+
+  renderSky();
+
+  // Re-render sky on theme change (observe attribute mutation)
+  const observer = new MutationObserver(() => renderSky());
+  observer.observe(html, { attributes: true, attributeFilter: ['data-theme'] });
+}
+
+// Initialize pixel sky on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+  initPixelSky();
+});
