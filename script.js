@@ -436,7 +436,7 @@ const courses = [
     sks: 3,
     lecturer: "ZURNAN ALFIAN S.Kom., M.Kom.",
     scheduleDay: "Senin",
-    scheduleTime: "12:10 - 13:30 WIB",
+    scheduleTime: "13:00 - 14:40 WIB",
     room: "v123",
   },
   {
@@ -509,7 +509,7 @@ const courses = [
  */
 const schedule = [
   { day: "Senin", time: "10:30 - 12:10 WIB", course: "Kalkulus", sks: "3 SKS", lecturer: "ELFI FAUZIAH S.Si, M.Pd, M.Si.", room: "V123" },
-  { day: "Senin", time: "12:10 - 13:30 WIB", course: "Logika Informatika", sks: "3 SKS", lecturer: "ZURNAN ALFIAN S.Kom., M.Kom.", room: "V123" },
+  { day: "Senin", time: "13:00 - 14:40 WIB", course: "Logika Informatika", sks: "3 SKS", lecturer: "ZURNAN ALFIAN S.Kom., M.Kom.", room: "V123" },
   { day: "Senin", time: "14:40 - 16:10 WIB", course: "BASIC ENGLISH FOR INTERNATIONAL COMMUNICATION", sks: "2 SKS", lecturer: "AHMAD ARIFIN S.Pd.,M.Pd.", room: "V123" },
   { day: "Selasa", time: "08:50 - 10:30 WIB", course: "Pengantar Teknologi Informasi", sks: "2 SKS", lecturer: "WIWIN WINARTI S.Si., M.Kom.", room: "V123" },
   { day: "Selasa", time: "10:30 - 12:10 WIB", course: "Pancasila", sks: "2 SKS", lecturer: "ANIS SYAMSU RIZAL S.Pd.I., M.Pd., Μ.Μ.", room: "V123" },
