@@ -2072,6 +2072,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   color: var(--text-light);
   display: flex;
   align-items: center;
+   gap: 6px;
 }
 
 .course-meta-icon svg, .course-meta-icon i {
