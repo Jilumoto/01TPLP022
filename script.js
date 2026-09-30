@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGroupGenerator();
   initCoursesAndSchedule();
   initGallery();
+  initPixelPhotoBooth();
   initBackToTop();
   initRippleEffect();
   initScrollReveal();
@@ -58,7 +59,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: { instagram: "https://instagram.com" }
+    socials: { instagram: "https://www.instagram.com/bayuprstyou?stkn=c3Ridzhva3pvbTg=" }
   },
   {
     id: "02",
@@ -100,7 +101,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    socials: {instagram: "https://www.instagram.com/vlaskazrora" }
   },
   {
     id: "05",
@@ -122,7 +123,7 @@ const students = [
     nim: "261011400914",
     role: "Mahasiswa",
     roleType: "student",
-    image: "assets/images/students/",
+    image: "assets/images/students/ezzar.png",
     bio: ".",
     email: "",
     phone: "",
@@ -212,7 +213,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    socials: {instagram: "https://www.instagram.com/keylaaputriazni_" }
   },
   {
     id: "12",
@@ -254,7 +255,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    socials: {instagram: "https://www.instagram.com/alyh.nh_" }
   },
   {
     id: "15",
@@ -268,7 +269,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    socials: {instagram: "https://www.instagram.com/oyakk___07" }
   },
   {
     id: "17",
@@ -338,7 +339,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    socials: {instagram: "https://www.instagram.com/r1zkyr4dhn" }
   },
   {
     id: "22",
@@ -352,7 +353,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    socials: {instagram: "https://www.instagram.com/fariz_200803" }
   },
   {
     id: "23",
@@ -366,7 +367,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    socials: {instagram: "https://www.instagram.com/christhoper.jpg" }
   },
   {
     id: "24",
@@ -380,7 +381,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    socials: {instagram: "https://www.instagram.com/tiansaputrih" }
   },
   {
     id: "25",
@@ -524,17 +525,17 @@ const schedule = [
 const announcements = [
   {
     type: "assignment",
-    title: "Pengantar Teknologi Informasi",
-    date: "Jumat, 23:59 WIB",
-    badgeText: "Assignment",
-    description: "Tugas PTI mencatat/mencari materi tentang osi vs tcp/ip"
-  },
-  {
-    type: "assignment",
     title: "Tugas Logika informatika.",
     date: "Minggu Depan (Senin)",
     badgeText: "Assignment",
     description: "Cerita rakyat",
+  },
+  {
+    type: "assignment",
+    title: "Tugas Pengantar Teknologi Informasi",
+    date: "Minggu Depan (Selasa)",
+    badgeText: "Assignment",
+    description: "Kerjakan dengan flowchart dan pseudocode <br> Buat flowchart program untuk menghitung volume dan luas penampang balok. Input: panjang, lebar, tinggi. Buat flowchart program untuk menghitung luas trapesium. Input: dua sisi sejajar dan tinggi. Buat flowchart yang mengubah nilai angka (0-100) menjadi huruf A, B, C, D, atau E. Buatlah flowchart sistem login pengguna pada sebuah aplikasi. Flowchart harus menggambarkan seluruh proses mulai dari pengguna membuka halaman login, memasukkan username dan password, sistem melakukan validasi data, hingga menentukan apakah pengguna berhasil login atau harus mengulangi proses login.z",
   },
 ];
 
@@ -1127,11 +1128,11 @@ function initRoulette() {
 
   const ctx = canvas.getContext('2d');
 
-  // Pixel grayscale color palette for wheel sectors
+  // Pixel cyberpunk palette for wheel sectors
   const sliceColors = [
-    '#111111', '#333333', '#555555', '#777777',
-    '#888888', '#AAAAAA', '#CCCCCC', '#222222',
-    '#444444', '#666666', '#999999', '#BBBBBB'
+    '#09243a', '#00b8d9', '#7b2cff', '#132d4f',
+    '#f02eaa', '#07516b', '#2a1b59', '#00d4c7',
+    '#10213d', '#b42eff', '#006b83', '#3b185f'
   ];
 
   let currentAngle = 0;
@@ -1797,6 +1798,45 @@ function initCoursesAndSchedule() {
   const scheduleTableBody = document.getElementById('scheduleTableBody');
   const scheduleMobileCards = document.getElementById('scheduleMobileCards');
   const scheduleDayTabs = document.getElementById('scheduleDayTabs');
+  const scheduleResults = document.querySelector('.schedule-section .schedule-card');
+
+  // Animate result-area height instead of correcting the page scroll after redraw.
+  const activeFilterAnimations = new WeakMap();
+  const renderFilterResultsSmoothly = (container, renderResults) => {
+    if (!container) {
+      renderResults();
+      return;
+    }
+
+    const startHeight = container.getBoundingClientRect().height;
+    const previousAnimation = activeFilterAnimations.get(container);
+    if (previousAnimation) previousAnimation.cancel();
+
+    container.style.height = 'auto';
+    container.style.overflow = 'hidden';
+    renderResults();
+    const endHeight = container.getBoundingClientRect().height;
+    container.style.height = `${startHeight}px`;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (Math.abs(endHeight - startHeight) < 1 || !container.animate || prefersReducedMotion) {
+      container.style.height = '';
+      container.style.overflow = '';
+      return;
+    }
+
+    const animation = container.animate(
+      [{ height: `${startHeight}px` }, { height: `${endHeight}px` }],
+      { duration: 320, easing: 'cubic-bezier(.22, .61, .36, 1)' }
+    );
+    activeFilterAnimations.set(container, animation);
+    animation.onfinish = () => {
+      if (activeFilterAnimations.get(container) !== animation) return;
+      container.style.height = '';
+      container.style.overflow = '';
+      activeFilterAnimations.delete(container);
+    };
+  };
 
   // Render Courses Cards
   let activeCourseFilter = 'all';
@@ -1806,7 +1846,7 @@ function initCoursesAndSchedule() {
     const filtered = courses.filter(c => activeCourseFilter === 'all' || c.type === activeCourseFilter);
 
     coursesGrid.innerHTML = filtered.map(c => `
-      <div class="course-card reveal active">
+      <div class="course-card">
         <div class="course-card-top">
           <span class="course-sks-badge">${c.sks} SKS</span>
         </div>
@@ -1843,7 +1883,7 @@ function initCoursesAndSchedule() {
         courseFilterTabs.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         activeCourseFilter = btn.dataset.filter;
-        renderCourses();
+        renderFilterResultsSmoothly(coursesGrid, renderCourses);
       });
     });
   }
@@ -1918,7 +1958,7 @@ function initCoursesAndSchedule() {
         scheduleDayTabs.querySelectorAll('.sched-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         activeScheduleDay = tab.dataset.day;
-        renderSchedule();
+        renderFilterResultsSmoothly(scheduleResults, renderSchedule);
       });
     });
   }
@@ -2020,6 +2060,450 @@ function initGallery() {
     else if (e.key === 'ArrowLeft') showPrev();
     else if (e.key === 'Escape') closeLightbox();
   });
+}
+
+/**
+ * 11B. 01TPLP022 PIXEL PHOTO BOOTH (Camera & Retro Image Processing)
+ */
+function initPixelPhotoBooth() {
+  const boothWrapper = document.getElementById('pixelPhotoBooth');
+  if (!boothWrapper) return;
+
+  const btnEnableCamera = document.getElementById('btnEnableCamera');
+  const btnRetryCamera = document.getElementById('btnRetryCamera');
+  const btnTakePhoto = document.getElementById('btnTakePhoto');
+  const btnStopCamera = document.getElementById('btnStopCamera');
+  const btnRetakePhoto = document.getElementById('btnRetakePhoto');
+  const btnSavePhoto = document.getElementById('btnSavePhoto');
+
+  const boothStandbyView = document.getElementById('boothStandbyView');
+  const boothErrorView = document.getElementById('boothErrorView');
+  const boothLiveView = document.getElementById('boothLiveView');
+  const boothResultView = document.getElementById('boothResultView');
+  const boothFlash = document.getElementById('boothFlash');
+  const boothProcessingOverlay = document.getElementById('boothProcessingOverlay');
+
+  const boothLiveControls = document.getElementById('boothLiveControls');
+  const boothResultControls = document.getElementById('boothResultControls');
+
+  const video = document.getElementById('boothVideo');
+  const resultCanvas = document.getElementById('boothResultCanvas');
+  const printFooterMeta = document.getElementById('printFooterMeta');
+
+  const errorMessageEl = document.getElementById('boothErrorMessage');
+  const errorTitleEl = document.getElementById('boothErrorTitle');
+
+  // State
+  let currentStream = null;
+  let isCameraActive = false;
+  let rawCapturedCanvas = null;
+  let selectedStyle = 'normal'; // Default: 'normal' (high resolution 1080p) | 'pixel' (retro pixel effect)
+
+  function switchView(viewName) {
+    boothStandbyView.classList.add('booth-hidden');
+    boothErrorView.classList.add('booth-hidden');
+    boothLiveView.classList.add('booth-hidden');
+    boothResultView.classList.add('booth-hidden');
+
+    if (viewName === 'standby') {
+      boothStandbyView.classList.remove('booth-hidden');
+      boothLiveControls.classList.remove('booth-hidden');
+      boothResultControls.classList.add('booth-hidden');
+    } else if (viewName === 'error') {
+      boothErrorView.classList.remove('booth-hidden');
+      boothLiveControls.classList.add('booth-hidden');
+      boothResultControls.classList.add('booth-hidden');
+    } else if (viewName === 'live') {
+      boothLiveView.classList.remove('booth-hidden');
+      boothLiveControls.classList.remove('booth-hidden');
+      boothResultControls.classList.add('booth-hidden');
+    } else if (viewName === 'result') {
+      boothResultView.classList.remove('booth-hidden');
+      boothLiveControls.classList.add('booth-hidden');
+      boothResultControls.classList.remove('booth-hidden');
+    }
+
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  }
+
+  function showError(title, message) {
+    stopCamera();
+    if (errorTitleEl) errorTitleEl.textContent = title;
+    if (errorMessageEl) errorMessageEl.textContent = message;
+    switchView('error');
+  }
+
+  async function startCamera() {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      showError(
+        'BROWSER NOT SUPPORTED',
+        'Your browser does not support live camera access via getUserMedia. Please open this website in a modern browser such as Chrome, Edge, Safari, or Firefox.'
+      );
+      return;
+    }
+
+    stopCamera();
+
+    try {
+      // Request 1080p 16:9 stream when supported
+      const constraints = {
+        video: {
+          width: { ideal: 1920 },
+          height: { ideal: 1080 },
+          aspectRatio: { ideal: 16 / 9 },
+          facingMode: 'user'
+        },
+        audio: false
+      };
+
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      currentStream = stream;
+      video.srcObject = stream;
+
+      video.onloadedmetadata = () => {
+        video.play().catch(e => console.warn('Video play warning:', e));
+      };
+
+      isCameraActive = true;
+      switchView('live');
+      showToast('Kamera Pixel Booth aktif (16:9 HD)!', 'info');
+    } catch (err) {
+      console.error('Camera access error:', err);
+      let title = 'CAMERA ACCESS REQUIRED';
+      let msg = 'Camera permission was denied or camera device is not available. Please allow camera permissions in your browser settings to step into the photo booth.';
+
+      if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
+        title = 'NO CAMERA FOUND';
+        msg = 'No camera device detected on this device. Please connect a webcam or use a smartphone/tablet.';
+      } else if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+        title = 'PERMISSION DENIED';
+        msg = 'Camera access was blocked by your browser. Please click the site settings / lock icon in your address bar to allow camera access, then click "Try Again".';
+      } else if (err.name === 'NotReadableError' || err.name === 'TrackStartError') {
+        title = 'CAMERA IN USE';
+        msg = 'Your camera may be in use by another application or tab. Please close other camera apps and retry.';
+      }
+
+      showError(title, msg);
+    }
+  }
+
+  function stopCamera() {
+    if (currentStream) {
+      currentStream.getTracks().forEach(track => {
+        try {
+          track.stop();
+        } catch (e) {
+          console.warn('Error stopping camera track:', e);
+        }
+      });
+      currentStream = null;
+    }
+    if (video) {
+      video.srcObject = null;
+    }
+    isCameraActive = false;
+  }
+
+  function takePhoto() {
+    if (!isCameraActive || !video || video.readyState < 2) {
+      showToast('Kamera belum siap, mohon tunggu sebentar...', 'warning');
+      return;
+    }
+
+    // Shutter flash animation
+    if (boothFlash) {
+      boothFlash.classList.add('flash-active');
+      setTimeout(() => {
+        boothFlash.classList.remove('flash-active');
+      }, 120);
+    }
+
+    // Target full-resolution 1080p canvas (1920 × 1080)
+    const targetW = 1920;
+    const targetH = 1080;
+    const targetRatio = targetW / targetH; // 16:9
+
+    const vw = video.videoWidth || 1920;
+    const vh = video.videoHeight || 1080;
+    const videoRatio = vw / vh;
+
+    // Intelligent cover-style cropping to 16:9 without distortion or stretching
+    let srcX = 0, srcY = 0, srcW = vw, srcH = vh;
+    if (videoRatio > targetRatio) {
+      srcW = vh * targetRatio;
+      srcX = (vw - srcW) / 2;
+    } else if (videoRatio < targetRatio) {
+      srcH = vw / targetRatio;
+      srcY = (vh - srcH) / 2;
+    }
+
+    // Capture to raw offscreen 1080p canvas with horizontal mirror (selfie view)
+    const rawCanvas = document.createElement('canvas');
+    rawCanvas.width = targetW;
+    rawCanvas.height = targetH;
+    const rawCtx = rawCanvas.getContext('2d');
+
+    rawCtx.imageSmoothingEnabled = true;
+    rawCtx.imageSmoothingQuality = 'high';
+
+    rawCtx.translate(targetW, 0);
+    rawCtx.scale(-1, 1);
+    rawCtx.drawImage(video, srcX, srcY, srcW, srcH, 0, 0, targetW, targetH);
+
+    rawCapturedCanvas = rawCanvas;
+
+    // Stop active camera stream tracks when final photo is taken
+    stopCamera();
+
+    // Show brief processing overlay
+    if (boothProcessingOverlay) {
+      const txt = document.getElementById('boothProcessingText');
+      if (txt) {
+        txt.textContent = selectedStyle === 'pixel' ? 'GENERATING PIXEL EFFECT (1080p)...' : 'PROCESSING 1080p PHOTO...';
+      }
+      boothProcessingOverlay.classList.remove('booth-hidden');
+    }
+
+    setTimeout(() => {
+      renderProcessedSnapshot();
+
+      // Update date in print footer
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' });
+      const timeStr = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+      if (printFooterMeta) {
+        printFooterMeta.textContent = `1080p FHD • UNPAM • ${dateStr} ${timeStr}`;
+      }
+
+      if (boothProcessingOverlay) {
+        boothProcessingOverlay.classList.add('booth-hidden');
+      }
+      switchView('result');
+      showToast(selectedStyle === 'pixel' ? 'Foto Pixel Art 1080p siap!' : 'Foto Normal 1080p siap!', 'success');
+    }, 200);
+  }
+
+  function renderProcessedSnapshot() {
+    if (!rawCapturedCanvas || !resultCanvas) return;
+
+    // Always output exact 1920 × 1080 resolution
+    const W = 1920;
+    const H = 1080;
+    resultCanvas.width = W;
+    resultCanvas.height = H;
+    const resCtx = resultCanvas.getContext('2d');
+
+    const boothPrintCard = document.getElementById('boothPrintCard');
+
+    if (selectedStyle === 'normal') {
+      // NORMAL: Sharp, full-resolution 1080p photograph with natural colors & details
+      if (boothPrintCard) boothPrintCard.classList.remove('pixel-styled');
+      resCtx.imageSmoothingEnabled = true;
+      resCtx.imageSmoothingQuality = 'high';
+      resCtx.drawImage(rawCapturedCanvas, 0, 0, W, H);
+    } else {
+      // PIXEL: Retro pixel-art effect generated WITHIN the 1920 × 1080 canvas
+      if (boothPrintCard) boothPrintCard.classList.add('pixel-styled');
+
+      // Downsample to 160 × 90 blocks (each block becomes 12×12 pixels on the 1080p canvas)
+      const cols = 160;
+      const rows = 90;
+
+      const lowCanvas = document.createElement('canvas');
+      lowCanvas.width = cols;
+      lowCanvas.height = rows;
+      const lowCtx = lowCanvas.getContext('2d', { willReadFrequently: true });
+      lowCtx.drawImage(rawCapturedCanvas, 0, 0, cols, rows);
+
+      const imgData = lowCtx.getImageData(0, 0, cols, rows);
+      const d = imgData.data;
+
+      // Enhance contrast and quantize colors for authentic retro 8-bit palette
+      for (let i = 0; i < d.length; i += 4) {
+        // Contrast enhancement
+        let r = ((d[i] - 128) * 1.18) + 128;
+        let g = ((d[i + 1] - 128) * 1.18) + 128;
+        let b = ((d[i + 2] - 128) * 1.18) + 128;
+
+        r = Math.min(255, Math.max(0, r));
+        g = Math.min(255, Math.max(0, g));
+        b = Math.min(255, Math.max(0, b));
+
+        // Quantize to 6 distinct levels per channel
+        d[i] = Math.round(r / 42.5) * 42.5;
+        d[i + 1] = Math.round(g / 42.5) * 42.5;
+        d[i + 2] = Math.round(b / 42.5) * 42.5;
+      }
+
+      lowCtx.putImageData(imgData, 0, 0);
+
+      // Render back to full 1920 × 1080 canvas using nearest-neighbor scaling
+      resCtx.imageSmoothingEnabled = false;
+      resCtx.mozImageSmoothingEnabled = false;
+      resCtx.webkitImageSmoothingEnabled = false;
+      resCtx.msImageSmoothingEnabled = false;
+      resCtx.drawImage(lowCanvas, 0, 0, cols, rows, 0, 0, W, H);
+    }
+
+    // Compose official 01TPLP022 Photo Booth branding onto the 1920 × 1080 canvas
+    composeCanvasBranding(resCtx, W, H);
+  }
+
+  function composeCanvasBranding(ctx, W, H) {
+    ctx.save();
+
+    // 1. Subtle Outer Double Frame
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.lineWidth = 8;
+    ctx.strokeRect(4, 4, W - 8, H - 8);
+
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(14, 14, W - 28, H - 28);
+
+    // 2. Corner Pixel Brackets
+    const bLen = 32;
+    ctx.fillStyle = '#FFFFFF';
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+    ctx.shadowBlur = 4;
+
+    // Top-Left
+    ctx.fillRect(20, 20, bLen, 5);
+    ctx.fillRect(20, 20, 5, bLen);
+    // Top-Right
+    ctx.fillRect(W - 20 - bLen, 20, bLen, 5);
+    ctx.fillRect(W - 25, 20, 5, bLen);
+    // Bottom-Left
+    ctx.fillRect(20, H - 25, bLen, 5);
+    ctx.fillRect(20, H - 20 - bLen, 5, bLen);
+    // Bottom-Right
+    ctx.fillRect(W - 20 - bLen, H - 25, bLen, 5);
+    ctx.fillRect(W - 25, H - 20 - bLen, 5, bLen);
+
+    // 3. Top-Left Badge (01TPLP022 Branding)
+    const badgeW = 390;
+    const badgeH = 46;
+    ctx.fillStyle = 'rgba(17, 17, 17, 0.85)';
+    ctx.fillRect(32, 32, badgeW, badgeH);
+
+    ctx.strokeStyle = '#FFFFFF';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(32, 32, badgeW, badgeH);
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '15px "Press Start 2P", monospace, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('★ 01TPLP022 PHOTO BOOTH ★', 32 + (badgeW / 2), 32 + (badgeH / 2));
+
+    // 4. Bottom Information Bar
+    const barH = 50;
+    const barY = H - 32 - barH;
+    const barW = W - 64;
+
+    ctx.fillStyle = 'rgba(17, 17, 17, 0.85)';
+    ctx.fillRect(32, barY, barW, barH);
+
+    ctx.strokeStyle = '#FFFFFF';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(32, barY, barW, barH);
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.font = '14px "Press Start 2P", monospace, sans-serif';
+    ctx.fillText('01TPLP022 • CLASS OF 2026', 48, barY + (barH / 2));
+
+    ctx.textAlign = 'right';
+    ctx.font = '22px "VT323", monospace, sans-serif';
+    const now = new Date();
+    const dateFormatted = now.toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' });
+    const timeFormatted = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+    ctx.fillText(`1080p FHD • UNIVERSITAS PAMULANG • ${dateFormatted} ${timeFormatted}`, W - 48, barY + (barH / 2));
+
+    ctx.restore();
+  }
+
+  function savePhoto() {
+    if (!resultCanvas) {
+      showToast('Belum ada foto untuk disimpan.', 'warning');
+      return;
+    }
+
+    // Download the 1920 × 1080 canvas directly as 01TPLP022-photo.png
+    const link = document.createElement('a');
+    link.download = '01TPLP022-photo.png';
+    link.href = resultCanvas.toDataURL('image/png', 0.95);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    showToast('Foto 1080p tersimpan! (01TPLP022-photo.png)', 'success');
+  }
+
+  // Synchronize photo style buttons across both live and result decks
+  function setPhotoStyle(style) {
+    selectedStyle = style;
+    document.querySelectorAll('[data-style]').forEach(btn => {
+      const match = btn.dataset.style === selectedStyle;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-checked', match ? 'true' : 'false');
+    });
+
+    // If a photo is already captured and displayed, immediately re-render in the newly chosen style
+    if (rawCapturedCanvas && !boothResultView.classList.contains('booth-hidden')) {
+      renderProcessedSnapshot();
+      showToast(`Gaya foto diubah ke: ${style === 'pixel' ? 'PIXEL ART (1080p)' : 'NORMAL (1080p)'}`, 'info');
+    }
+  }
+
+  // Button Event Listeners
+  if (btnEnableCamera) btnEnableCamera.addEventListener('click', startCamera);
+  if (btnRetryCamera) btnRetryCamera.addEventListener('click', startCamera);
+  if (btnTakePhoto) btnTakePhoto.addEventListener('click', takePhoto);
+  if (btnStopCamera) btnStopCamera.addEventListener('click', () => {
+    stopCamera();
+    switchView('standby');
+    showToast('Kamera dinonaktifkan.', 'info');
+  });
+  if (btnRetakePhoto) btnRetakePhoto.addEventListener('click', () => {
+    startCamera();
+  });
+  if (btnSavePhoto) btnSavePhoto.addEventListener('click', savePhoto);
+
+  // Style buttons event delegation
+  document.querySelectorAll('[data-style]').forEach(btn => {
+    btn.addEventListener('click', () => setPhotoStyle(btn.dataset.style));
+  });
+
+  // Camera Cleanup: on page unload / pagehide
+  window.addEventListener('beforeunload', stopCamera);
+  window.addEventListener('pagehide', stopCamera);
+
+  // Camera Cleanup: when switching tabs
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && isCameraActive) {
+      stopCamera();
+      switchView('standby');
+    }
+  });
+
+  // Camera Cleanup: when user scrolls completely away from the photo booth
+  if ('IntersectionObserver' in window) {
+    const boothObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting && isCameraActive) {
+          stopCamera();
+          switchView('standby');
+          showToast('Kamera dinonaktifkan otomatis saat meninggalkan area booth.', 'info');
+        }
+      });
+    }, { threshold: 0.05 });
+
+    boothObserver.observe(boothWrapper);
+  }
 }
 
 /**
@@ -2180,7 +2664,7 @@ function initScrollReveal() {
 function createPixelStars(container) {
   container.querySelectorAll('.px-star').forEach(s => s.remove());
 
-  const count = 80;
+  const count = 280;
   const twinkleClasses = ['twinkle-a', 'twinkle-b', 'twinkle-c', 'twinkle-d', 'twinkle-e'];
   const sizeClasses = ['s1', 's1', 's1', 's2', 's2', 's3']; // weighted toward small
 
@@ -2188,7 +2672,7 @@ function createPixelStars(container) {
     const star = document.createElement('div');
     star.className = `px-star ${sizeClasses[Math.floor(Math.random() * sizeClasses.length)]} ${twinkleClasses[Math.floor(Math.random() * twinkleClasses.length)]}`;
     star.style.left = `${Math.random() * 100}%`;
-    star.style.top = `${Math.random() * 80}%`;
+    star.style.top = `${Math.random() * 100}%`;
     star.style.animationDelay = `${(Math.random() * 4).toFixed(2)}s`;
     star.style.opacity = (0.4 + Math.random() * 0.6).toFixed(2);
     container.appendChild(star);
@@ -2230,19 +2714,39 @@ function buildPixelCloud(w, h, opacity) {
  * Generate pixel clouds for light mode
  */
 function createPixelClouds(container) {
+  if (!container) return;
   container.querySelectorAll('.px-cloud').forEach(c => c.remove());
 
   const cloudDefs = [
-    { w: 120, h: 50, top: '8%',  delay: '0s',   layer: 'layer-1', opacity: 0.90 },
-    { w: 180, h: 70, top: '15%', delay: '-12s',  layer: 'layer-2', opacity: 0.75 },
-    { w: 80,  h: 35, top: '5%',  delay: '-5s',   layer: 'layer-3', opacity: 0.65 },
-    { w: 140, h: 55, top: '22%', delay: '-20s',  layer: 'layer-1', opacity: 0.80 },
-    { w: 100, h: 42, top: '30%', delay: '-30s',  layer: 'layer-2', opacity: 0.60 },
-    { w: 200, h: 80, top: '10%', delay: '-8s',   layer: 'layer-1', opacity: 0.85 },
-    { w: 60,  h: 28, top: '35%', delay: '-18s',  layer: 'layer-3', opacity: 0.55 },
+    // Denser clouds near Home, thinning toward Class Memories.
+    { w: 120, h: 50, top: '3%',  delay: '0s',    layer: 'layer-1', opacity: 0.76 },
+    { w: 180, h: 70, top: '6%',  delay: '-12s',  layer: 'layer-2', opacity: 0.68 },
+    { w: 80,  h: 35, top: '9%',  delay: '-5s',   layer: 'layer-3', opacity: 0.64 },
+    { w: 140, h: 55, top: '12%', delay: '-20s',  layer: 'layer-1', opacity: 0.74 },
+    { w: 100, h: 42, top: '15%', delay: '-30s',  layer: 'layer-2', opacity: 0.62 },
+    { w: 200, h: 80, top: '18%', delay: '-8s',   layer: 'layer-1', opacity: 0.70 },
+    { w: 60,  h: 28, top: '21%', delay: '-18s',  layer: 'layer-3', opacity: 0.60 },
+    { w: 150, h: 58, top: '24%', delay: '-14s',  layer: 'layer-2', opacity: 0.68 },
+    { w: 110, h: 44, top: '27%', delay: '-25s',  layer: 'layer-1', opacity: 0.72 },
+    { w: 190, h: 74, top: '30%', delay: '-6s',   layer: 'layer-2', opacity: 0.64 },
+    { w: 90,  h: 38, top: '33%', delay: '-22s',  layer: 'layer-3', opacity: 0.60 },
+    { w: 160, h: 62, top: '36%', delay: '-10s',  layer: 'layer-1', opacity: 0.68 },
+    { w: 120, h: 48, top: '39%', delay: '-28s',  layer: 'layer-2', opacity: 0.62 },
+    { w: 75,  h: 32, top: '42%', delay: '-16s',  layer: 'layer-3', opacity: 0.58 },
+    { w: 155, h: 60, top: '45%', delay: '-23s',  layer: 'layer-1', opacity: 0.64 },
+    { w: 95,  h: 40, top: '48%', delay: '-4s',   layer: 'layer-2', opacity: 0.58 },
+    { w: 145, h: 56, top: '57%', delay: '-19s',  layer: 'layer-3', opacity: 0.56 },
+    { w: 115, h: 48, top: '66%', delay: '-2s',   layer: 'layer-1', opacity: 0.54 },
+    { w: 185, h: 72, top: '75%', delay: '-31s',  layer: 'layer-2', opacity: 0.52 },
+    { w: 100, h: 42, top: '84%', delay: '-13s',  layer: 'layer-3', opacity: 0.50 },
+    { w: 135, h: 54, top: '93%', delay: '-24s',  layer: 'layer-1', opacity: 0.48 },
   ];
 
-  cloudDefs.forEach((def, i) => {
+  const definitions = window.innerWidth <= 768
+    ? cloudDefs.filter((_, index) => index % 2 === 0)
+    : cloudDefs;
+
+  definitions.forEach((def, i) => {
     const cloud = buildPixelCloud(def.w, def.h, def.opacity);
     cloud.classList.add(def.layer);
     cloud.style.top = def.top;
@@ -2257,20 +2761,38 @@ function createPixelClouds(container) {
  */
 function initPixelSky() {
   const skyLayer = document.getElementById('pixelSkyLayer');
+  const nightLayer = document.getElementById('pixelNightLayer');
+  const cloudLayer = document.getElementById('pixelCloudLayer');
+  const gallerySection = document.getElementById('gallery');
   if (!skyLayer) return;
 
   const html = document.documentElement;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced) return;
+
+  // Place a small pixel planet at the edge of each section after About.
+  const planetTypes = ['mars', 'cyan', 'saturn', 'violet', 'earth', 'amber', 'magenta'];
+  ['about', 'announcements', 'members', 'roulette', 'courses', 'schedule', 'gallery'].forEach((id, index) => {
+    const section = document.getElementById(id);
+    if (!section || section.querySelector('.pixel-planet')) return;
+    const planet = document.createElement('span');
+    planet.className = `pixel-planet planet-${planetTypes[index]}`;
+    planet.setAttribute('aria-hidden', 'true');
+    section.appendChild(planet);
+  });
 
   function renderSky() {
     const theme = html.getAttribute('data-theme');
     if (theme === 'dark') {
-      createPixelStars(skyLayer);
+      if (nightLayer) createPixelStars(nightLayer);
+      if (cloudLayer) cloudLayer.querySelectorAll('.px-cloud').forEach(c => c.remove());
       skyLayer.querySelectorAll('.px-cloud').forEach(c => c.remove());
     } else {
-      createPixelClouds(skyLayer);
-      skyLayer.querySelectorAll('.px-star').forEach(s => s.remove());
+      if (cloudLayer && gallerySection) {
+        const introWorld = document.querySelector('.intro-world');
+        const galleryTop = gallerySection.getBoundingClientRect().top - introWorld.getBoundingClientRect().top;
+        cloudLayer.style.height = `${Math.max(0, galleryTop)}px`;
+        createPixelClouds(cloudLayer);
+      }
+      if (nightLayer) nightLayer.querySelectorAll('.px-star').forEach(s => s.remove());
     }
   }
 
@@ -2279,6 +2801,15 @@ function initPixelSky() {
   // Re-render sky on theme change (observe attribute mutation)
   const observer = new MutationObserver(() => renderSky());
   observer.observe(html, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // Keep the cloud cutoff aligned with the top edge of Class Memories.
+  if (gallerySection && 'ResizeObserver' in window) {
+    const layoutObserver = new ResizeObserver(() => {
+      if (html.getAttribute('data-theme') === 'light') renderSky();
+    });
+    layoutObserver.observe(document.querySelector('.intro-world'));
+    layoutObserver.observe(gallerySection);
+  }
 }
 
 // Initialize pixel sky on DOM ready
