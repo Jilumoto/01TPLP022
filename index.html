@@ -87,11 +87,14 @@
 
   <!-- ==================== MAIN CONTENT ==================== -->
   <main>
-    
+    <div class="intro-world">
+      <div id="pixelNightLayer" class="pixel-night-layer" aria-hidden="true"></div>
+      <div id="pixelCloudLayer" class="pixel-cloud-layer" aria-hidden="true"></div>
     <!-- ==================== 1. HERO SECTION ==================== -->
     <section class="hero-section" id="hero">
       <!-- Pixel Sky Layer (populated by script) -->
       <div id="pixelSkyLayer" aria-hidden="true"></div>
+      <div class="hero-sun" aria-hidden="true"></div>
       <div class="container hero-container">
         <div class="hero-content">
           <h1 class="hero-title reveal">
@@ -186,7 +189,6 @@
     <section class="about-section section" id="about">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-tag">Overview</span>
           <h2 class="section-title">About Our Class</h2>
           <p class="section-subtitle">Mengenal lebih dekat identitas, struktur, dan semangat kebersamaan kelas kami.</p>
         </div>
@@ -306,7 +308,6 @@
     <section class="announcements-section section" id="announcements">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-tag">Important Notice</span>
           <h2 class="section-title">Class Announcements</h2>
           <p class="section-subtitle">Informasi tugas, agenda kegiatan, dan pengingat penting perkuliahan.</p>
         </div>
@@ -321,7 +322,6 @@
     <section class="members-section section" id="members">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-tag">Classmates Directory</span>
           <h2 class="section-title">Our Class Members</h2>
           <p class="section-subtitle">Daftar seluruh mahasiswa, pengurus kelas, serta profil lengkap anggota.</p>
         </div>
@@ -366,7 +366,6 @@
     <section class="roulette-section section" id="roulette">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-tag pulse-tag">Special Feature</span>
           <h2 class="section-title">Class Roulette & Group Generator</h2>
           <p class="section-subtitle">Need a random group or lucky student? Let the interactive wheel decide!</p>
         </div>
@@ -531,9 +530,8 @@
     <section class="schedule-section section" id="schedule">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-tag">Weekly Timetable</span>
           <h2 class="section-title">Class Schedule</h2>
-          <p class="section-subtitle">Jadwal perkuliahan mingguan dengan penanda otomatis hari ini (TODAY).</p>
+          <p id="scheduleSubtitle" class="section-subtitle">Jadwal perkuliahan mingguan dengan penanda otomatis hari ini (TODAY).</p>
         </div>
 
         <!-- Day Filter Tabs -->
@@ -576,12 +574,208 @@
       </div>
     </section>
 
-    <!-- ==================== 6. GALLERY SECTION ==================== -->
+    <!-- ==================== 6. GALLERY & PHOTO BOOTH SECTION ==================== -->
     <section class="gallery-section section" id="gallery">
       <div class="container">
+        <!-- Section Header -->
         <div class="section-header text-center reveal">
-          <span class="section-tag">Memories & Activities</span>
-          <h2 class="section-title">Class Memories</h2>
+          <span class="section-tag">Interactive Feature</span>
+          <h2 class="section-title">Pixel Photo Booth</h2>
+          <p class="section-subtitle">Step into the 01TPLP022 pixel photo booth — capture a live retro snapshot with your device camera!</p>
+        </div>
+
+        <!-- ==================== 01TPLP022 PIXEL PHOTO BOOTH ==================== -->
+        <div class="photo-booth-wrapper reveal" id="pixelPhotoBooth">
+          <div class="photo-booth-machine">
+            <!-- Machine Top Header Bar -->
+            <div class="booth-machine-header">
+              <div class="booth-header-decor" aria-hidden="true">
+                <span class="booth-led-dot"></span>
+                <span class="booth-led-dot"></span>
+                <span class="booth-led-dot"></span>
+              </div>
+              <div class="booth-machine-title">
+                <span class="booth-title-star" aria-hidden="true">★</span>
+                <span>01TPLP022 PHOTO BOOTH</span>
+                <span class="booth-title-star" aria-hidden="true">★</span>
+              </div>
+              <div class="booth-header-decor" aria-hidden="true">
+                <span class="booth-led-dot"></span>
+                <span class="booth-led-dot"></span>
+                <span class="booth-led-dot"></span>
+              </div>
+            </div>
+
+            <!-- Screen Viewport Frame -->
+            <div class="booth-screen-frame">
+              <!-- Corner Pixel Accents -->
+              <span class="booth-corner-px corner-tl" aria-hidden="true"></span>
+              <span class="booth-corner-px corner-tr" aria-hidden="true"></span>
+              <span class="booth-corner-px corner-bl" aria-hidden="true"></span>
+              <span class="booth-corner-px corner-br" aria-hidden="true"></span>
+
+              <!-- Live Shutter Flash Overlay -->
+              <div class="booth-flash" id="boothFlash" aria-hidden="true"></div>
+
+              <!-- VIEW 1: Standby / Permission Needed State -->
+              <div class="booth-state-view" id="boothStandbyView">
+                <div class="booth-standby-graphic" aria-hidden="true">
+                  <div class="pixel-cam-icon">
+                    <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                      <circle cx="12" cy="13" r="4"></circle>
+                    </svg>
+                  </div>
+                </div>
+                <h3 class="booth-state-title">01TPLP022 PIXEL PHOTO BOOTH</h3>
+                <p class="booth-state-desc">Camera access is required for the Pixel Photo Booth.<br>Capture your retro pixel snapshot directly in your browser.</p>
+                <button type="button" class="btn btn-primary booth-action-btn" id="btnEnableCamera" aria-label="Enable Camera for Photo Booth">
+                  <i data-lucide="camera"></i>
+                  <span>ENABLE CAMERA</span>
+                </button>
+                <div class="booth-privacy-badge">
+                  <i data-lucide="shield-check"></i>
+                  <span>100% Client-Side • No Photos Uploaded or Stored on Server</span>
+                </div>
+              </div>
+
+              <!-- VIEW 2: Error / Permission Denied State -->
+              <div class="booth-state-view booth-hidden" id="boothErrorView" role="alert">
+                <div class="booth-error-graphic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                </div>
+                <h3 class="booth-state-title" id="boothErrorTitle">CAMERA ACCESS REQUIRED</h3>
+                <p class="booth-state-desc" id="boothErrorMessage">
+                  Camera permission was denied or camera device is not available. Please allow camera access in your browser settings to step into the photo booth.
+                </p>
+                <button type="button" class="btn btn-primary booth-action-btn" id="btnRetryCamera" aria-label="Retry Camera Permission">
+                  <i data-lucide="rotate-ccw"></i>
+                  <span>TRY AGAIN</span>
+                </button>
+              </div>
+
+              <!-- VIEW 3: Live Camera View -->
+              <div class="booth-state-view booth-hidden" id="boothLiveView">
+                <div class="booth-video-wrapper">
+                  <video id="boothVideo" playsinline autoplay muted aria-label="Live Camera Feed"></video>
+                  <!-- Viewfinder Overlays -->
+                  <div class="booth-hud-overlay" aria-hidden="true">
+                    <div class="hud-top-bar">
+                      <div class="hud-rec-indicator">
+                        <span class="hud-rec-dot"></span>
+                        <span class="hud-rec-text">LIVE FEED</span>
+                      </div>
+                      <div class="hud-branding">01TPLP022</div>
+                    </div>
+                    <div class="hud-viewfinder-corners">
+                      <span class="vf-corner vf-tl"></span>
+                      <span class="vf-corner vf-tr"></span>
+                      <span class="vf-corner vf-bl"></span>
+                      <span class="vf-corner vf-br"></span>
+                    </div>
+                    <div class="hud-center-crosshair"></div>
+                    <div class="hud-scanline"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VIEW 4: Photo Result inside Retro Print Frame -->
+              <div class="booth-state-view booth-hidden" id="boothResultView">
+                <div class="booth-print-card" id="boothPrintCard">
+                  <div class="print-card-header">
+                    <span class="print-star" aria-hidden="true">★</span>
+                    <span class="print-title">01TPLP022 PHOTO BOOTH</span>
+                    <span class="print-star" aria-hidden="true">★</span>
+                  </div>
+                  <div class="print-canvas-wrapper">
+                    <canvas id="boothResultCanvas" aria-label="High-Resolution Photo 1920x1080"></canvas>
+                  </div>
+                  <div class="print-card-footer">
+                    <div class="print-footer-brand">01TPLP022 • CLASS OF 2026</div>
+                    <div class="print-footer-meta" id="printFooterMeta">1080p FHD • UNIVERSITAS PAMULANG</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Processing Indicator Overlay -->
+              <div class="booth-processing-overlay booth-hidden" id="boothProcessingOverlay" aria-live="polite">
+                <div class="booth-spinner-pixels" aria-hidden="true"></div>
+                <span class="booth-processing-text" id="boothProcessingText">CAPTURING 1080p PHOTO...</span>
+              </div>
+            </div>
+
+            <!-- Machine Control Deck / Bottom Bar -->
+            <div class="booth-control-deck">
+              <!-- Live Camera Controls -->
+              <div class="booth-controls-live" id="boothLiveControls">
+                <div class="booth-options-row">
+                  <div class="booth-opt-group">
+                    <label class="booth-opt-label">STYLE:</label>
+                    <div class="booth-toggle-buttons" id="liveStyleButtons" role="radiogroup" aria-label="Photo Style">
+                      <button type="button" class="booth-opt-btn active" data-style="normal" aria-checked="true">NORMAL</button>
+                      <button type="button" class="booth-opt-btn" data-style="pixel" aria-checked="false">PIXEL</button>
+                    </div>
+                  </div>
+                  <div class="booth-opt-info">
+                    <span class="booth-res-badge">1080p FHD (1920×1080)</span>
+                  </div>
+                </div>
+
+                <div class="booth-main-actions">
+                  <button type="button" class="btn btn-outline booth-btn-secondary" id="btnStopCamera" title="Turn off camera" aria-label="Turn off camera">
+                    <i data-lucide="power"></i>
+                    <span>CLOSE CAMERA</span>
+                  </button>
+                  <button type="button" class="btn btn-primary booth-capture-btn" id="btnTakePhoto" aria-label="Take Photo">
+                    <i data-lucide="aperture"></i>
+                    <span>TAKE PHOTO</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Result Controls (Retake & Download) -->
+              <div class="booth-controls-result booth-hidden" id="boothResultControls">
+                <div class="booth-options-row">
+                  <div class="booth-opt-group">
+                    <label class="booth-opt-label">STYLE:</label>
+                    <div class="booth-toggle-buttons" id="resultStyleButtons" role="radiogroup" aria-label="Photo Style">
+                      <button type="button" class="booth-opt-btn active" data-style="normal" aria-checked="true">NORMAL</button>
+                      <button type="button" class="booth-opt-btn" data-style="pixel" aria-checked="false">PIXEL</button>
+                    </div>
+                  </div>
+                  <div class="booth-opt-info">
+                    <span class="booth-res-badge">1080p FHD (1920×1080)</span>
+                  </div>
+                </div>
+
+                <div class="booth-main-actions">
+                  <button type="button" class="btn btn-outline booth-btn-retake" id="btnRetakePhoto" aria-label="Retake Photo">
+                    <i data-lucide="refresh-cw"></i>
+                    <span>RETAKE</span>
+                  </button>
+                  <button type="button" class="btn btn-primary booth-btn-save" id="btnSavePhoto" aria-label="Save and Download Photo">
+                    <i data-lucide="download"></i>
+                    <span>SAVE PHOTO</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Machine Bottom Plate -->
+            <div class="booth-machine-footer">
+              <span class="booth-footer-text">01TPLP022 DIGITAL PHOTO BOOTH • MODEL PX-2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class Memories Subsection Header -->
+        <div class="gallery-sub-header text-center reveal">
+          <span class="section-tag">Archive</span>
+          <h3 class="section-title" style="font-size: 14px;">Class Memories</h3>
           <p class="section-subtitle">Dokumentasi momen berharga, kegiatan belajar, dan kenangan kebersamaan kelas 01TPLP022 2026.</p>
         </div>
 
@@ -591,6 +785,29 @@
         </div>
       </div>
     </section>
+
+    <!-- Pixel kite field: visible only in the daytime theme -->
+    <section class="kite-field" aria-hidden="true">
+      <div class="kite-string" style="--line: 132px; --lean: -14deg; left: 8%; top: 18%;"><span class="kite-tail"></span><span class="pixel-kite kite-red"></span></div>
+      <div class="kite-string" style="--line: 112px; --lean: 12deg; left: 21%; top: 9%;"><span class="kite-tail"></span><span class="pixel-kite kite-yellow"></span></div>
+      <div class="kite-string" style="--line: 126px; --lean: -10deg; left: 35%; top: 23%;"><span class="kite-tail"></span><span class="pixel-kite kite-blue"></span></div>
+      <div class="kite-string" style="--line: 108px; --lean: 15deg; left: 49%; top: 12%;"><span class="kite-tail"></span><span class="pixel-kite kite-pink"></span></div>
+      <div class="kite-string" style="--line: 130px; --lean: -12deg; left: 64%; top: 20%;"><span class="kite-tail"></span><span class="pixel-kite kite-purple"></span></div>
+      <div class="kite-string" style="--line: 116px; --lean: 10deg; left: 78%; top: 10%;"><span class="kite-tail"></span><span class="pixel-kite kite-green"></span></div>
+      <div class="kite-string" style="--line: 128px; --lean: -15deg; left: 91%; top: 22%;"><span class="kite-tail"></span><span class="pixel-kite kite-orange"></span></div>
+
+      <span class="kite-player player-a" style="--shirt:#147d9b; left:7%;"><i></i></span>
+      <span class="kite-player player-b" style="--shirt:#e1a51d; left:20%;"><i></i></span>
+      <span class="kite-player player-c" style="--shirt:#7855b8; left:34%;"><i></i></span>
+      <span class="kite-player player-d" style="--shirt:#d4567d; left:48%;"><i></i></span>
+      <span class="kite-player player-e" style="--shirt:#38844d; left:63%;"><i></i></span>
+      <span class="kite-player player-f" style="--shirt:#2767aa; left:77%;"><i></i></span>
+      <span class="kite-player player-g" style="--shirt:#b9552f; left:90%;"><i></i></span>
+
+      <div class="kite-grass"></div>
+    </section>
+
+    </div>
 
   </main>
 
@@ -604,7 +821,7 @@
         </div>
         <p class="footer-motto">"Learning together, growing together, creating technology for a better tomorrow."</p>
         <div class="footer-social-links">
-          <a href="https://www.instagram.com/ezzar.co.id?stkn=MWkzdTBwdnBnbjRkbQ==" class="social-icon" aria-label="Instagram" title="">
+          <a href="https://www.instagram.com/twntytwo.archives?stkn=YXluejJ5a2s0dDc2" class="social-icon" aria-label="Instagram" title="">
             <span class="info-icon">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 22H6v-2h12v2ZM6 20H4v-2h2v2Zm14 0h-2v-2h2v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-8-2h-4v-2h4v2Zm-4-2H8v-4h2v4Zm6 0h-2v-4h2v4Zm-2-4h-4V8h4v2Zm4-2h-2V6h2v2ZM6 6H4V4h2v2Zm14 0h-2V4h2v2Zm-2-2H6V2h12v2Z"/></svg>
             </span>
