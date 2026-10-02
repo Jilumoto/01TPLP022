@@ -381,7 +381,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://www.instagram.com/tiansaputrih" }
+    socials: {instagram: "https://www.instagram.com/tyaa_p26 }
   },
   {
     id: "25",
