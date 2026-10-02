@@ -395,7 +395,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    socials: {instagram: "https://www.instagram.com/lazy_m4n" }
   },
   {
     id: "26",
