@@ -115,7 +115,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: { instagram: "https://www.instagram.com/ekamrzq" }
+    socials: { instagram: "https://instagram.com" }
   },
     {
     id: "06",
@@ -185,7 +185,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "https://instagram.com" }
+    socials: {instagram: "https://www.instagram.com/ramaynrr._" }
   },
   {
     id: "10",
@@ -525,19 +525,16 @@ const schedule = [
 const announcements = [
   {
     type: "assignment",
-    title: "Tugas Logika informatika.",
-    date: "Minggu Depan (Senin)",
+    title: "Info lebih lanjut, silahkan klik Link di bawah",
     badgeText: "Assignment",
-    description: "Cerita rakyat",
-  },
-  {
-    type: "assignment",
-    title: "Tugas Pengantar Teknologi Informasi",
-    date: "Minggu Depan (Selasa)",
-    badgeText: "Assignment",
-    description: "Kerjakan dengan flowchart dan pseudocode <br> Buat flowchart program untuk menghitung volume dan luas penampang balok. Input: panjang, lebar, tinggi. Buat flowchart program untuk menghitung luas trapesium. Input: dua sisi sejajar dan tinggi. Buat flowchart yang mengubah nilai angka (0-100) menjadi huruf A, B, C, D, atau E. Buatlah flowchart sistem login pengguna pada sebuah aplikasi. Flowchart harus menggambarkan seluruh proses mulai dari pengguna membuka halaman login, memasukkan username dan password, sistem melakukan validasi data, hingga menentukan apakah pengguna berhasil login atau harus mengulangi proses login.z",
+    description: "KLIK INI",
+    link: "https://whatsapp.com/channel/0029Vb8zQ4HJENxyp8WAS40p",
   },
 ];
+
+// Isi dengan tautan undangan Channel WhatsApp kelas agar kartu pengumuman
+// mengarah ke channel tersebut. Contoh: https://whatsapp.com/channel/...
+const announcementsWhatsAppChannelUrl = "";
 
 /**
  * 6. DATA GALERI KENANGAN KELAS (Class Memories Gallery)
@@ -806,14 +803,21 @@ function initAnnouncements() {
   if (!container) return;
 
   container.innerHTML = announcements.map(item => `
-    <div class="notice-card reveal">
+    <article class="notice-card reveal">
       <div class="notice-top">
         <span class="notice-badge ${item.type}">${item.badgeText}</span>
         <span class="notice-date">${item.date}</span>
       </div>
       <h3 class="notice-title">${item.title}</h3>
-      <p class="notice-desc">${item.description}</p>
-    </div>
+      <a class="notice-desc" href="${item.link}" target="_blank" rel="noopener noreferrer">
+  ${item.description}
+</a>
+      ${announcementsWhatsAppChannelUrl ? `
+        <a class="notice-whatsapp-link" href="${announcementsWhatsAppChannelUrl}" target="_blank" rel="noopener noreferrer">
+          Lihat di Channel WhatsApp <span aria-hidden="true">↗</span>
+        </a>
+      ` : ''}
+    </article>
   `).join('');
 }
 
@@ -2063,11 +2067,13 @@ function initGallery() {
 }
 
 /**
- * 11B. 01TPLP022 PIXEL PHOTO BOOTH (Camera & Retro Image Processing)
+ * 11B. 01TPLP022 PIXEL PHOTO BOOTH (Multi-Ratio, Camera Switch, Normal & Pixel Styles)
  */
 function initPixelPhotoBooth() {
   const boothWrapper = document.getElementById('pixelPhotoBooth');
   if (!boothWrapper) return;
+
+  const boothMachine = boothWrapper.querySelector('.photo-booth-machine');
 
   const btnEnableCamera = document.getElementById('btnEnableCamera');
   const btnRetryCamera = document.getElementById('btnRetryCamera');
@@ -2075,6 +2081,15 @@ function initPixelPhotoBooth() {
   const btnStopCamera = document.getElementById('btnStopCamera');
   const btnRetakePhoto = document.getElementById('btnRetakePhoto');
   const btnSavePhoto = document.getElementById('btnSavePhoto');
+  const btnSwitchCamera = document.getElementById('btnSwitchCamera');
+  const btnSwitchCameraHud = document.getElementById('btnSwitchCameraHud');
+  const btnToggleMirrorHud = document.getElementById('btnToggleMirrorHud');
+
+  const hudCamText = document.getElementById('hudCamText');
+  const hudMirrorText = document.getElementById('hudMirrorText');
+  const btnSwitchCamLabel = document.getElementById('btnSwitchCamLabel');
+  const boothResBadge = document.getElementById('boothResBadge');
+  const boothResultResBadge = document.getElementById('boothResultResBadge');
 
   const boothStandbyView = document.getElementById('boothStandbyView');
   const boothErrorView = document.getElementById('boothErrorView');
@@ -2093,11 +2108,24 @@ function initPixelPhotoBooth() {
   const errorMessageEl = document.getElementById('boothErrorMessage');
   const errorTitleEl = document.getElementById('boothErrorTitle');
 
+  // Supported Aspect Ratios & Output Dimensions
+  const RATIO_CONFIGS = {
+    '16:9': { width: 1920, height: 1080, ratioVal: 16 / 9, badge: '1920 × 1080 (16:9)' },
+    '9:16': { width: 1080, height: 1920, ratioVal: 9 / 16, badge: '1080 × 1920 (9:16)' },
+    '1:1':  { width: 1080, height: 1080, ratioVal: 1 / 1,  badge: '1080 × 1080 (1:1)' },
+    '4:3':  { width: 1440, height: 1080, ratioVal: 4 / 3,  badge: '1440 × 1080 (4:3)' }
+  };
+
   // State
   let currentStream = null;
   let isCameraActive = false;
+  let currentFacingMode = 'user'; // 'user' (Front) | 'environment' (Back)
+  let selectedStyle = 'normal';   // 'normal' (High Res) | 'pixel' (Retro Pixel Art)
+  let selectedRatio = '16:9';     // '16:9' | '9:16' | '1:1' | '4:3'
+  let mirrorMode = 'off';         // 'off' (TIDAK MIRROR / Natural Non-Mirror) | 'on' (Mirror Selfie)
+  let rawOriginalVideoFrame = null;
+  let rawUncroppedVideoFrame = null;
   let rawCapturedCanvas = null;
-  let selectedStyle = 'normal'; // Default: 'normal' (high resolution 1080p) | 'pixel' (retro pixel effect)
 
   function switchView(viewName) {
     boothStandbyView.classList.add('booth-hidden');
@@ -2135,6 +2163,66 @@ function initPixelPhotoBooth() {
     switchView('error');
   }
 
+  function updateRatioUi() {
+    if (boothMachine) {
+      boothMachine.classList.remove('ratio-16-9', 'ratio-9-16', 'ratio-1-1', 'ratio-4-3');
+      boothMachine.classList.add(`ratio-${selectedRatio.replace(':', '-')}`);
+    }
+
+    document.querySelectorAll('[data-ratio]').forEach(btn => {
+      const match = btn.dataset.ratio === selectedRatio;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-checked', match ? 'true' : 'false');
+    });
+
+    const badgeText = RATIO_CONFIGS[selectedRatio]?.badge || '1920 × 1080';
+    if (boothResBadge) boothResBadge.textContent = badgeText;
+    if (boothResultResBadge) boothResultResBadge.textContent = badgeText;
+  }
+
+  function updateStyleUi() {
+    document.querySelectorAll('[data-style]').forEach(btn => {
+      const match = btn.dataset.style === selectedStyle;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-checked', match ? 'true' : 'false');
+    });
+  }
+
+  function shouldFlip() {
+    const isFront = (currentFacingMode === 'user');
+    // On front camera: mirrorMode 'off' applies horizontal flip to correct hardware mirror (not mirror)
+    // mirrorMode 'on' leaves raw feed (mirror selfie)
+    // On back camera: mirrorMode 'off' is natural raw feed, 'on' is flipped
+    return isFront ? (mirrorMode === 'off') : (mirrorMode === 'on');
+  }
+
+  function updateMirrorUi() {
+    const flipActive = shouldFlip();
+    if (video) {
+      video.classList.toggle('flipped', flipActive);
+    }
+    if (hudMirrorText) {
+      hudMirrorText.textContent = mirrorMode === 'off' ? 'MIRROR: OFF' : 'MIRROR: ON';
+    }
+
+    document.querySelectorAll('[data-mirror]').forEach(btn => {
+      const match = btn.dataset.mirror === mirrorMode;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-checked', match ? 'true' : 'false');
+    });
+  }
+
+  function updateCameraUi() {
+    const isFront = currentFacingMode === 'user';
+    if (hudCamText) {
+      hudCamText.textContent = isFront ? 'FRONT' : 'BACK';
+    }
+    if (btnSwitchCamLabel) {
+      btnSwitchCamLabel.textContent = isFront ? 'BACK CAM' : 'FRONT CAM';
+    }
+    updateMirrorUi();
+  }
+
   async function startCamera() {
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
       showError(
@@ -2146,18 +2234,23 @@ function initPixelPhotoBooth() {
 
     stopCamera();
 
-    try {
-      // Request 1080p 16:9 stream when supported
-      const constraints = {
-        video: {
-          width: { ideal: 1920 },
-          height: { ideal: 1080 },
-          aspectRatio: { ideal: 16 / 9 },
-          facingMode: 'user'
-        },
-        audio: false
-      };
+    const cfg = RATIO_CONFIGS[selectedRatio] || RATIO_CONFIGS['16:9'];
+    const isPortrait = cfg.ratioVal < 1;
 
+    const idealW = isPortrait ? 1080 : 1920;
+    const idealH = isPortrait ? 1920 : 1080;
+
+    const constraints = {
+      video: {
+        facingMode: currentFacingMode,
+        width: { ideal: idealW },
+        height: { ideal: idealH },
+        aspectRatio: { ideal: cfg.ratioVal }
+      },
+      audio: false
+    };
+
+    try {
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
       currentStream = stream;
       video.srcObject = stream;
@@ -2166,11 +2259,39 @@ function initPixelPhotoBooth() {
         video.play().catch(e => console.warn('Video play warning:', e));
       };
 
+      updateCameraUi();
+      updateRatioUi();
+      updateStyleUi();
+      updateMirrorUi();
+
       isCameraActive = true;
       switchView('live');
-      showToast('Kamera Pixel Booth aktif (16:9 HD)!', 'info');
+      showToast(`Kamera ${currentFacingMode === 'user' ? 'Depan' : 'Belakang'} aktif (${selectedRatio})!`, 'info');
     } catch (err) {
       console.error('Camera access error:', err);
+
+      // If switching to environment (back) camera fails on a single-camera device, gracefully fallback to user (front) camera
+      if (currentFacingMode === 'environment') {
+        console.warn('Back camera not found or failed, falling back to front camera...');
+        currentFacingMode = 'user';
+        showToast('Kamera belakang tidak tersedia pada perangkat ini. Kembali ke kamera depan.', 'warning');
+        try {
+          const fallbackStream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: 'user', width: { ideal: idealW }, height: { ideal: idealH } },
+            audio: false
+          });
+          currentStream = fallbackStream;
+          video.srcObject = fallbackStream;
+          video.onloadedmetadata = () => video.play().catch(e => console.warn(e));
+          updateCameraUi();
+          isCameraActive = true;
+          switchView('live');
+          return;
+        } catch (fallbackErr) {
+          console.error('Fallback camera error:', fallbackErr);
+        }
+      }
+
       let title = 'CAMERA ACCESS REQUIRED';
       let msg = 'Camera permission was denied or camera device is not available. Please allow camera permissions in your browser settings to step into the photo booth.';
 
@@ -2187,6 +2308,11 @@ function initPixelPhotoBooth() {
 
       showError(title, msg);
     }
+  }
+
+  async function switchCamera() {
+    currentFacingMode = (currentFacingMode === 'user') ? 'environment' : 'user';
+    await startCamera();
   }
 
   function stopCamera() {
@@ -2206,6 +2332,27 @@ function initPixelPhotoBooth() {
     isCameraActive = false;
   }
 
+  function rebuildUncroppedFrame() {
+    if (!rawOriginalVideoFrame) return;
+    const vw = rawOriginalVideoFrame.width;
+    const vh = rawOriginalVideoFrame.height;
+
+    const uncroppedCanvas = document.createElement('canvas');
+    uncroppedCanvas.width = vw;
+    uncroppedCanvas.height = vh;
+    const uCtx = uncroppedCanvas.getContext('2d');
+    uCtx.imageSmoothingEnabled = true;
+    uCtx.imageSmoothingQuality = 'high';
+
+    if (shouldFlip()) {
+      uCtx.translate(vw, 0);
+      uCtx.scale(-1, 1);
+    }
+    uCtx.drawImage(rawOriginalVideoFrame, 0, 0, vw, vh);
+
+    rawUncroppedVideoFrame = uncroppedCanvas;
+  }
+
   function takePhoto() {
     if (!isCameraActive || !video || video.readyState < 2) {
       showToast('Kamera belum siap, mohon tunggu sebentar...', 'warning');
@@ -2220,16 +2367,59 @@ function initPixelPhotoBooth() {
       }, 120);
     }
 
-    // Target full-resolution 1080p canvas (1920 × 1080)
-    const targetW = 1920;
-    const targetH = 1080;
-    const targetRatio = targetW / targetH; // 16:9
-
     const vw = video.videoWidth || 1920;
     const vh = video.videoHeight || 1080;
+
+    // Capture pristine untouched frame from video
+    const pristineCanvas = document.createElement('canvas');
+    pristineCanvas.width = vw;
+    pristineCanvas.height = vh;
+    const pCtx = pristineCanvas.getContext('2d');
+    pCtx.imageSmoothingEnabled = true;
+    pCtx.imageSmoothingQuality = 'high';
+    pCtx.drawImage(video, 0, 0, vw, vh);
+
+    rawOriginalVideoFrame = pristineCanvas;
+
+    // Rebuild uncropped frame honoring current mirror orientation
+    rebuildUncroppedFrame();
+
+    // Stop active camera stream tracks when final photo is taken
+    stopCamera();
+
+    // Show brief processing overlay
+    if (boothProcessingOverlay) {
+      const txt = document.getElementById('boothProcessingText');
+      if (txt) {
+        txt.textContent = selectedStyle === 'pixel' ? 'GENERATING PIXEL EFFECT...' : 'PROCESSING HIGH-RES PHOTO...';
+      }
+      boothProcessingOverlay.classList.remove('booth-hidden');
+    }
+
+    setTimeout(() => {
+      renderProcessedSnapshot();
+
+      if (boothProcessingOverlay) {
+        boothProcessingOverlay.classList.add('booth-hidden');
+      }
+      switchView('result');
+      showToast(selectedStyle === 'pixel' ? `Foto Pixel Art (${selectedRatio}) siap!` : `Foto Normal (${selectedRatio}) siap!`, 'success');
+    }, 200);
+  }
+
+  function renderProcessedSnapshot() {
+    if (!rawUncroppedVideoFrame || !resultCanvas) return;
+
+    const cfg = RATIO_CONFIGS[selectedRatio] || RATIO_CONFIGS['16:9'];
+    const targetW = cfg.width;
+    const targetH = cfg.height;
+    const targetRatio = cfg.ratioVal;
+
+    // 1. Intelligent center crop from uncropped source frame to selected ratio
+    const vw = rawUncroppedVideoFrame.width;
+    const vh = rawUncroppedVideoFrame.height;
     const videoRatio = vw / vh;
 
-    // Intelligent cover-style cropping to 16:9 without distortion or stretching
     let srcX = 0, srcY = 0, srcW = vw, srcH = vh;
     if (videoRatio > targetRatio) {
       srcW = vh * targetRatio;
@@ -2239,77 +2429,37 @@ function initPixelPhotoBooth() {
       srcY = (vh - srcH) / 2;
     }
 
-    // Capture to raw offscreen 1080p canvas with horizontal mirror (selfie view)
-    const rawCanvas = document.createElement('canvas');
-    rawCanvas.width = targetW;
-    rawCanvas.height = targetH;
-    const rawCtx = rawCanvas.getContext('2d');
+    // High quality cropped source frame
+    const croppedCanvas = document.createElement('canvas');
+    croppedCanvas.width = targetW;
+    croppedCanvas.height = targetH;
+    const cCtx = croppedCanvas.getContext('2d');
+    cCtx.imageSmoothingEnabled = true;
+    cCtx.imageSmoothingQuality = 'high';
+    cCtx.drawImage(rawUncroppedVideoFrame, srcX, srcY, srcW, srcH, 0, 0, targetW, targetH);
 
-    rawCtx.imageSmoothingEnabled = true;
-    rawCtx.imageSmoothingQuality = 'high';
+    rawCapturedCanvas = croppedCanvas;
 
-    rawCtx.translate(targetW, 0);
-    rawCtx.scale(-1, 1);
-    rawCtx.drawImage(video, srcX, srcY, srcW, srcH, 0, 0, targetW, targetH);
-
-    rawCapturedCanvas = rawCanvas;
-
-    // Stop active camera stream tracks when final photo is taken
-    stopCamera();
-
-    // Show brief processing overlay
-    if (boothProcessingOverlay) {
-      const txt = document.getElementById('boothProcessingText');
-      if (txt) {
-        txt.textContent = selectedStyle === 'pixel' ? 'GENERATING PIXEL EFFECT (1080p)...' : 'PROCESSING 1080p PHOTO...';
-      }
-      boothProcessingOverlay.classList.remove('booth-hidden');
-    }
-
-    setTimeout(() => {
-      renderProcessedSnapshot();
-
-      // Update date in print footer
-      const now = new Date();
-      const dateStr = now.toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' });
-      const timeStr = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-      if (printFooterMeta) {
-        printFooterMeta.textContent = `1080p FHD • UNPAM • ${dateStr} ${timeStr}`;
-      }
-
-      if (boothProcessingOverlay) {
-        boothProcessingOverlay.classList.add('booth-hidden');
-      }
-      switchView('result');
-      showToast(selectedStyle === 'pixel' ? 'Foto Pixel Art 1080p siap!' : 'Foto Normal 1080p siap!', 'success');
-    }, 200);
-  }
-
-  function renderProcessedSnapshot() {
-    if (!rawCapturedCanvas || !resultCanvas) return;
-
-    // Always output exact 1920 × 1080 resolution
-    const W = 1920;
-    const H = 1080;
-    resultCanvas.width = W;
-    resultCanvas.height = H;
+    // 2. Set result canvas dimensions
+    resultCanvas.width = targetW;
+    resultCanvas.height = targetH;
     const resCtx = resultCanvas.getContext('2d');
 
     const boothPrintCard = document.getElementById('boothPrintCard');
 
     if (selectedStyle === 'normal') {
-      // NORMAL: Sharp, full-resolution 1080p photograph with natural colors & details
+      // NORMAL: Sharp, high-resolution photograph with natural colors & details
       if (boothPrintCard) boothPrintCard.classList.remove('pixel-styled');
       resCtx.imageSmoothingEnabled = true;
       resCtx.imageSmoothingQuality = 'high';
-      resCtx.drawImage(rawCapturedCanvas, 0, 0, W, H);
+      resCtx.drawImage(rawCapturedCanvas, 0, 0, targetW, targetH);
     } else {
-      // PIXEL: Retro pixel-art effect generated WITHIN the 1920 × 1080 canvas
+      // PIXEL: Retro pixel-art effect generated within the full-resolution target canvas
       if (boothPrintCard) boothPrintCard.classList.add('pixel-styled');
 
-      // Downsample to 160 × 90 blocks (each block becomes 12×12 pixels on the 1080p canvas)
-      const cols = 160;
-      const rows = 90;
+      const blockSize = 12;
+      const cols = Math.max(1, Math.round(targetW / blockSize));
+      const rows = Math.max(1, Math.round(targetH / blockSize));
 
       const lowCanvas = document.createElement('canvas');
       lowCanvas.width = cols;
@@ -2322,7 +2472,6 @@ function initPixelPhotoBooth() {
 
       // Enhance contrast and quantize colors for authentic retro 8-bit palette
       for (let i = 0; i < d.length; i += 4) {
-        // Contrast enhancement
         let r = ((d[i] - 128) * 1.18) + 128;
         let g = ((d[i + 1] - 128) * 1.18) + 128;
         let b = ((d[i + 2] - 128) * 1.18) + 128;
@@ -2331,7 +2480,6 @@ function initPixelPhotoBooth() {
         g = Math.min(255, Math.max(0, g));
         b = Math.min(255, Math.max(0, b));
 
-        // Quantize to 6 distinct levels per channel
         d[i] = Math.round(r / 42.5) * 42.5;
         d[i + 1] = Math.round(g / 42.5) * 42.5;
         d[i + 2] = Math.round(b / 42.5) * 42.5;
@@ -2339,23 +2487,34 @@ function initPixelPhotoBooth() {
 
       lowCtx.putImageData(imgData, 0, 0);
 
-      // Render back to full 1920 × 1080 canvas using nearest-neighbor scaling
+      // Render back to target canvas using nearest-neighbor scaling
       resCtx.imageSmoothingEnabled = false;
       resCtx.mozImageSmoothingEnabled = false;
       resCtx.webkitImageSmoothingEnabled = false;
       resCtx.msImageSmoothingEnabled = false;
-      resCtx.drawImage(lowCanvas, 0, 0, cols, rows, 0, 0, W, H);
+      resCtx.drawImage(lowCanvas, 0, 0, cols, rows, 0, 0, targetW, targetH);
     }
 
-    // Compose official 01TPLP022 Photo Booth branding onto the 1920 × 1080 canvas
-    composeCanvasBranding(resCtx, W, H);
+    // 3. Compose official 01TPLP022 Photo Booth branding adapted to the selected ratio
+    composeCanvasBranding(resCtx, targetW, targetH, selectedRatio);
+
+    // 4. Update footer metadata and ratio styling
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' });
+    const timeStr = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+    if (printFooterMeta) {
+      printFooterMeta.textContent = `${cfg.badge} • UNPAM • ${dateStr} ${timeStr}`;
+    }
+
+    updateRatioUi();
+    updateStyleUi();
   }
 
-  function composeCanvasBranding(ctx, W, H) {
+  function composeCanvasBranding(ctx, W, H, ratio) {
     ctx.save();
 
     // 1. Subtle Outer Double Frame
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.75)';
     ctx.lineWidth = 8;
     ctx.strokeRect(4, 4, W - 8, H - 8);
 
@@ -2364,9 +2523,9 @@ function initPixelPhotoBooth() {
     ctx.strokeRect(14, 14, W - 28, H - 28);
 
     // 2. Corner Pixel Brackets
-    const bLen = 32;
+    const bLen = Math.min(32, Math.round(Math.min(W, H) * 0.04));
     ctx.fillStyle = '#FFFFFF';
-    ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
     ctx.shadowBlur = 4;
 
     // Top-Left
@@ -2382,46 +2541,65 @@ function initPixelPhotoBooth() {
     ctx.fillRect(W - 20 - bLen, H - 25, bLen, 5);
     ctx.fillRect(W - 25, H - 20 - bLen, 5, bLen);
 
-    // 3. Top-Left Badge (01TPLP022 Branding)
-    const badgeW = 390;
+    // 3. Top Centered Badge (01TPLP022 Branding)
+    const badgeW = Math.min(380, W - 64);
     const badgeH = 46;
+    const badgeX = (W - badgeW) / 2;
+    const badgeY = 28;
+
     ctx.fillStyle = 'rgba(17, 17, 17, 0.85)';
-    ctx.fillRect(32, 32, badgeW, badgeH);
+    ctx.fillRect(badgeX, badgeY, badgeW, badgeH);
 
     ctx.strokeStyle = '#FFFFFF';
     ctx.lineWidth = 2;
-    ctx.strokeRect(32, 32, badgeW, badgeH);
+    ctx.strokeRect(badgeX, badgeY, badgeW, badgeH);
 
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = '15px "Press Start 2P", monospace, sans-serif';
+    ctx.font = '14px "Press Start 2P", monospace, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('★ 01TPLP022 PHOTO BOOTH ★', 32 + (badgeW / 2), 32 + (badgeH / 2));
+    ctx.fillText('★ 01TPLP022 PHOTO BOOTH ★', badgeX + (badgeW / 2), badgeY + (badgeH / 2));
 
-    // 4. Bottom Information Bar
-    const barH = 50;
-    const barY = H - 32 - barH;
-    const barW = W - 64;
+    // 4. Bottom Information Bar (Adapts cleanly to Landscape vs Portrait)
+    const isPortrait = H > W;
+    const barH = isPortrait ? 68 : 50;
+    const barY = H - 28 - barH;
+    const barW = W - 56;
+    const barX = 28;
 
     ctx.fillStyle = 'rgba(17, 17, 17, 0.85)';
-    ctx.fillRect(32, barY, barW, barH);
+    ctx.fillRect(barX, barY, barW, barH);
 
     ctx.strokeStyle = '#FFFFFF';
     ctx.lineWidth = 2;
-    ctx.strokeRect(32, barY, barW, barH);
+    ctx.strokeRect(barX, barY, barW, barH);
 
-    ctx.fillStyle = '#FFFFFF';
-    ctx.textAlign = 'left';
-    ctx.textBaseline = 'middle';
-    ctx.font = '14px "Press Start 2P", monospace, sans-serif';
-    ctx.fillText('01TPLP022 • CLASS OF 2026', 48, barY + (barH / 2));
-
-    ctx.textAlign = 'right';
-    ctx.font = '22px "VT323", monospace, sans-serif';
     const now = new Date();
     const dateFormatted = now.toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' });
     const timeFormatted = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-    ctx.fillText(`1080p FHD • UNIVERSITAS PAMULANG • ${dateFormatted} ${timeFormatted}`, W - 48, barY + (barH / 2));
+
+    ctx.fillStyle = '#FFFFFF';
+
+    if (isPortrait) {
+      // 9:16 Portrait: 2-line stacked layout for readability
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.font = '13px "Press Start 2P", monospace, sans-serif';
+      ctx.fillText('01TPLP022 • CLASS OF 2026', W / 2, barY + 22);
+
+      ctx.font = '20px "VT323", monospace, sans-serif';
+      ctx.fillText(`${W}×${H} (${ratio}) • UNPAM • ${dateFormatted} ${timeFormatted}`, W / 2, barY + 48);
+    } else {
+      // 16:9 Landscape / 1:1 Square / 4:3 Standard: single balanced bar
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.font = '13px "Press Start 2P", monospace, sans-serif';
+      ctx.fillText('01TPLP022 • CLASS OF 2026', barX + 16, barY + (barH / 2));
+
+      ctx.textAlign = 'right';
+      ctx.font = '20px "VT323", monospace, sans-serif';
+      ctx.fillText(`${W}×${H} • UNIVERSITAS PAMULANG • ${dateFormatted} ${timeFormatted}`, barX + barW - 16, barY + (barH / 2));
+    }
 
     ctx.restore();
   }
@@ -2432,30 +2610,53 @@ function initPixelPhotoBooth() {
       return;
     }
 
-    // Download the 1920 × 1080 canvas directly as 01TPLP022-photo.png
+    const filename = `01TPLP022-${selectedRatio.replace(':', 'x')}.png`;
     const link = document.createElement('a');
-    link.download = '01TPLP022-photo.png';
+    link.download = filename;
     link.href = resultCanvas.toDataURL('image/png', 0.95);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 
-    showToast('Foto 1080p tersimpan! (01TPLP022-photo.png)', 'success');
+    showToast(`Foto tersimpan! (${filename})`, 'success');
   }
 
-  // Synchronize photo style buttons across both live and result decks
   function setPhotoStyle(style) {
     selectedStyle = style;
-    document.querySelectorAll('[data-style]').forEach(btn => {
-      const match = btn.dataset.style === selectedStyle;
-      btn.classList.toggle('active', match);
-      btn.setAttribute('aria-checked', match ? 'true' : 'false');
-    });
+    updateStyleUi();
 
-    // If a photo is already captured and displayed, immediately re-render in the newly chosen style
     if (rawCapturedCanvas && !boothResultView.classList.contains('booth-hidden')) {
       renderProcessedSnapshot();
-      showToast(`Gaya foto diubah ke: ${style === 'pixel' ? 'PIXEL ART (1080p)' : 'NORMAL (1080p)'}`, 'info');
+      showToast(`Gaya foto: ${style === 'pixel' ? 'PIXEL ART' : 'NORMAL'}`, 'info');
+    }
+  }
+
+  function setPhotoRatio(ratio) {
+    selectedRatio = ratio;
+    updateRatioUi();
+
+    // If currently viewing live camera, adjust preview
+    if (isCameraActive) {
+      showToast(`Rasio kamera: ${ratio}`, 'info');
+    }
+
+    // If photo is already captured, instantly re-crop and re-render in the new ratio
+    if (rawUncroppedVideoFrame && !boothResultView.classList.contains('booth-hidden')) {
+      renderProcessedSnapshot();
+      showToast(`Rasio foto diubah ke: ${ratio}`, 'info');
+    }
+  }
+
+  function setPhotoMirror(mirror) {
+    mirrorMode = mirror;
+    updateMirrorUi();
+
+    if (rawOriginalVideoFrame && !boothResultView.classList.contains('booth-hidden')) {
+      rebuildUncroppedFrame();
+      renderProcessedSnapshot();
+      showToast(`Mode Mirror: ${mirrorMode === 'off' ? 'OFF (Orientasi Asli / Tidak Terbalik)' : 'ON (Cermin Selfie)'}`, 'info');
+    } else {
+      showToast(`Mode Mirror: ${mirrorMode === 'off' ? 'OFF (Orientasi Asli / Tidak Terbalik)' : 'ON (Cermin Selfie)'}`, 'info');
     }
   }
 
@@ -2463,6 +2664,13 @@ function initPixelPhotoBooth() {
   if (btnEnableCamera) btnEnableCamera.addEventListener('click', startCamera);
   if (btnRetryCamera) btnRetryCamera.addEventListener('click', startCamera);
   if (btnTakePhoto) btnTakePhoto.addEventListener('click', takePhoto);
+  if (btnSwitchCamera) btnSwitchCamera.addEventListener('click', switchCamera);
+  if (btnSwitchCameraHud) btnSwitchCameraHud.addEventListener('click', switchCamera);
+  if (btnToggleMirrorHud) {
+    btnToggleMirrorHud.addEventListener('click', () => {
+      setPhotoMirror(mirrorMode === 'off' ? 'on' : 'off');
+    });
+  }
   if (btnStopCamera) btnStopCamera.addEventListener('click', () => {
     stopCamera();
     switchView('standby');
@@ -2477,6 +2685,22 @@ function initPixelPhotoBooth() {
   document.querySelectorAll('[data-style]').forEach(btn => {
     btn.addEventListener('click', () => setPhotoStyle(btn.dataset.style));
   });
+
+  // Ratio buttons event delegation
+  document.querySelectorAll('[data-ratio]').forEach(btn => {
+    btn.addEventListener('click', () => setPhotoRatio(btn.dataset.ratio));
+  });
+
+  // Mirror buttons event delegation
+  document.querySelectorAll('[data-mirror]').forEach(btn => {
+    btn.addEventListener('click', () => setPhotoMirror(btn.dataset.mirror));
+  });
+
+  // Initialize UI with defaults
+  updateRatioUi();
+  updateStyleUi();
+  updateCameraUi();
+  updateMirrorUi();
 
   // Camera Cleanup: on page unload / pagehide
   window.addEventListener('beforeunload', stopCamera);
