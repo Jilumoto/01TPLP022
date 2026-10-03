@@ -527,7 +527,7 @@ const announcements = [
     type: "assignment",
     title: "Info lebih lanjut, silahkan klik Link di bawah",
     badgeText: "Assignment",
-    description: "KLIK INI",
+    description: "------",
     link: "https://whatsapp.com/channel/0029Vb8zQ4HJENxyp8WAS40p",
   },
 ];
