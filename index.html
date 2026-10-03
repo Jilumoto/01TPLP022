@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261003c">
   
   <!-- Favicon placeholder inline SVG -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231E293B'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='50' font-family='sans-serif' font-weight='bold' fill='%23FFFFFF'>T</text></svg>">
@@ -506,6 +506,7 @@
       <div class="container">
         <div class="section-header text-center reveal">
           <span class="section-tag">Academic Modules</span>
+          <h2 class="section-title">Our Courses</h2>
           <p class="section-subtitle">Daftar mata kuliah yang dipelajari beserta dosen pengampu, bobot SKS, dan jadwal.</p>
         </div>
 
@@ -666,9 +667,18 @@
                     <div class="hud-top-bar">
                       <div class="hud-rec-indicator">
                         <span class="hud-rec-dot"></span>
-                        <span class="hud-rec-text">LIVE FEED</span>
+                        <span class="hud-rec-text">LIVE</span>
                       </div>
-                      <div class="hud-branding">01TPLP022</div>
+                      <div class="hud-top-actions">
+                        <button type="button" class="hud-cam-btn" id="btnToggleMirrorHud" title="Toggle Mirror / Balik Orientasi" aria-label="Toggle Mirror / Balik Orientasi">
+                          <i data-lucide="flip-horizontal"></i>
+                          <span id="hudMirrorText">MIRROR: OFF</span>
+                        </button>
+                        <button type="button" class="hud-cam-btn" id="btnSwitchCameraHud" title="Switch Camera (Front/Back)" aria-label="Switch Camera (Front/Back)">
+                          <i data-lucide="camera"></i>
+                          <span id="hudCamText">FRONT</span>
+                        </button>
+                      </div>
                     </div>
                     <div class="hud-viewfinder-corners">
                       <span class="vf-corner vf-tl"></span>
@@ -691,7 +701,7 @@
                     <span class="print-star" aria-hidden="true">★</span>
                   </div>
                   <div class="print-canvas-wrapper">
-                    <canvas id="boothResultCanvas" aria-label="High-Resolution Photo 1920x1080"></canvas>
+                    <canvas id="boothResultCanvas" aria-label="High-Resolution Photo"></canvas>
                   </div>
                   <div class="print-card-footer">
                     <div class="print-footer-brand">01TPLP022 • CLASS OF 2026</div>
@@ -703,7 +713,7 @@
               <!-- Processing Indicator Overlay -->
               <div class="booth-processing-overlay booth-hidden" id="boothProcessingOverlay" aria-live="polite">
                 <div class="booth-spinner-pixels" aria-hidden="true"></div>
-                <span class="booth-processing-text" id="boothProcessingText">CAPTURING 1080p PHOTO...</span>
+                <span class="booth-processing-text" id="boothProcessingText">CAPTURING PHOTO...</span>
               </div>
             </div>
 
@@ -719,15 +729,38 @@
                       <button type="button" class="booth-opt-btn" data-style="pixel" aria-checked="false">PIXEL</button>
                     </div>
                   </div>
+
+                  <div class="booth-opt-group">
+                    <label class="booth-opt-label">RATIO:</label>
+                    <div class="booth-toggle-buttons" id="liveRatioButtons" role="radiogroup" aria-label="Photo Aspect Ratio">
+                      <button type="button" class="booth-opt-btn active" data-ratio="16:9" aria-checked="true">16:9</button>
+                      <button type="button" class="booth-opt-btn" data-ratio="9:16" aria-checked="false">9:16</button>
+                      <button type="button" class="booth-opt-btn" data-ratio="1:1" aria-checked="false">1:1</button>
+                      <button type="button" class="booth-opt-btn" data-ratio="4:3" aria-checked="false">4:3</button>
+                    </div>
+                  </div>
+
+                  <div class="booth-opt-group">
+                    <label class="booth-opt-label">MIRROR:</label>
+                    <div class="booth-toggle-buttons" id="liveMirrorButtons" role="radiogroup" aria-label="Mirror Camera Feed">
+                      <button type="button" class="booth-opt-btn active" data-mirror="off" aria-checked="true">OFF</button>
+                      <button type="button" class="booth-opt-btn" data-mirror="on" aria-checked="false">ON</button>
+                    </div>
+                  </div>
+
                   <div class="booth-opt-info">
-                    <span class="booth-res-badge">1080p FHD (1920×1080)</span>
+                    <span class="booth-res-badge" id="boothResBadge">1920 × 1080</span>
                   </div>
                 </div>
 
                 <div class="booth-main-actions">
+                  <button type="button" class="btn btn-outline booth-btn-secondary" id="btnSwitchCamera" title="Switch Front/Back Camera" aria-label="Switch Front/Back Camera">
+                    <i data-lucide="flip-horizontal"></i>
+                    <span id="btnSwitchCamLabel">FLIP CAM</span>
+                  </button>
                   <button type="button" class="btn btn-outline booth-btn-secondary" id="btnStopCamera" title="Turn off camera" aria-label="Turn off camera">
                     <i data-lucide="power"></i>
-                    <span>CLOSE CAMERA</span>
+                    <span>CLOSE</span>
                   </button>
                   <button type="button" class="btn btn-primary booth-capture-btn" id="btnTakePhoto" aria-label="Take Photo">
                     <i data-lucide="aperture"></i>
@@ -746,8 +779,27 @@
                       <button type="button" class="booth-opt-btn" data-style="pixel" aria-checked="false">PIXEL</button>
                     </div>
                   </div>
+
+                  <div class="booth-opt-group">
+                    <label class="booth-opt-label">RATIO:</label>
+                    <div class="booth-toggle-buttons" id="resultRatioButtons" role="radiogroup" aria-label="Photo Aspect Ratio">
+                      <button type="button" class="booth-opt-btn active" data-ratio="16:9" aria-checked="true">16:9</button>
+                      <button type="button" class="booth-opt-btn" data-ratio="9:16" aria-checked="false">9:16</button>
+                      <button type="button" class="booth-opt-btn" data-ratio="1:1" aria-checked="false">1:1</button>
+                      <button type="button" class="booth-opt-btn" data-ratio="4:3" aria-checked="false">4:3</button>
+                    </div>
+                  </div>
+
+                  <div class="booth-opt-group">
+                    <label class="booth-opt-label">MIRROR:</label>
+                    <div class="booth-toggle-buttons" id="resultMirrorButtons" role="radiogroup" aria-label="Mirror Photo Result">
+                      <button type="button" class="booth-opt-btn active" data-mirror="off" aria-checked="true">OFF</button>
+                      <button type="button" class="booth-opt-btn" data-mirror="on" aria-checked="false">ON</button>
+                    </div>
+                  </div>
+
                   <div class="booth-opt-info">
-                    <span class="booth-res-badge">1080p FHD (1920×1080)</span>
+                    <span class="booth-res-badge" id="boothResultResBadge">1920 × 1080</span>
                   </div>
                 </div>
 
@@ -955,6 +1007,6 @@
   </button>
 
   <!-- JavaScript File -->
-  <script src="script.js"></script>
+  <script src="script.js?v=20261003c"></script>
 </body>
 </html>
