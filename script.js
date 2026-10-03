@@ -534,7 +534,7 @@ const announcements = [
 
 // Isi dengan tautan undangan Channel WhatsApp kelas agar kartu pengumuman
 // mengarah ke channel tersebut. Contoh: https://whatsapp.com/channel/...
-const announcementsWhatsAppChannelUrl = "";
+const announcementsWhatsAppChannelUrl = "https://whatsapp.com/channel/0029Vb8zQ4HJENxyp8WAS40p";
 
 /**
  * 6. DATA GALERI KENANGAN KELAS (Class Memories Gallery)
