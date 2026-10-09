@@ -347,7 +347,7 @@ const students = [
     nim: "261011400926",
     role: "Bendahara",
     roleType: "leader",
-    image: "assets/images/students/",
+    image: "assets/images/students/faris.jpeg",
     bio: ".",
     email: "",
     phone: "",
