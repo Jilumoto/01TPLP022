@@ -1907,7 +1907,7 @@ function initCoursesAndSchedule() {
     // Desktop Table
     if (scheduleTableBody) {
       if (filteredSchedule.length === 0) {
-        scheduleTableBody.innerHTML = `<tr><td colspan="6" class="text-center" style="padding: 30px;">Tidak ada jadwal perkuliahan pada hari ini.</td></tr>`;
+        scheduleTableBody.innerHTML = `<tr><td colspan="6" class="text-center" style="padding: 30px;">Tidak ada jadwal perkuliahan di hari ini.</td></tr>`;
       } else {
         scheduleTableBody.innerHTML = filteredSchedule.map(s => {
           const isToday = s.day.toLowerCase() === todayDayName.toLowerCase();
