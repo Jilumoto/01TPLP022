@@ -199,7 +199,7 @@ const students = [
     phone: "",
     skills: "",
     hobby: "",
-    socials: {instagram: "" }
+    socials: {instagram: "https://www.instagram.com/_ikhsanabdla?srtk=ZDNlZDc0MzIxNw==" }
   },
   {
     id: "12",
